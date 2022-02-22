@@ -1,0 +1,8 @@
+{
+  "env_name": "ant",
+  "alg_cfg": {
+    "sac_cfg": {
+      "target_entropy": -4.0
+    }
+  }
+}

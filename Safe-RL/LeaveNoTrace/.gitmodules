@@ -1,0 +1,3 @@
+[submodule "coach"]
+	path = coach
+	url = https://github.com/ben-eysenbach/coach.git

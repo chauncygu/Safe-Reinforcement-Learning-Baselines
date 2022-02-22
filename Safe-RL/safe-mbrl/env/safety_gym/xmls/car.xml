@@ -1,0 +1,112 @@
+<mujoco>
+    <size njmax="3000" nconmax="1000"/>
+    <option timestep="0.02"/>
+    <default>
+        <geom condim="6" density="40" rgba="1 0 0 1" size=".05" type="sphere"/>
+        <joint damping=".001"/>
+        <site size="0.032" type="sphere"/>
+    </default>
+
+    <default class="acker_solver_param">
+    <!--solver impedance and reference(?) for ackerman equality constraint-->
+    <!--default solimp: "0.900 0.950 0.001"-->
+    <!--default solref: "0.020 1.000"-->
+    <!--solref: (timeconst, dampratio)
+        b = 2 / (dmax * timeconst)
+        k = d(r) / (dmax * dmax * timeconst * timeconst * dampratio * dampratio)
+    -->
+        <equality solimp="0.9950 0.9990 0.0001" solref="0.0100 0.7500"/>
+    </default>
+
+    <worldbody>
+        <geom name="floor" size="5 5 0.1" type="plane" condim="6"/>
+        <body name="robot" pos="0 0 0">
+            <site name="robot" pos="0 0 0"/>
+            <camera name="vision" pos="0 0.1 .2" xyaxes="-1 0 0 0 -.4 1"/>
+            <joint type="free" name="robot" damping="0"/>
+            <geom name="rover-body" type="box" pos="0 0 0" size="0.2 0.1 .095" mass="12" />
+            <site type="box" size=".01 .07 .07" pos=".2 0 0"/>
+            <body name="r-l-wheel" pos="-0.2 0.1 -0.15">
+                <joint name="r-l-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01" />
+                <geom type="cylinder" size=".05" fromto="0 0 0 0 0.05 0" mass=".125" condim="4"/>
+            </body>
+            <body name="r-r-wheel" pos="-0.2 -0.1 -0.15">
+                <joint name="r-r-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+                <geom type="cylinder" size=".05" fromto="0 0 0 0 -0.05 0" mass=".125" condim="4"/>
+            </body>
+            <body name="ghost-steer-wheel" pos="0 0 .15">
+                <joint name="ghost-steer-hinge" type="hinge" pos="0 0 0" axis="0 0 1" limited="true" range="-30 30" damping="0"/>
+                <geom type="cylinder" size=".05 .005" axisangle="1 0 0 90" contype="2" conaffinity="2" mass="0.002"/>
+            </body>
+            <body name="f-l-wheel" pos=".2 0.1 -.15">
+                <geom type="capsule" size = ".005" fromto="0 0 0 0 0 .08" contype="2" conaffinity="2"/>
+                <joint name="f-l-steer-hinge" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.01" limited="true" range="-40 40"/>
+                <body>
+                    <geom type="cylinder" size=".01" fromto="0 -.015 0 0 0.015 0" mass=".125" />
+                    <body>
+                        <joint name="f-l-drive-hinge-1" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+                        <geom type="cylinder" size=".05" fromto="0 -.015 0 0 -0.010 0" mass=".125" condim="4"/>
+                    </body>
+                    <body>
+                        <joint name="f-l-drive-hinge-2" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+                        <geom type="cylinder" size=".05" fromto="0 .010 0 0 0.015 0" mass=".125" condim="4"/>
+                    </body>
+                </body>
+            </body>
+            <body name="f-r-wheel" pos=".2 -0.1 -.15">
+                <geom type="capsule" size = ".005" fromto="0 0 0 0 0 .08" contype="2" conaffinity="2"/>
+                <joint name="f-r-steer-hinge" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.01" limited="true" range="-40 40"/>
+                <body>
+                    <geom type="cylinder" size=".01" fromto="0 -.015 0 0 0.015 0" mass=".125" />
+                    <body>
+                        <joint name="f-l-drive-hinge-3" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+                        <geom type="cylinder" size=".05" fromto="0 -.015 0 0 -0.010 0" mass=".125" condim="4"/>
+                    </body>
+                    <body>
+                        <joint name="f-l-drive-hinge-4" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+                        <geom type="cylinder" size=".05" fromto="0 .010 0 0 0.015 0" mass=".125" condim="4"/>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <tendon>
+        <fixed name="rear-differential">
+            <joint joint="r-l-drive-hinge" coef="1"/>
+            <joint joint="r-r-drive-hinge" coef="1"/>
+        </fixed>
+    </tendon>
+
+    <sensor>
+        <!--<jointvel joint="left" name="jointvel_left"/>
+        <jointvel joint="right" name="jointvel_right"/>-->
+<!-- 
+        <ballquat joint="rear" name="ballquat_rear"/>
+        <ballangvel joint="rear" name="ballangvel_rear"/>
+
+        <jointvel joint="right" name="right_wheel_vel"/>
+        <jointvel joint="left" name="left_wheel_vel"/> -->
+
+        <!-- Used for observation -->
+        <accelerometer site="robot" name="accelerometer"/>
+        <velocimeter site="robot" name="velocimeter"/>
+        <gyro site="robot" name="gyro"/>
+        <magnetometer site="robot" name="magnetometer"/>
+
+        <!-- Used for intrinsic constraints -->
+        <subtreecom body="robot" name="subtreecom"/>
+        <subtreelinvel body="robot" name="subtreelinvel"/>
+        <subtreeangmom body="robot" name="subtreeangmom"/>
+    </sensor>
+
+    <actuator>
+        <position name="ghost-steer" joint="ghost-steer-hinge" ctrllimited="true" ctrlrange="-.6 .6" gear="1"/>
+        <motor name="drive" tendon="rear-differential" ctrllimited="true" ctrlrange="-1.0 1.0" gear="1" forcerange="-1 1" forcelimited="true"/>
+    </actuator>
+
+    <equality>
+        <joint name="f-l-steer-hinge" joint1="f-l-steer-hinge" joint2="ghost-steer-hinge" polycoef="0.000093610018132620019 2.0041497325730204 1.4716131190668178 -1.0929725380842041 -3.2252012765547819" class="acker_solver_param"/>
+        <joint name="f-r-steer-hinge" joint1="f-r-steer-hinge" joint2="ghost-steer-hinge" polycoef="-0.00017013070152971507 2.0039379507086514 -1.4684576386267671 -1.0901354124362155 3.1974185558159771" class="acker_solver_param"/>
+    </equality>
+</mujoco>

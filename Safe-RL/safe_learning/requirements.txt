@@ -1,0 +1,8 @@
+numpy>=1.0,<1.15
+scipy>=1.0.0<=1.2.1
+gpflow==0.4.0
+matplotlib<=4.0.0
+scs==2.0.2
+cvxpy>=1,<=1.0.15
+tensorflow>=1.6.0,<=1.12.0
+future<=0.18.0

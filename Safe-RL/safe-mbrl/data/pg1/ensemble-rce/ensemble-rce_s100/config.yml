@@ -1,0 +1,75 @@
+arguments:
+    config: ./data/config.yml
+    correct: 0
+    dir: data/pg1/
+    ensemble: 4
+    episode: 10
+    epoch: 25
+    level: 1
+    load: null
+    name: ensemble-rce
+    obs_stack: false
+    optimizer: rce
+    render: false
+    robot: point
+    save: false
+    seed: 100
+    task: goal
+    test: false
+cost_config:
+    batch: 2000
+    load: false
+    load_folder: null
+    max_ratio: 3
+    model_param:
+        boosting_type: gbdt
+        learning_rate: 0.3
+        max_depth: 8
+        n_estimators: 400
+        n_jobs: 1
+        num_leaves: 12
+    safe_buffer_size: 50000
+    save: false
+    save_folder: null
+    unsafe_buffer_size: 10000
+dynamic_config:
+    activation: relu
+    batch_size: 256
+    buffer_size: 500000
+    data_split: 0.8
+    hidden_sizes:
+    - 1024
+    - 1024
+    - 1024
+    learning_rate: 0.001
+    load: false
+    load_folder: null
+    n_epochs: 70
+    save: false
+    save_folder: null
+    test_freq: 5
+    test_ratio: 0.15
+exp_name: ensemble-rce
+mpc_config:
+    CCE:
+        alpha: 0.1
+        epsilon: 0.01
+        init_mean: 0
+        init_var: 1
+        max_iters: 8
+        minimal_elites: 5
+        num_elites: 12
+        popsize: 500
+    CEM:
+        alpha: 0.1
+        epsilon: 0.01
+        init_mean: 0
+        init_var: 1
+        max_iters: 8
+        num_elites: 12
+        popsize: 500
+    RANDOM:
+        popsize: 5000
+    gamma: 0.98
+    horizon: 8
+    optimizer: CCE

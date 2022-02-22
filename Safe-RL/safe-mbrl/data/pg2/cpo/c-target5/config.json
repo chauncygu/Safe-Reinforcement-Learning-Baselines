@@ -1,0 +1,66 @@
+{
+    "ac_kwargs":	{
+        "hidden_sizes":	[
+            256,
+            256
+        ]
+    },
+    "actor_critic":	"mlp_actor_critic",
+    "agent":	{
+        "<safe_rl.pg.agents.CPOAgent object at 0x7f53e9173c10>":	{
+            "backtrack_coeff":	0.8,
+            "backtrack_iters":	10,
+            "damping_coeff":	0.1,
+            "learn_margin":	false,
+            "margin":	0,
+            "margin_lr":	0.05,
+            "params":	{
+                "constrained":	true,
+                "learn_penalty":	false,
+                "objective_penalized":	false,
+                "penalty_param_loss":	false,
+                "reward_penalized":	false,
+                "save_penalty":	true,
+                "trust_region":	true
+            }
+        }
+    },
+    "cost_gamma":	0.99,
+    "cost_lam":	0.97,
+    "cost_lim":	5,
+    "ent_reg":	0.0,
+    "env_fn":	"<function main.<locals>.<lambda> at 0x7f53e916eb90>",
+    "epochs":	333,
+    "exp_name":	"CPO-target-5",
+    "gamma":	0.99,
+    "lam":	0.97,
+    "logger":	{
+        "<safe_rl.utils.logx.EpochLogger object at 0x7f53e917a2d0>":	{
+            "epoch_dict":	{},
+            "exp_name":	"CPO-target-5",
+            "first_row":	true,
+            "log_current_row":	{},
+            "log_headers":	[],
+            "output_dir":	"/home/zuxin/mfmb/baseline/data/2020-07-23_cpo_PointGoal2/2020-07-23_21-45-51-cpo_PointGoal2_s0",
+            "output_file":	{
+                "<_io.TextIOWrapper name='/home/zuxin/mfmb/baseline/data/2020-07-23_cpo_PointGoal2/2020-07-23_21-45-51-cpo_PointGoal2_s0/progress.txt' mode='w' encoding='UTF-8'>":	{
+                    "mode":	"w"
+                }
+            }
+        }
+    },
+    "logger_kwargs":	{
+        "exp_name":	"cpo_PointGoal2",
+        "output_dir":	"/home/zuxin/mfmb/baseline/data/2020-07-23_cpo_PointGoal2/2020-07-23_21-45-51-cpo_PointGoal2_s0"
+    },
+    "max_ep_len":	300,
+    "penalty_init":	1.0,
+    "penalty_lr":	0.05,
+    "render":	false,
+    "save_freq":	10,
+    "seed":	0,
+    "steps_per_epoch":	30000,
+    "target_kl":	0.01,
+    "vf_iters":	80,
+    "vf_lr":	0.001
+}

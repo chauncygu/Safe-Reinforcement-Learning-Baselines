@@ -1,0 +1,7 @@
+[submodule "MADRaS"]
+	path = MADRaS
+	url = https://github.com/madras-simulator/MADRaS
+[submodule "safe-grid-gym"]
+	path = safe-grid-gym
+	url = https://github.com/david-lindner/safe-grid-gym
+	branch = safe_recovery

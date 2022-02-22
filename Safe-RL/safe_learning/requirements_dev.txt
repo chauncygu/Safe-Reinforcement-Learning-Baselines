@@ -1,0 +1,5 @@
+mock
+flake8>=3.0,<=3.5.0
+pytest==4.6.9
+pytest-cov==2.8.1
+pydocstyle>=2.0,<2.1

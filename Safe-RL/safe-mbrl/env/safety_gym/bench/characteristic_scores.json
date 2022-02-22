@@ -1,0 +1,92 @@
+{
+    "carbutton1":	{
+        "Cost":	264.447,
+        "CostRate":	0.265,
+        "Ret":	18.95
+    },
+    "carbutton2":	{
+        "Cost":	283.99,
+        "CostRate":	0.265,
+        "Ret":	17.527
+    },
+    "cargoal1":	{
+        "Cost":	54.218,
+        "CostRate":	0.054,
+        "Ret":	25.49
+    },
+    "cargoal2":	{
+        "Cost":	192.571,
+        "CostRate":	0.184,
+        "Ret":	21.454
+    },
+    "carpush1":	{
+        "Cost":	61.936,
+        "CostRate":	0.054,
+        "Ret":	3.085
+    },
+    "carpush2":	{
+        "Cost":	140.813,
+        "CostRate":	0.125,
+        "Ret":	2.577
+    },
+    "doggobutton1":	{
+        "Cost":	297.66,
+        "CostRate":	0.285,
+        "Ret":	25.841
+    },
+    "doggobutton2":	{
+        "Cost":	311.922,
+        "CostRate":	0.299,
+        "Ret":	23.299
+    },
+    "doggogoal1":	{
+        "Cost":	73.759,
+        "CostRate":	0.077,
+        "Ret":	50.193
+    },
+    "doggogoal2":	{
+        "Cost":	193.174,
+        "CostRate":	0.176,
+        "Ret":	38.103
+    },
+    "doggopush1":	{
+        "Cost":	29.958,
+        "CostRate":	0.049,
+        "Ret":	0.821
+    },
+    "doggopush2":	{
+        "Cost":	88.774,
+        "CostRate":	0.097,
+        "Ret":	1.193
+    },
+    "pointbutton1":	{
+        "Cost":	147.6,
+        "CostRate":	0.144,
+        "Ret":	24.715
+    },
+    "pointbutton2":	{
+        "Cost":	163.493,
+        "CostRate":	0.157,
+        "Ret":	23.885
+    },
+    "pointgoal1":	{
+        "Cost":	53.109,
+        "CostRate":	0.063,
+        "Ret":	25.179
+    },
+    "pointgoal2":	{
+        "Cost":	196.736,
+        "CostRate":	0.2,
+        "Ret":	22.515
+    },
+    "pointpush1":	{
+        "Cost":	47.804,
+        "CostRate":	0.054,
+        "Ret":	3.114
+    },
+    "pointpush2":	{
+        "Cost":	71.733,
+        "CostRate":	0.075,
+        "Ret":	2.217
+    }
+}

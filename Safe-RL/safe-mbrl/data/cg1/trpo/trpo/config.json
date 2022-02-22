@@ -1,0 +1,62 @@
+{
+    "ac_kwargs":	{
+        "hidden_sizes":	[
+            256,
+            256
+        ]
+    },
+    "actor_critic":	"mlp_actor_critic",
+    "agent":	{
+        "<safe_rl.pg.agents.TRPOAgent object at 0x7f69fe28ad10>":	{
+            "backtrack_coeff":	0.8,
+            "backtrack_iters":	10,
+            "damping_coeff":	0.1,
+            "params":	{
+                "constrained":	false,
+                "learn_penalty":	false,
+                "objective_penalized":	false,
+                "penalty_param_loss":	false,
+                "reward_penalized":	false,
+                "trust_region":	true
+            }
+        }
+    },
+    "cost_gamma":	0.99,
+    "cost_lam":	0.97,
+    "cost_lim":	10,
+    "ent_reg":	0.0,
+    "env_fn":	"<function main.<locals>.<lambda> at 0x7f69fe287b90>",
+    "epochs":	333,
+    "exp_name":	"trpo_CarGoal1",
+    "gamma":	0.99,
+    "lam":	0.97,
+    "logger":	{
+        "<safe_rl.utils.logx.EpochLogger object at 0x7f69fe293450>":	{
+            "epoch_dict":	{},
+            "exp_name":	"trpo_CarGoal1",
+            "first_row":	true,
+            "log_current_row":	{},
+            "log_headers":	[],
+            "output_dir":	"/home/zuxin/mfmb/baseline/data/2020-07-23_trpo_CarGoal1/2020-07-23_01-42-24-trpo_CarGoal1_s0",
+            "output_file":	{
+                "<_io.TextIOWrapper name='/home/zuxin/mfmb/baseline/data/2020-07-23_trpo_CarGoal1/2020-07-23_01-42-24-trpo_CarGoal1_s0/progress.txt' mode='w' encoding='UTF-8'>":	{
+                    "mode":	"w"
+                }
+            }
+        }
+    },
+    "logger_kwargs":	{
+        "exp_name":	"trpo_CarGoal1",
+        "output_dir":	"/home/zuxin/mfmb/baseline/data/2020-07-23_trpo_CarGoal1/2020-07-23_01-42-24-trpo_CarGoal1_s0"
+    },
+    "max_ep_len":	150,
+    "penalty_init":	1.0,
+    "penalty_lr":	0.05,
+    "render":	false,
+    "save_freq":	10,
+    "seed":	0,
+    "steps_per_epoch":	30000,
+    "target_kl":	0.01,
+    "vf_iters":	80,
+    "vf_lr":	0.001
+}

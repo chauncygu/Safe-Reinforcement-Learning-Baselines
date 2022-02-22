@@ -1,0 +1,132 @@
+<mujoco model="rover4We (v0.2)">
+
+    <compiler inertiafromgeom="true" angle="degree"/>
+	<option	timestep="0.02" gravity="0 0 -9.81"/>
+	
+	<asset>
+		<material name="MatWheel" specular="1" rgba=".1 .1 .1 1"/>
+		<material name="MatBody" specular="1" rgba=".6 .6 .1 1"/>
+	</asset>
+	
+	<default>
+		<!--making every geom collidable. expect those that dont are default-->
+		<geom contype="1" conaffinity="1"/>
+	</default>
+	
+	<default class="acker_solver_param">
+		<!--solver impedance and reference(?) for ackerman equality constraint-->
+		<!--default solimp: "0.900 0.950 0.001"-->
+		<!--default solref: "0.020 1.000"-->
+		<!--solref: (timeconst, dampratio)
+			b = 2 / (dmax * timeconst)
+			k = d(r) / (dmax * dmax * timeconst * timeconst * dampratio * dampratio)
+		-->
+		<equality solimp="0.9950 0.9990 0.0001" solref="0.0100 0.7500"/>
+	</default>
+	
+	<visual>
+		<headlight active="1"/>
+		<scale camera=".5"/>
+		<map znear="0.001" zfar="1000"/>
+	</visual>
+	
+    <worldbody>
+		<body>
+			<geom type="box" pos="-10 0 0" size="5 5 50" rgba="1 1 1 1"/>
+		</body>
+		<body name="rover" pos="0 0 0">
+		
+			<light name="lamp" active="true" directional="true" cutoff="4" exponent="20" diffuse="1 1 1" specular="0 0 0" pos="0 0 2.5" dir="0 0 -1 "/>
+			
+			<camera name="first-person" mode="fixed" pos=".22 0 .08" euler="180 -133 -90" fovy="90"/>
+			
+			<joint name="centroid" type="free" pos="0 0 0"/>
+            <geom name="rover-body" type="box" pos="0 0 0" size="0.2 0.15 .095" mass="12" material="MatBody"/>
+			<site type="box" size=".01 .07 .07" pos=".2 0 0"/>
+            <body name="r-l-wheel" pos="-0.2 0.15 -0.15">
+                <joint name="r-l-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01" />
+                <geom type="cylinder" size=".05" fromto="0 0 0 0 0.05 0" mass=".125" material="MatWheel" condim="4"/>
+				<site size=".01" pos="0 .05 .03"/>
+				<site size=".01" pos="0 .05 -.03"/>
+				<site size=".01" pos="0 0 .03"/>
+				<site size=".01" pos="0 0 -.03"/>
+            </body>
+            <body name="r-r-wheel" pos="-0.2 -0.15 -0.15">
+                <joint name="r-r-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+                <geom type="cylinder" size=".05" fromto="0 0 0 0 -0.05 0" mass=".125" material="MatWheel" condim="4"/>
+				<site size=".01" pos="0 -.05 .03"/>
+				<site size=".01" pos="0 -.05 -.03"/>
+				<site size=".01" pos="0 0 .03"/>
+				<site size=".01" pos="0 0 -.03"/>
+            </body>
+			<body name="ghost-steer-wheel" pos="0 0 .2">
+                <joint name="ghost-steer-hinge" type="hinge" pos="0 0 0" axis="0 0 1" limited="true" range="-17 17" damping="0"/>
+				<geom type="cylinder" size=".05 .01" axisangle="1 0 0 90" contype="2" conaffinity="2" mass="0.002"/>
+			</body>
+			<body name="f-l-wheel" pos=".2 0.15 -.15">
+				<geom type="capsule" size = ".005" fromto="0 0 0 0 0 .08" contype="2" conaffinity="2"/>
+				<joint name="f-l-steer-hinge" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.01" limited="true" range="-40 40"/>
+				<body>
+					<geom type="cylinder" size=".01" fromto="0 -.015 0 0 0.015 0" mass=".125" material="MatWheel"/>
+					<body>
+						<joint name="f-l-drive-hinge-1" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+						<geom type="cylinder" size=".05" fromto="0 -.015 0 0 -0.010 0" mass=".125" material="MatWheel" condim="4"/>
+					<site size=".01" pos="0 -0.0125  0.03"/>
+					<site size=".01" pos="0 -0.0125 -0.03"/>
+					</body>
+					<body>
+						<joint name="f-l-drive-hinge-2" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+						<geom type="cylinder" size=".05" fromto="0 .010 0 0 0.015 0" mass=".125" material="MatWheel" condim="4"/>
+						<site size=".01" pos="0  0.0125  0.03"/>
+						<site size=".01" pos="0  0.0125 -0.03"/>
+					</body>
+				</body>
+			</body>
+			<body name="f-r-wheel" pos=".2 -0.15 -.15">
+				<geom type="capsule" size = ".005" fromto="0 0 0 0 0 .08" contype="2" conaffinity="2"/>
+				<joint name="f-r-steer-hinge" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.01" limited="true" range="-40 40"/>
+				
+				
+				<body>
+					<geom type="cylinder" size=".01" fromto="0 -.015 0 0 0.015 0" mass=".125" material="MatWheel"/>
+					<body>
+						<joint name="f-l-drive-hinge-3" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+						<geom type="cylinder" size=".05" fromto="0 -.015 0 0 -0.010 0" mass=".125" material="MatWheel" condim="4"/>
+					<site size=".01" pos="0 -0.0125  0.03"/>
+					<site size=".01" pos="0 -0.0125 -0.03"/>
+					</body>
+					<body>
+						<joint name="f-l-drive-hinge-4" type="hinge" pos="0 0 0" axis="0 1 0" damping="0.01"/>
+						<geom type="cylinder" size=".05" fromto="0 .010 0 0 0.015 0" mass=".125" material="MatWheel" condim="4"/>
+						<site size=".01" pos="0  0.0125  0.03"/>
+						<site size=".01" pos="0  0.0125 -0.03"/>
+					</body>
+				</body>
+			</body>
+			
+        </body>
+    </worldbody>
+	
+	<tendon>
+		<fixed name="rear-differential">
+			<joint joint="r-l-drive-hinge" coef="1"/>
+			<joint joint="r-r-drive-hinge" coef="1"/>
+		</fixed>
+	</tendon>
+	
+    <actuator>
+        <position name="ghost-steer" joint="ghost-steer-hinge" ctrllimited="true" ctrlrange="-.29 .29" gear="1"/>
+        <motor name="drive" tendon="rear-differential" ctrllimited="true" ctrlrange="-1.0 1.0" gear="1.5"/>
+    </actuator>
+	<!--
+		joint1: y
+		joint2: x
+		polycoef: a0 a1 a2 a3 a4
+		y-y0 = a0 + a1*(x-x0) + a2*(x-x0)^2 + a3*(x-x0)^3 + a4*(x-x0)^4
+	-->
+	<equality>
+		<joint name="f-l-steer-hinge" joint1="f-l-steer-hinge" joint2="ghost-steer-hinge" polycoef="0.000093610018132620019 2.0041497325730204 1.4716131190668178 -1.0929725380842041 -3.2252012765547819" class="acker_solver_param"/>
+		<joint name="f-r-steer-hinge" joint1="f-r-steer-hinge" joint2="ghost-steer-hinge" polycoef="-0.00017013070152971507 2.0039379507086514 -1.4684576386267671 -1.0901354124362155 3.1974185558159771" class="acker_solver_param"/>
+	</equality>
+	
+</mujoco>

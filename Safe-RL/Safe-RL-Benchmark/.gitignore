@@ -1,0 +1,10 @@
+__pycache__
+.ipynb_checkpoints
+.DS_Store
+.idea
+.coverage
+covhtml
+MANIFEST
+_build
+
+*.pyc

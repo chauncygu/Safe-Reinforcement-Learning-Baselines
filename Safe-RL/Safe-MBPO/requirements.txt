@@ -1,0 +1,8 @@
+numpy
+matplotlib
+tqdm
+h5py
+opencv-python
+torch==1.4.0
+gym==0.17.2
+mujoco-py==2.0.2.13

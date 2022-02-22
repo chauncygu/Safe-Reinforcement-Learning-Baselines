@@ -1,0 +1,57 @@
+# MPC controller configuration
+mpc_config:
+    horizon: 8 # how long of the horizon to predict
+    gamma: 0.98              # reward discount coefficient
+    RANDOM: # TODO: warning may contain not finished modification     
+        popsize: 5000            # how many random samples for mpc
+    CEM:
+        popsize: 500               # how many random samples for mpc
+        # particle: 1                # number of particles to enlarge
+        max_iters: 8
+        num_elites: 12
+        epsilon: 0.01 # for 0.003, it will has +- 0.05 error rate with 0.05 prob when converges
+        alpha: 0.1 # weights for previous mean and var
+        init_mean: 0
+        init_var: 1
+    RCE:
+        popsize: 500               # how many random samples for mpc
+        max_iters: 8
+        num_elites: 12
+        minimal_elites: 5                 # threshold for minimal elites
+        epsilon: 0.01 # for 0.003, it will has +- 0.05 error rate with 0.05 prob when converges
+        alpha: 0.1 # weights for previous mean and var
+        init_mean: 0
+        init_var: 1
+
+cost_config:
+    model_param:
+        boosting_type: gbdt
+        learning_rate: 0.3 #0.1
+        max_depth: 8 #6 #8
+        n_estimators: 400 # 250 #400
+        n_jobs: 1
+        num_leaves: 12 #8 #12
+    max_ratio: 3
+    unsafe_buffer_size: 10000
+    safe_buffer_size: 50000
+    batch: 2000
+    save: false
+    save_folder: null
+    load: false
+    load_folder: null
+
+dynamic_config:
+    n_ensembles: 4
+    data_split: 0.8
+    n_epochs: 70
+    activation: relu
+    batch_size: 256
+    buffer_size: 500000
+    hidden_sizes: [1024,1024,1024]
+    learning_rate: 0.001
+    test_freq: 5
+    test_ratio: 0.15
+    load: false
+    load_folder: null
+    save: false
+    save_folder: null

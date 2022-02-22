@@ -1,0 +1,22 @@
+language: python
+
+sudo: required
+services:
+  - docker
+
+env:
+  - PYTHON=python2
+  - PYTHON=python3
+
+# Setup anaconda
+install:
+  #  Disabled since docker pull does not affect cache
+  #  Fixed in Docker 1.13 with --cache-from
+  #  - docker pull befelix/lyapunov-learning-private:${PYTHON} || true
+  - docker build -f Dockerfile.${PYTHON} -t test-image .
+  - docker ps -a
+
+# Run tests
+script:
+  - docker run test-image scripts/test_code.sh
+

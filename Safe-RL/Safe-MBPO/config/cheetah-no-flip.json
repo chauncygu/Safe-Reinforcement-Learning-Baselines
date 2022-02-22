@@ -1,0 +1,8 @@
+{
+  "env_name": "cheetah-no-flip",
+  "alg_cfg": {
+    "sac_cfg": {
+      "target_entropy": -3.0
+    }
+  }
+}

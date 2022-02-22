@@ -1,0 +1,16 @@
+*.*~
+__pycache__/
+*.pkl
+**/*.egg-info
+.python-version
+.idea/
+.vscode/
+.DS_Store
+_build/
+data/*ppo*
+*.pickle
+.ipynb_checkpoints/
+*.ckpt
+#*.png
+*.pt
+*/simple_save/*

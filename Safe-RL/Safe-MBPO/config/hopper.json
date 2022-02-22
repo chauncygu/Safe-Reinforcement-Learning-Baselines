@@ -1,0 +1,8 @@
+{
+  "env_name": "hopper",
+  "alg_cfg": {
+    "sac_cfg": {
+      "target_entropy": -1.0
+    }
+  }
+}

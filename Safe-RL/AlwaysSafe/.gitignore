@@ -1,0 +1,8 @@
+.venv
+.idea
+notebooks/
+results/
+Pipfile.lock
+__pycache__
+*.pyc
+

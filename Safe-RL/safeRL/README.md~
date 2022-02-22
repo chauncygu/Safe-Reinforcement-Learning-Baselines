@@ -1,0 +1,22 @@
+# HCOPE
+High-Confidence Off-Policy Evaluation.
+   
+
+Python Implementation of HCOPE lower bound evaluation as given in the paper:
+Thomas, Philip S., Georgios Theocharous, and Mohammad Ghavamzadeh. "High-Confidence Off-Policy Evaluation." AAAI. 2015.
+
+
+## Importance Sampling
+
+Implementation of:    
+* Simple Importance Sampling   
+* Per-Decision Importance Sampling    
+* Normalized Per-Decision Importance Sampling (NPDIS) Estimator    
+* Weighted Importance Sampling (WIS) Estimator   
+* Weighted Per-Decision Importance Sampling (WPDIS) Estimator    
+* Consistent Weighted Per-Decision Importance Sampling (CWPDIS) Estimator   
+    
+Comparision of different importance sampling estimators:
+![Different Importance sampling estimators](http://url/to/img.png)
+
+

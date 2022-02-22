@@ -1,0 +1,8 @@
+{
+  "env_name": "humanoid",
+  "alg_cfg": {
+    "sac_cfg": {
+      "target_entropy": -2.0
+    }
+  }
+}

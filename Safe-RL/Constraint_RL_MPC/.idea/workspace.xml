@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e48d6371-14a7-4470-81f7-b34ebc15bb42" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Buffer/ReplayBuffer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Disturbances/external_disturbances_old.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Disturbances/external_disturbances_randn.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Disturbances/external_disturbances_uniform.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Linear_Env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Neural_Network/Actor_Model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Neural_Network/Critic_Model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Neural_Network/NeuralNetwork.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Normalize/MinMax.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre_training/Immediate_constraint_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre_training/Test_immediate_constraint_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre_training/constraints.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre_training/constraints_test_E_low_weights.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre_training/constraints_test_E_up_weights.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre_training/constraints_test_T_low_weights.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre_training/constraints_test_T_up_weights.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pre_training/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_MPC/MPC.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_MPC/Main_MPC.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_MPC/Main_System_Identification.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_MPC/SI_MPC_weights.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_MPC/SI_MinMax.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_MPC/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/DDPG.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/Main_RL.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/ddpg_Test1_5_weights_actor.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/ddpg_Test1_5_weights_critic.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/ddpg_Test2_5_weights_actor.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/ddpg_Test2_5_weights_critic.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/ddpg_Test3_5_weights_actor.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/ddpg_Test3_5_weights_critic.h5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_RL/readme.txt" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Abgabe/Model/Linear_Env.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Abgabe/Normalize/MinMax.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="70">
+              <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Abgabe/Training_RL/Main_RL.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Abgabe/Training_RL/DDPG.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="153" selection-start-line="153" selection-end-line="153" />
+              <folding>
+                <element signature="e#67#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>maxtracking</find>
+      <find>episodesTrain</find>
+      <find>min</find>
+      <find>nb_disturbance</find>
+      <find>action_space</find>
+      <find>future_steps_dist</find>
+      <find>eps</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Abgabe/Model/Linear_Env.py" />
+        <option value="$PROJECT_DIR$/Abgabe/Training_RL/DDPG.py" />
+        <option value="$PROJECT_DIR$/Abgabe/Training_RL/Main_RL.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/Constraint_RL_MPC.iml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="227" />
+    <option name="y" value="117" />
+    <option name="width" value="977" />
+    <option name="height" value="558" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Constraint_RL_MPC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Constraint_RL_MPC" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Constraint_RL_MPC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Constraint_RL_MPC" type="462c0819:PsiDirectoryNode" />
+              <item name="Abgabe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Constraint_RL_MPC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Constraint_RL_MPC" type="462c0819:PsiDirectoryNode" />
+              <item name="Abgabe" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Constraint_RL_MPC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Constraint_RL_MPC" type="462c0819:PsiDirectoryNode" />
+              <item name="Abgabe" type="462c0819:PsiDirectoryNode" />
+              <item name="Normalize" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Constraint_RL_MPC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Constraint_RL_MPC" type="462c0819:PsiDirectoryNode" />
+              <item name="Abgabe" type="462c0819:PsiDirectoryNode" />
+              <item name="Training_RL" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main_RL" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Constraint_RL_MPC" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Abgabe/Training_RL" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Abgabe/Training_RL/Main_RL.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Main_RL" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e48d6371-14a7-4470-81f7-b34ebc15bb42" name="Default Changelist" comment="" />
+      <created>1563098884788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563098884788</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24960877" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32884902" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39910313" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Abgabe/Training_RL/DDPG.py</url>
+          <line>194</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Abgabe/Training_RL/DDPG.py</url>
+          <line>306</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Abgabe/Training_RL/DDPG.py</url>
+          <line>168</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>self.room_temp.item(count)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.reshape(future.T, (1, self.nb_tracing + self.nb_disturbance))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(np.concatenate((observation, future), axis=1))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.concatenate((observation, future))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.concatenate((observation, future)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(np.concatenate((observation, future)))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.reshape(future,(1,self.nb_tracing + self.nb_disturbance  ))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.transpose(future)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.concatenate((observation, future.T))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Model/Linear_Env.py" />
+    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/keras/engine/training_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Abgabe/Normalize/MinMax.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Abgabe/Model/Linear_Env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Abgabe/Training_RL/DDPG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
+          <folding>
+            <element signature="e#67#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Abgabe/Training_RL/Main_RL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

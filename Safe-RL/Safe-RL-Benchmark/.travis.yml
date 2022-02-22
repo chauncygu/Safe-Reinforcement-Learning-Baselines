@@ -1,0 +1,23 @@
+language: python
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  - PYTHON=python2
+  - PYTHON=python3
+
+# Setup docker container
+install:
+  - docker build -f misc/Dockerfile.${PYTHON} -t test-image .
+  - docker ps -a
+  - ci_env=`bash <(curl -s https://codecov.io/env)`
+
+# Run tests
+script:
+  - docker run test-image flake8 SafeRLBench --exclude "test*.py,__init__.py,_quadrocopter" --ignore=E402,W503 --show-source
+  - docker run test-image flake8 SafeRLBench --filename="__init__.py,test*.py" --ignore=F,E402,W503 --show-source
+  - docker run test-image pydocstyle SafeRLBench --match='(?!__init__).*\.py'
+  - docker run $ci_env test-image /bin/bash -c "nosetests --with-doctest --with-coverage --cover-package=SafeRLBench --verbosity=2 SafeRLBench ; bash <(curl -s https://codecov.io/bash)"
