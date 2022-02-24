@@ -3,7 +3,7 @@
 
 
 
-The repository is for Safe Reinforcement Learning research, in which we have various safe RL baselines and safe RL benchmarks (including single agent RL and multi-agent RL).
+The repository is for Safe Reinforcement Learning research, in which we investigate various safe RL baselines and safe RL benchmarks (including single agent RL and multi-agent RL).
 
 
 
@@ -18,7 +18,11 @@ The repository is for Safe Reinforcement Learning research, in which we have var
 ### 2. Safe RL Baselines:
 
 #### 2.1 Safe Single Agent RL Baselines:
-- CPO
+- Constrained Policy Optimization (CPO), [Paper](http://proceedings.mlr.press/v70/achiam17a/achiam17a.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/safety-starter-agents) (Accepted by ICML 2017)
+- Projection-Based Constrained Policy Optimization (PCPO), [Paper](https://arxiv.org/pdf/2010.03152.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/PCPO) (Accepted by ICLR 2020)
+- Safe Reinforcement Learning by Imagining the Near Future (SMBPO), [Paper](https://proceedings.neurips.cc/paper/2021/file/73b277c11266681122132d024f53a75b-Paper.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/Safe-MBPO) (Accepted by NeurIPS 2021)
+- AlwaysSafe: Reinforcement Learning Without Safety Constraint Violations During Training, [Paper](https://pure.tudelft.nl/ws/files/96913978/p1226.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/AlwaysSafe) (Accepted by AAMAS 2021)
+- Safe Continuous Control with Constrained Model-Based Policy Optimization (CMBPO), [Paper](https://arxiv.org/pdf/2104.06922.pdf), (Code)(https://github.com/anyboby/Constrained-Model-Based-Policy-Optimization) (Accepted by IROS 2021)
 
 #### 2.2 Safe Multi-Agent RL Baselines:
 
