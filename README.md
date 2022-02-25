@@ -42,60 +42,9 @@ The repository is for Safe Reinforcement Learning (RL) research, in which we inv
 - Safe Reinforcement Learning of Control-Affine Systems with Vertex Networks, [Paper](http://proceedings.mlr.press/v144/zheng21a/zheng21a.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/vertex-net) (Accepted by Conference on Learning for Dynamics and Control 2021)
 
 #### 2.2 Safe Multi-Agent RL Baselines:
-- Multi-Agent Constrained Policy Optimisation (MACPO), [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation) 
-- MAPPO-Lagrangian, [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation) 
+- Multi-Agent Constrained Policy Optimisation (MACPO), [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation) (Arxiv, 2021)
+- MAPPO-Lagrangian, [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation)  (Arxiv, 2021)
 
-
-<!--
-## 1. Installation
-
-####  1.1 Create Environment
-
-``` Bash
-# create conda environment
-conda create -n macpo python==3.7
-conda activate macpo
-pip install -r requirements.txt
-conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
-```
-
-```
-cd MACPO/macpo (for the macpo algorithm) or cd MAPPO-Lagrangian/mappo_lagrangian (for the mappo_lagrangian algorithm)
-pip install -e .
-```
-
-
-
-#### 1.2 Install Safety Multi-Agent Mujoco
-
-
-- Install mujoco accoring to [mujoco-py](https://github.com/openai/mujoco-py) and [MuJoCo website](https://www.roboti.us/license.html).
-- clone [Safety Multi-Agent Mujoco](https://github.com/chauncygu/Safe-Multi-Agent-Mujoco) to the env path (in this repository, have set the path).
-
-``` Bash
-LD_LIBRARY_PATH=${HOME}/.mujoco/mujoco200/bin;
-LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so
-```
-
-
-
-## 2. Train
-
-```
-cd MACPO/macpo/scripts or cd MAPPO-Lagrangian/mappo_lagrangian/scripts
-chmod +x ./train_mujoco.sh
-./train_mujoco.sh
-```
-
-
-
-
-
-## Acknowledgments
-
-Some sections of the repository are based on [MAPPO](https://github.com/marlbenchmark/on-policy), [HAPPO](https://github.com/cyanrain7/Trust-Region-Policy-Optimisation-in-Multi-Agent-Reinforcement-Learning), [safety-starter-agents](https://github.com/openai/safety-starter-agents), [CMBPO](https://github.com/anyboby/Constrained-Model-Based-Policy-Optimization).
-
---!>
 
 
 
