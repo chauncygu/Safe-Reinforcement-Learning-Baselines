@@ -52,6 +52,7 @@ If you find a paper about Safe RL which is not listed here, please
 - First order constrained optimization in policy space (FOCOPS),[Paper](https://proceedings.neurips.cc/paper/2020/file/af5d5ef24881f3c3049a7b9bfe74d58b-Paper.pdf), [Code](https://github.com/ymzhang01/focops) (Accepted by NeurIPS 2020)
 - Learning safe policies with cost-sensitive advantage estimation, [Paper](https://openreview.net/pdf?id=uVnhiRaW3J), Not Find Code (Openreview 2020)
 - Safe Reinforcement Learning by Imagining the Near Future (SMBPO), [Paper](https://proceedings.neurips.cc/paper/2021/file/73b277c11266681122132d024f53a75b-Paper.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/Safe-MBPO) (Accepted by NeurIPS 2021)
+- Exponential Bellman Equation and Improved Regret Bounds for Risk-Sensitive Reinforcement Learning, [Paper](https://arxiv.org/pdf/2111.03947.pdf),  Not Find Code (Accepted by NeurIPS 2021)
 -  Conservative safety critics for exploration, [Paper](https://arxiv.org/pdf/2010.14497.pdf), Not Find Code (Accepted by ICLR 2021)
 -  Risk-averse trust region optimization for reward-volatility reduction, [Paper](https://arxiv.org/pdf/1912.03193.pdf), Not Find Code (Accepted by IJCAI 2021)
 - AlwaysSafe: Reinforcement Learning Without Safety Constraint Violations During Training, [Paper](https://pure.tudelft.nl/ws/files/96913978/p1226.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/AlwaysSafe) (Accepted by AAMAS 2021)
