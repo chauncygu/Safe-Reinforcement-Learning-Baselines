@@ -6,7 +6,7 @@
 The repository is for Safe Reinforcement Learning (RL) research, in which we investigate various safe RL baselines and safe RL benchmarks, including single agent RL and multi-agent RL. If any authors do not want their paper to be listed here, please feel free to contact <gshangd[AT]foxmail.com>. (This repository is under actively development. We appreciate any constructive comments and suggestions)
 
 
-If you find a paper about Safe RL which is not listed here, please
+You are more than welcome to update this list! If you find a paper about Safe RL which is not listed here, please
 
 - fork this repository, add it and merge back;
 - or report an issue here;
