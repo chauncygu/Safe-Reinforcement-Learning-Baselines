@@ -28,6 +28,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 
 #### 2.1 Safe Single Agent RL Baselines:
 
+- Lyapunov design for safe reinforcement learning, [Paper](https://www.jmlr.org/papers/volume3/perkins02a/perkins02a.pdf), Not Find Code, (Accepted by ICML 2002)
 - Safe Exploration in Markov Decision Processes, [Paper](https://arxiv.org/pdf/1205.4810.pdf), Not Find Code, (Accepted by ICML 2012)
 - Safe policy iteration, [Paper](http://proceedings.mlr.press/v28/pirotta13.pdf), Not Find Code, (Accepted by ICML 2013)
 - High-Confidence Off-Policy Evaluation, [Paper](https://www.ics.uci.edu/~dechter/courses/ics-295/winter-2018/papers/2015Thomas2015.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/safeRL) (Accepted by AAAI 2015)
@@ -68,6 +69,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 - Safe reinforcement learning via projection on a safe set: How to achieve optimality?, [Paper](https://arxiv.org/pdf/2004.00915.pdf), Not Find Code (Accepted by IFAC 2020)
 - Learning safe policies with cost-sensitive advantage estimation, [Paper](https://openreview.net/pdf?id=uVnhiRaW3J), Not Find Code (Openreview 2020)
 - Safe reinforcement learning using probabilistic shields, [Paper](https://repository.ubn.ru.nl/bitstream/handle/2066/224966/224966.pdf?sequence=1), Not Find Code (2020)
+- Safe reinforcement learning using advantage-based intervention, [Paper](http://proceedings.mlr.press/v139/wagener21a/wagener21a.pdf), [Code](https://github.com/nolanwagener/safe_rl) (Accepted by ICML 2021)
 - Safe Reinforcement Learning by Imagining the Near Future (SMBPO), [Paper](https://proceedings.neurips.cc/paper/2021/file/73b277c11266681122132d024f53a75b-Paper.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/Safe-MBPO) (Accepted by NeurIPS 2021)
 - Exponential Bellman Equation and Improved Regret Bounds for Risk-Sensitive Reinforcement Learning, [Paper](https://arxiv.org/pdf/2111.03947.pdf),  Not Find Code (Accepted by NeurIPS 2021)
 - Safe reinforcement learning with natural language constraints, [Paper](https://proceedings.neurips.cc/paper/2021/file/72f67e70f6b7cdc4cc893edaddf0c4c6-Paper.pdf), [Code](https://github.com/princeton-nlp/SRL-NLC), (Accepted by NeurIPS 2021)
@@ -75,8 +77,10 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 -  Risk-averse trust region optimization for reward-volatility reduction, [Paper](https://arxiv.org/pdf/1912.03193.pdf), Not Find Code (Accepted by IJCAI 2021)
 - AlwaysSafe: Reinforcement Learning Without Safety Constraint Violations During Training, [Paper](https://pure.tudelft.nl/ws/files/96913978/p1226.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/AlwaysSafe) (Accepted by AAMAS 2021)
 - Safe Continuous Control with Constrained Model-Based Policy Optimization (CMBPO), [Paper](https://arxiv.org/pdf/2104.06922.pdf), [Code](https://github.com/anyboby/Constrained-Model-Based-Policy-Optimization) (Accepted by IROS 2021)
+- Context-aware safe reinforcement learning for non-stationary environments, [Paper](https://arxiv.org/pdf/2101.00531.pdf), Not Find Code (Accepted by ICRA 2021)
 - Safe model-based reinforcement learning with robust cross-entropy method, [Paper](https://aisecure-workshop.github.io/aml-iclr2021/papers/8.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/safe-mbrl) (Accepted by ICLR 2021 Workshop on Security and Safety in Machine Learning Systems)
 - Safe Reinforcement Learning of Control-Affine Systems with Vertex Networks, [Paper](http://proceedings.mlr.press/v144/zheng21a/zheng21a.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/vertex-net) (Accepted by Conference on Learning for Dynamics and Control 2021)
+- Can You Trust Your Autonomous Car? Interpretable and Verifiably Safe Reinforcement Learning, [Paper](http://download.cmutschler.de/publications/2021/IV2021.pdf), Not Find Code (Accepted by IV 2021)
 - Recovery RL: Safe Reinforcement Learning with Learned Recovery Zones, [Paper](https://www.researchgate.net/profile/Minho-Hwang/publication/345152769_Recovery_RL_Safe_Reinforcement_Learning_with_Learned_Recovery_Zones/links/5fe37ea2299bf140883a35cb/Recovery-RL-Safe-Reinforcement-Learning-with-Learned-Recovery-Zones.pdf), [Code](https://github.com/abalakrishna123/recovery-rl), (Accepted by IEEE RAL, 2021)
 - Reinforcement learning control of constrained dynamic systems with uniformly ultimate boundedness stability guarantee, [Paper](https://www.sciencedirect.com/science/article/pii/S0005109821002090), Not Find Code (Accepted by Automatica, 2021)
 - Safe reinforcement learning using robust action governor, [Paper](https://arxiv.org/pdf/2102.10643.pdf), Not Find Code (Accepted by In Learning for Dynamics and Control, 2022)
