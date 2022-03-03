@@ -28,7 +28,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 
 #### 2.1 Safe Single Agent RL Baselines:
 
--Safe Exploration in Markov Decision Processes, [Paper](https://arxiv.org/pdf/1205.4810.pdf), Not Find Code, (Accepted by ICML 2012)
+- Safe Exploration in Markov Decision Processes, [Paper](https://arxiv.org/pdf/1205.4810.pdf), Not Find Code, (Accepted by ICML 2012)
 - Safe policy iteration, [Paper](http://proceedings.mlr.press/v28/pirotta13.pdf), Not Find Code, (Accepted by ICML 2013)
 - High-Confidence Off-Policy Evaluation, [Paper](https://www.ics.uci.edu/~dechter/courses/ics-295/winter-2018/papers/2015Thomas2015.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/safeRL) (Accepted by AAAI 2015)
 - Safe Exploration for Optimization with Gaussian Processes, [Paper](http://proceedings.mlr.press/v37/sui15.pdf), Not Find Code (Accepted by ICML 2015)
