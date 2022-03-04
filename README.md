@@ -77,6 +77,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 - Safe reinforcement learning using probabilistic shields, [Paper](https://repository.ubn.ru.nl/bitstream/handle/2066/224966/224966.pdf?sequence=1), Not Find Code (2020)
 - Safe reinforcement learning using advantage-based intervention, [Paper](http://proceedings.mlr.press/v139/wagener21a/wagener21a.pdf), [Code](https://github.com/nolanwagener/safe_rl) (Accepted by ICML 2021)
 - Shortest-path constrained reinforcement learning for sparse reward tasks, [Paper](https://arxiv.org/pdf/2107.06405.pdf), [Code](https://github.com/srsohn/shortest-path-rl), (Accepted by ICML 2021)
+- Density constrained reinforcement learning, [Paper](https://arxiv.org/pdf/2106.12764.pdf), Not Find Code (Accepted by ICML 2021)
 - Safe Reinforcement Learning by Imagining the Near Future (SMBPO), [Paper](https://proceedings.neurips.cc/paper/2021/file/73b277c11266681122132d024f53a75b-Paper.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/Safe-MBPO) (Accepted by NeurIPS 2021)
 - Exponential Bellman Equation and Improved Regret Bounds for Risk-Sensitive Reinforcement Learning, [Paper](https://arxiv.org/pdf/2111.03947.pdf),  Not Find Code (Accepted by NeurIPS 2021)
 - Safe reinforcement learning with natural language constraints, [Paper](https://proceedings.neurips.cc/paper/2021/file/72f67e70f6b7cdc4cc893edaddf0c4c6-Paper.pdf), [Code](https://github.com/princeton-nlp/SRL-NLC), (Accepted by NeurIPS 2021)
