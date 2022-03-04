@@ -16,17 +16,17 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 
 
 ### 1. Environments Supported:
-#### 1.1 Safe Single Agent RL benchmarks:
+#### 1.1. Safe Single Agent RL benchmarks:
 - [Safety-Gym](https://github.com/openai/safety-gym)
 - [Bullet-Safety-Gym](https://github.com/svengronauer/Bullet-Safety-Gym)
-#### 1.2 Safe Multi-Agent RL benchmark:
+#### 1.2. Safe Multi-Agent RL benchmark:
 - [Safe Multi-Agent Mujoco](https://github.com/chauncygu/Safe-Multi-Agent-Mujoco)
 <!--- [Safe Multi-Robot Robosuite](https://github.com/chauncygu/Safe-Multi-Agent-Mujoco)-->
 
 
 ### 2. Safe RL Baselines:
 
-#### 2.1 Safe Single Agent RL Baselines:
+#### 2.1. Safe Single Agent RL Baselines:
 
 - Lyapunov design for safe reinforcement learning, [Paper](https://www.jmlr.org/papers/volume3/perkins02a/perkins02a.pdf), Not Find Code, (Accepted by ICML 2002)
 - An actor-critic algorithm for constrained markov decision processes, [Paper](https://reader.elsevier.com/reader/sd/pii/S0167691104001276?token=D2FDE94E441EB4182DF4CF382458FCA57BDCABECB2E17932BF52CABA7F46F0F67EE5E9A4BE19F9FD3E27D4099CA25C80&originRegion=eu-west-1&originCreation=20220304073259), Not Find Code, (Accepted by Systems & Control Letters, 2005)
@@ -101,7 +101,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 
 
 
-#### 2.2 Safe Multi-Agent RL Baselines:
+#### 2.2. Safe Multi-Agent RL Baselines:
 - Multi-Agent Constrained Policy Optimisation (MACPO), [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation) (Arxiv, 2021)
 - MAPPO-Lagrangian, [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation)  (Arxiv, 2021)
 
