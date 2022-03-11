@@ -28,6 +28,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 
 #### 2.1. Safe Single Agent RL Baselines:
 
+- Consideration of risk in reinforcement learning, [Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.45.8264&rep=rep1&type=pdf), Not Find Code, (Accepted by ICML 1994)
 - Lyapunov design for safe reinforcement learning, [Paper](https://www.jmlr.org/papers/volume3/perkins02a/perkins02a.pdf), Not Find Code, (Accepted by ICML 2002)
 - An actor-critic algorithm for constrained markov decision processes, [Paper](https://reader.elsevier.com/reader/sd/pii/S0167691104001276?token=D2FDE94E441EB4182DF4CF382458FCA57BDCABECB2E17932BF52CABA7F46F0F67EE5E9A4BE19F9FD3E27D4099CA25C80&originRegion=eu-west-1&originCreation=20220304073259), Not Find Code, (Accepted by Systems & Control Letters, 2005)
 - Safe Exploration in Markov Decision Processes, [Paper](https://arxiv.org/pdf/1205.4810.pdf), Not Find Code, (Accepted by ICML 2012)
