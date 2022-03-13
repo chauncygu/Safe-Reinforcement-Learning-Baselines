@@ -43,6 +43,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 - Safe Exploration of State and Action Spaces in Reinforcement Learning, [Paper](https://web.archive.org/web/20180423223542id_/http://www.jair.org/media/3761/live-3761-6687-jair.pdf), Not Find Code, (Accepted by Journal of Artificial Intelligence Research, 2012)
 - An Online Actor–Critic Algorithm with Function Approximation for Constrained Markov Decision Processes, [Paper](https://link.springer.com/content/pdf/10.1007/s10957-012-9989-5.pdf), Not Find Code, (Accepted by Journal of Optimization Theory and Applications, 2012)
 - Safe policy iteration, [Paper](http://proceedings.mlr.press/v28/pirotta13.pdf), Not Find Code, (Accepted by ICML 2013)
+- Safe Policy Search for Lifelong Reinforcement Learning with Sublinear Regret, [Paper](https://arxiv.org/pdf/1505.05798.pdf), Not Find Code, (Accepted by ICML 2015)
 - High-Confidence Off-Policy Evaluation, [Paper](https://www.ics.uci.edu/~dechter/courses/ics-295/winter-2018/papers/2015Thomas2015.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/safeRL) (Accepted by AAAI 2015)
 - Safe Exploration for Optimization with Gaussian Processes, [Paper](http://proceedings.mlr.press/v37/sui15.pdf), Not Find Code (Accepted by ICML 2015)
 - Safe Exploration in Finite Markov Decision Processes with Gaussian Processes, [Paper](https://proceedings.neurips.cc/paper/2016/file/9a49a25d845a483fae4be7e341368e36-Paper.pdf), Not Find Code (Accepted by NeurIPS 2016)
