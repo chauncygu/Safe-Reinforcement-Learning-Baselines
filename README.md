@@ -36,6 +36,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 - Reinforcement learning for MDPs with constraints, [Paper](https://link.springer.com/content/pdf/10.1007/11871842_63.pdf), Not Find Code, (Accepted by European Conference on Machine Learning 2006)
 - Discounted Markov decision processes with utility constraints, [Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.140.1315&rep=rep1&type=pdf), Not Find Code, (Accepted by Computers & Mathematics with Applications, 2006)
 - Constrained reinforcement learning from intrinsic and extrinsic rewards, [Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1059.1383&rep=rep1&type=pdf), Not Find Code, (Accepted by International Conference on Development and Learning 2007)
+- Safe exploration for reinforcement learning, [Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.161.2786&rep=rep1&type=pdf), Not Find Code, (Accepted by ESANN 2008)
 - Percentile optimization for Markov decision processes with parameter uncertainty, [Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.400.5048&rep=rep1&type=pdf), Not Find Code, (Accepted by Operations research, 2010)
 - Safe Exploration in Markov Decision Processes, [Paper](https://arxiv.org/pdf/1205.4810.pdf), Not Find Code, (Accepted by ICML 2012)
 - Policy gradients with variance related risk criteria, [Paper](https://arxiv.org/pdf/1206.6404.pdf), Not Find Code, (Accepted by ICML 2012)
