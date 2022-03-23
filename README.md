@@ -29,6 +29,7 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 #### 2.1. Safe Single Agent RL Baselines:
 
 - Consideration of risk in reinforcement learning, [Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.45.8264&rep=rep1&type=pdf), Not Find Code, (Accepted by ICML 1994)
+- Multi-criteria Reinforcement Learning,  [Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.232.962&rep=rep1&type=pdf), Not Find Code, (Accepted by ICML 1998)
 - Lyapunov design for safe reinforcement learning, [Paper](https://www.jmlr.org/papers/volume3/perkins02a/perkins02a.pdf), Not Find Code, (Accepted by ICML 2002)
 - Risk-sensitive reinforcement learning, [Paper](https://link.springer.com/content/pdf/10.1023/A:1017940631555.pdf), Not Find Code, (Accepted by Machine Learning, 2002)
 - Risk-Sensitive Reinforcement Learning Applied to Control under Constraints, [Paper](https://www.jair.org/index.php/jair/article/view/10415/24966), Not Find Code, (Accepted by Journal of Artificial Intelligence Research, 2005)
