@@ -14,10 +14,9 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 - or email <gshangd[AT]foxmail.com>.
 
 ***
-The README is organized as follows:
 - [1. Environments Supported](#1-environments-supported)
   * [1.1. Safe Single Agent RL benchmarks](#11-safe-single-agent-rl-benchmarks)
-  * [1.2. Safe Multi-Agent RL benchmark](#12-safe-multi-agent-rl-benchmark)
+  * [1.2. Safe Multi-Agent RL benchmarks](#12-safe-multi-agent-rl-benchmarks)
 - [2. Safe RL Baselines](#2-safe-rl-baselines)
   * [2.1. Safe Single Agent RL Baselines](#21-safe-single-agent-rl-baselines)
   * [2.2. Safe Multi-Agent RL Baselines](#22-safe-multi-agent-rl-baselines)
