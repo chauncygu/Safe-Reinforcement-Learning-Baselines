@@ -3,6 +3,7 @@
 
 
 
+
 The repository is for Safe Reinforcement Learning (RL) research, in which we investigate various safe RL baselines and safe RL benchmarks, including single agent RL and multi-agent RL. If any authors do not want their paper to be listed here, please feel free to contact <gshangd[AT]foxmail.com>. (This repository is under actively development. We appreciate any constructive comments and suggestions)
 
 
@@ -12,21 +13,34 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 - or report an issue here;
 - or email <gshangd[AT]foxmail.com>.
 
+***
+The README is organized as follows:
+- [1. Environments Supported](#1-environments-supported)
+  * [1.1. Safe Single Agent RL benchmarks](#11-safe-single-agent-rl-benchmarks)
+  * [1.2. Safe Multi-Agent RL benchmark](#12-safe-multi-agent-rl-benchmark)
+- [2. Safe RL Baselines](#2-safe-rl-baselines)
+  * [2.1. Safe Single Agent RL Baselines](#21-safe-single-agent-rl-baselines)
+  * [2.2. Safe Multi-Agent RL Baselines](#22-safe-multi-agent-rl-baselines)
+- [3. Surveys](#3-surveys)
+- [4. Thesis](#4-thesis)
+- [5. Book](#5-book)
+
+***
 
 
 
-### 1. Environments Supported:
-#### 1.1. Safe Single Agent RL benchmarks:
+### 1. Environments Supported
+#### 1.1. Safe Single Agent RL benchmarks
 - [Safety-Gym](https://github.com/openai/safety-gym)
 - [Bullet-Safety-Gym](https://github.com/svengronauer/Bullet-Safety-Gym)
-#### 1.2. Safe Multi-Agent RL benchmark:
+#### 1.2. Safe Multi-Agent RL benchmark
 - [Safe Multi-Agent Mujoco](https://github.com/chauncygu/Safe-Multi-Agent-Mujoco)
 <!--- [Safe Multi-Robot Robosuite](https://github.com/chauncygu/Safe-Multi-Agent-Mujoco)-->
 
 
-### 2. Safe RL Baselines:
+### 2. Safe RL Baselines
 
-#### 2.1. Safe Single Agent RL Baselines:
+#### 2.1. Safe Single Agent RL Baselines
 
 - Consideration of risk in reinforcement learning, [Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.45.8264&rep=rep1&type=pdf), Not Find Code, (Accepted by ICML 1994)
 - Multi-criteria Reinforcement Learning,  [Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.232.962&rep=rep1&type=pdf), Not Find Code, (Accepted by ICML 1998)
@@ -136,20 +150,20 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 
 
 
-#### 2.2. Safe Multi-Agent RL Baselines:
+#### 2.2. Safe Multi-Agent RL Baselines
 - Multi-Agent Constrained Policy Optimisation (MACPO), [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation) (Arxiv, 2021)
 - MAPPO-Lagrangian, [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation)  (Arxiv, 2021)
 
-#### 3. Surveys
+### 3. Surveys
 - A comprehensive survey on safe reinforcement learning, [Paper](https://www.jmlr.org/papers/volume16/garcia15a/garcia15a.pdf) (Accepted by Journal of Machine Learning Research, 2015)
 - Safe learning and optimization techniques: Towards a survey of the state of the art, [Paper](https://arxiv.org/pdf/2101.09505.pdf) (Accepted by In International Workshop on the Foundations of Trustworthy AI Integrating Learning, Optimization and Reasoning, 2020)
 - Safe learning in robotics: From learning-based control to safe reinforcement learning, [Paper](https://arxiv.org/pdf/2108.06266.pdf) (Accepted by Annual Review of Control, Robotics, and Autonomous Systems, 2021)
 - Policy learning with constraints in model-free reinforcement learning: A survey, [Paper](https://web.archive.org/web/20210812230501id_/https://www.ijcai.org/proceedings/2021/0614.pdf) (Accepted by IJCAI 2021)
 
-#### 4. Thesis
+### 4. Thesis
 - Safe reinforcement learning, [Thesis](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1527&context=dissertations_2) (PhD thesis, Philip S. Thomas, University of Massachusetts Amherst, 2015)
 
-#### 5. Book
+### 5. Book
 - Constrained Markov decision processes: stochastic modeling, [Book](https://www-sop.inria.fr/members/Eitan.Altman/PAPERS/h.pdf), (Eitan Altman, Routledge, 1999)
 
 
