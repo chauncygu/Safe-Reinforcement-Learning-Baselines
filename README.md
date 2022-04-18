@@ -133,7 +133,7 @@ The README is organized as follows:
 -  Risk-averse trust region optimization for reward-volatility reduction, [Paper](https://arxiv.org/pdf/1912.03193.pdf), Not Find Code (Accepted by IJCAI 2021)
 - AlwaysSafe: Reinforcement Learning Without Safety Constraint Violations During Training, [Paper](https://pure.tudelft.nl/ws/files/96913978/p1226.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/AlwaysSafe) (Accepted by AAMAS 2021)
 - Safe Continuous Control with Constrained Model-Based Policy Optimization (CMBPO), [Paper](https://arxiv.org/pdf/2104.06922.pdf), [Code](https://github.com/anyboby/Constrained-Model-Based-Policy-Optimization) (Accepted by IROS 2021)
-- Context-aware safe reinforcement learning for non-stationary environments, [Paper](https://arxiv.org/pdf/2101.00531.pdf), Not Find Code (Accepted by ICRA 2021)
+- Context-aware safe reinforcement learning for non-stationary environments, [Paper](https://arxiv.org/pdf/2101.00531.pdf), [Code](https://github.com/baimingc/casrl) (Accepted by ICRA 2021)
 - Safe model-based reinforcement learning with robust cross-entropy method, [Paper](https://aisecure-workshop.github.io/aml-iclr2021/papers/8.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/safe-mbrl) (Accepted by ICLR 2021 Workshop on Security and Safety in Machine Learning Systems)
 - Safe Reinforcement Learning of Control-Affine Systems with Vertex Networks, [Paper](http://proceedings.mlr.press/v144/zheng21a/zheng21a.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/vertex-net) (Accepted by Conference on Learning for Dynamics and Control 2021)
 - Can You Trust Your Autonomous Car? Interpretable and Verifiably Safe Reinforcement Learning, [Paper](http://download.cmutschler.de/publications/2021/IV2021.pdf), Not Find Code (Accepted by IV 2021)
@@ -148,6 +148,7 @@ The README is organized as follows:
 - Finding Safe Zones of policies Markov Decision Processes, [Paper](https://arxiv.org/pdf/2202.11593.pdf), Not Find Code (Arxiv, 2022)
 - CUP: A Conservative Update Policy Algorithm for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2202.07565.pdf), [Code](https://github.com/RL-boxes/Safe-RL) (Arxiv, 2022)
 - SAFER: Data-Efficient and Safe Reinforcement Learning via Skill Acquisition, [Paper](https://arxiv.org/pdf/2202.04849.pdf), Not Find Code (Arxiv, 2022)
+- Constrained Variational Policy Optimization for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2201.11927.pdf), Not Find Code (Arxiv, 2022)
 
 
 
