@@ -122,6 +122,7 @@ The README is organized as follows:
 - Learning Transferable Domain Priors for Safe Exploration in Reinforcement Learning, [Paper](https://arxiv.org/pdf/1909.04307.pdf), [Code](https://github.com/GKthom/Priors-for-safe-exploration), (Accepted by International Joint Conference on Neural Networks (IJCNN) 2020)
 - Learning safe policies with cost-sensitive advantage estimation, [Paper](https://openreview.net/pdf?id=uVnhiRaW3J), Not Find Code (Openreview 2020)
 - Safe reinforcement learning using probabilistic shields, [Paper](https://repository.ubn.ru.nl/bitstream/handle/2066/224966/224966.pdf?sequence=1), Not Find Code (2020)
+- Exploration-exploitation in constrained mdps, [Paper](https://arxiv.org/pdf/2003.02189.pdf), Not Find Code (Arxiv, 2020)
 - Safe reinforcement learning using advantage-based intervention, [Paper](http://proceedings.mlr.press/v139/wagener21a/wagener21a.pdf), [Code](https://github.com/nolanwagener/safe_rl) (Accepted by ICML 2021)
 - Shortest-path constrained reinforcement learning for sparse reward tasks, [Paper](https://arxiv.org/pdf/2107.06405.pdf), [Code](https://github.com/srsohn/shortest-path-rl), (Accepted by ICML 2021)
 - Density constrained reinforcement learning, [Paper](https://arxiv.org/pdf/2106.12764.pdf), Not Find Code (Accepted by ICML 2021)
