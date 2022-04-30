@@ -35,8 +35,9 @@ The README is organized as follows:
 - [Bullet-Safety-Gym](https://github.com/svengronauer/Bullet-Safety-Gym)
 #### 1.2. Safe Multi-Agent RL benchmarks
 - [Safe Multi-Agent Mujoco](https://github.com/chauncygu/Safe-Multi-Agent-Mujoco)
-- [Safe Multi-Agent Robosuite](https://github.com/chauncygu/Safe-Multi-Agent-Robosuite)
 - [Safe Multi-Agent Isaac Gym](https://github.com/chauncygu/Safe-Multi-Agent-Isaac-Gym)
+- [Safe Multi-Agent Robosuite](https://github.com/chauncygu/Safe-Multi-Agent-Robosuite)
+
 
 
 ### 2. Safe RL Baselines
