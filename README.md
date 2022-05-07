@@ -31,6 +31,7 @@ The README is organized as follows:
 
 ### 1. Environments Supported
 #### 1.1. Safe Single Agent RL benchmarks
+- [AI Safety Gridworlds](https://github.com/deepmind/ai-safety-gridworlds)
 - [Safety-Gym](https://github.com/openai/safety-gym)
 - [Bullet-Safety-Gym](https://github.com/svengronauer/Bullet-Safety-Gym)
 #### 1.2. Safe Multi-Agent RL benchmarks
