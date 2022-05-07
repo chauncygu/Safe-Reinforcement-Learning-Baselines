@@ -33,7 +33,7 @@ The README is organized as follows:
 #### 1.1. Safe Single Agent RL benchmarks
 - [AI Safety Gridworlds](https://github.com/deepmind/ai-safety-gridworlds)
 - [Safety-Gym](https://github.com/openai/safety-gym)
-- [Bullet-Safety-Gym](https://github.com/svengronauer/Bullet-Safety-Gym)
+
 #### 1.2. Safe Multi-Agent RL benchmarks
 - [Safe Multi-Agent Mujoco](https://github.com/chauncygu/Safe-Multi-Agent-Mujoco)
 - [Safe Multi-Agent Isaac Gym](https://github.com/chauncygu/Safe-Multi-Agent-Isaac-Gym)
