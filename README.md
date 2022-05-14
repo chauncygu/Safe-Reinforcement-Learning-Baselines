@@ -173,6 +173,7 @@ The README is organized as follows:
 
 ### 4. Thesis
 - Safe reinforcement learning, [Thesis](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1527&context=dissertations_2) (PhD thesis, Philip S. Thomas, University of Massachusetts Amherst, 2015)
+- Safe Exploration in Reinforcement Learning: Theory and Applications in Robotics, [Thesis](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/370833/1/root.pdf) (PhD thesis, Felix Berkenkamp, ETH Zurich, 2019)
 
 ### 5. Book
 - Constrained Markov decision processes: stochastic modeling, [Book](https://www-sop.inria.fr/members/Eitan.Altman/PAPERS/h.pdf), (Eitan Altman, Routledge, 1999)
