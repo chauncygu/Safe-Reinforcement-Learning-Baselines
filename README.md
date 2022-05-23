@@ -173,6 +173,7 @@ The README is organized as follows:
 - Safe learning and optimization techniques: Towards a survey of the state of the art, [Paper](https://arxiv.org/pdf/2101.09505.pdf) (Accepted by In International Workshop on the Foundations of Trustworthy AI Integrating Learning, Optimization and Reasoning, 2020)
 - Safe learning in robotics: From learning-based control to safe reinforcement learning, [Paper](https://arxiv.org/pdf/2108.06266.pdf) (Accepted by Annual Review of Control, Robotics, and Autonomous Systems, 2021)
 - Policy learning with constraints in model-free reinforcement learning: A survey, [Paper](https://web.archive.org/web/20210812230501id_/https://www.ijcai.org/proceedings/2021/0614.pdf) (Accepted by IJCAI 2021)
+- A Review of Safe Reinforcement Learning: Methods, Theory and Applications, [Paper](https://arxiv.org/pdf/2205.10330.pdf) (Arxiv, 2022)
 
 ### 4. Thesis
 - Safe reinforcement learning, [Thesis](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1527&context=dissertations_2) (PhD thesis, Philip S. Thomas, University of Massachusetts Amherst, 2015)
@@ -182,5 +183,14 @@ The README is organized as follows:
 - Constrained Markov decision processes: stochastic modeling, [Book](https://www-sop.inria.fr/members/Eitan.Altman/PAPERS/h.pdf), (Eitan Altman, Routledge, 1999)
 
 
-
+## Publication
+If you find the repository useful, please cite the [paper](https://arxiv.org/abs/2205.10330):
+```
+@article{gu2022safe-review,
+  title={A Review of Safe Reinforcement Learning: Methods, Theory and Applications},
+  author={Shangding Gu, Long Yang, Yali Du, Guang Chen, Florian Walter, Jun Wang, Yaodong Yang, Alois Knoll},
+  journal={arXiv preprint arXiv:2205.10330},
+  year={2022}
+}
+```
 
