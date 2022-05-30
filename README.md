@@ -186,9 +186,9 @@ The README is organized as follows:
 ## Publication
 If you find the repository useful, please cite the [paper](https://arxiv.org/abs/2205.10330):
 ```
-@article{gu2022safe-review,
+@article{gu2022review,
   title={A Review of Safe Reinforcement Learning: Methods, Theory and Applications},
-  author={Shangding Gu, Long Yang, Yali Du, Guang Chen, Florian Walter, Jun Wang, Yaodong Yang, Alois Knoll},
+  author={Gu, Shangding and Yang, Long and Du, Yali and Chen, Guang and Walter, Florian and Wang, Jun and Yang, Yaodong and Knoll, Alois},
   journal={arXiv preprint arXiv:2205.10330},
   year={2022}
 }
