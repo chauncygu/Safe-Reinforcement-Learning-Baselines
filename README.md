@@ -152,6 +152,7 @@ The README is organized as follows:
 - A simple reward-free approach to constrained reinforcement learning, [Paper](https://www.cs.princeton.edu/~syoosefi/papers/reward-free2021.pdf),  Not Find Code (Arxiv, 2021)
 - State augmented constrained reinforcement learning: Overcoming the limitations of learning with rewards, [Paper](https://arxiv.org/pdf/2102.11941.pdf),  Not Find Code (Arxiv, 2021)
 - Safe reinforcement learning using robust action governor, [Paper](https://arxiv.org/pdf/2102.10643.pdf), Not Find Code (Accepted by In Learning for Dynamics and Control, 2022)
+- Robot Reinforcement Learning on the Constraint Manifold, [Paper](https://proceedings.mlr.press/v164/liu22c/liu22c.pdf), [Code](https://github.com/PuzeLiu/rl_on_manifold) (Accepted by CoRL 2022)
 - A primal-dual approach to constrained markov decision processes, [Paper](https://arxiv.org/pdf/2101.10895.pdf),  Not Find Code (Arxiv, 2022)
 - SAUTE RL: Almost Surely Safe Reinforcement Learning Using State Augmentation, [Paper](https://arxiv.org/pdf/2202.06558.pdf), Not Find Code (Arxiv, 2022)
 - Finding Safe Zones of policies Markov Decision Processes, [Paper](https://arxiv.org/pdf/2202.11593.pdf), Not Find Code (Arxiv, 2022)
