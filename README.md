@@ -153,6 +153,8 @@ The README is organized as follows:
 - A predictive safety filter for learning-based control of constrained nonlinear dynamical systems, [Paper](https://arxiv.org/pdf/1812.05506.pdf), Not Find Code (Accepted by Automatica, 2021)
 - A simple reward-free approach to constrained reinforcement learning, [Paper](https://www.cs.princeton.edu/~syoosefi/papers/reward-free2021.pdf),  Not Find Code (Arxiv, 2021)
 - State augmented constrained reinforcement learning: Overcoming the limitations of learning with rewards, [Paper](https://arxiv.org/pdf/2102.11941.pdf),  Not Find Code (Arxiv, 2021)
+- DESTA: A Framework for Safe Reinforcement Learning with Markov Games of Intervention, [Paper](https://arxiv.org/pdf/2110.14468.pdf),  Not Find Code (Arxiv, 2021)
+- Stability-Constrained Markov Decision Processes Using MPC, [Paper](https://arxiv.org/pdf/2102.01383.pdf), Not Find Code (Accepted by Automatica, 2022)
 - Safe reinforcement learning using robust action governor, [Paper](https://arxiv.org/pdf/2102.10643.pdf), Not Find Code (Accepted by In Learning for Dynamics and Control, 2022)
 - A primal-dual approach to constrained markov decision processes, [Paper](https://arxiv.org/pdf/2101.10895.pdf),  Not Find Code (Arxiv, 2022)
 - SAUTE RL: Almost Surely Safe Reinforcement Learning Using State Augmentation, [Paper](https://arxiv.org/pdf/2202.06558.pdf), Not Find Code (Arxiv, 2022)
