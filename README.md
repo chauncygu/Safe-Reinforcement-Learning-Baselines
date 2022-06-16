@@ -161,7 +161,7 @@ The README is organized as follows:
 - Finding Safe Zones of policies Markov Decision Processes, [Paper](https://arxiv.org/pdf/2202.11593.pdf), Not Find Code (Arxiv, 2022)
 - CUP: A Conservative Update Policy Algorithm for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2202.07565.pdf), [Code](https://github.com/RL-boxes/Safe-RL) (Arxiv, 2022)
 - SAFER: Data-Efficient and Safe Reinforcement Learning via Skill Acquisition, [Paper](https://arxiv.org/pdf/2202.04849.pdf), Not Find Code (Arxiv, 2022)
-- Constrained Variational Policy Optimization for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2201.11927.pdf), Not Find Code (Arxiv, 2022)
+- Constrained Variational Policy Optimization for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2201.11927.pdf), [Code](https://github.com/liuzuxin/cvpo-safe-rl) (ICML 2022)
 - Penalized Proximal Policy Optimization for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2205.11814.pdf), Not Find Code (Arxiv, 2022)
 - Mean-Semivariance Policy Optimization via Risk-Averse Reinforcement Learning, [Paper](https://arxiv.org/pdf/2206.07376.pdf), Not Find Code (Arxiv, 2022)
 - Convergence and sample complexity of natural policy gradient primal-dual methods for constrained MDPs, [Paper](https://arxiv.org/pdf/2206.02346.pdf), Not Find Code (Arxiv, 2022)
