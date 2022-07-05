@@ -166,6 +166,10 @@ The README is organized as follows:
 - Mean-Semivariance Policy Optimization via Risk-Averse Reinforcement Learning, [Paper](https://arxiv.org/pdf/2206.07376.pdf), Not Find Code (Arxiv, 2022)
 - Convergence and sample complexity of natural policy gradient primal-dual methods for constrained MDPs, [Paper](https://arxiv.org/pdf/2206.02346.pdf), Not Find Code (Arxiv, 2022)
 - Guided Safe Shooting: model based reinforcement learning with safety constraints, [Paper](https://arxiv.org/pdf/2206.09743.pdf), Not Find Code (Arxiv, 2022)
+- Safe Reinforcement Learning via Confidence-Based Filters, [Paper](https://arxiv.org/pdf/2207.01337.pdf), Not Find Code (Arxiv, 2022)
+
+
+
 
 
 
