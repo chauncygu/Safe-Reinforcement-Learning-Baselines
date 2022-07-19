@@ -139,6 +139,7 @@ The README is organized as follows:
 - Exponential Bellman Equation and Improved Regret Bounds for Risk-Sensitive Reinforcement Learning, [Paper](https://arxiv.org/pdf/2111.03947.pdf),  Not Find Code (Accepted by NeurIPS 2021)
 - Risk-Sensitive Reinforcement Learning: Symmetry, Asymmetry, and Risk-Sample Tradeoff, [Paper](https://arxiv.org/pdf/2111.03947.pdf),  Not Find Code (Accepted by NeurIPS 2021)
 - Safe reinforcement learning with natural language constraints, [Paper](https://proceedings.neurips.cc/paper/2021/file/72f67e70f6b7cdc4cc893edaddf0c4c6-Paper.pdf), [Code](https://github.com/princeton-nlp/SRL-NLC), (Accepted by NeurIPS 2021)
+- Learning policies with zero or bounded constraint violation for constrained mdps, [Paper](https://arxiv.org/pdf/2106.02684.pdf),  Not Find Code (Accepted by NeurIPS 2021)
 -  Conservative safety critics for exploration, [Paper](https://arxiv.org/pdf/2010.14497.pdf), Not Find Code (Accepted by ICLR 2021)
 -  Wcsac: Worst-case soft actor critic for safety-constrained reinforcement learning, [Paper](https://www.st.ewi.tudelft.nl/mtjspaan/pub/Yang21aaai.pdf), Not Find Code (Accepted by AAAI 2021)
 -  Risk-averse trust region optimization for reward-volatility reduction, [Paper](https://arxiv.org/pdf/1912.03193.pdf), Not Find Code (Accepted by IJCAI 2021)
