@@ -173,7 +173,8 @@ The README is organized as follows:
 - Convergence and sample complexity of natural policy gradient primal-dual methods for constrained MDPs, [Paper](https://arxiv.org/pdf/2206.02346.pdf), Not Find Code (Arxiv, 2022)
 - Guided Safe Shooting: model based reinforcement learning with safety constraints, [Paper](https://arxiv.org/pdf/2206.09743.pdf), Not Find Code (Arxiv, 2022)
 - Safe Reinforcement Learning via Confidence-Based Filters, [Paper](https://arxiv.org/pdf/2207.01337.pdf), Not Find Code (Arxiv, 2022)
-
+- TRC: Trust Region Conditional Value at Risk for Safe Reinforcement Learning, [Paper](https://ieeexplore.ieee.org/document/9677982), [Code](https://github.com/rllab-snu/Trust-Region-CVaR) (Accepted by IEEE RAL, 2022)
+- Efficient Off-Policy Safe Reinforcement Learning Using Trust Region Conditional Value at Risk, [Paper](https://ieeexplore.ieee.org/document/9802647), Not Find Code (Accepted by IEEE RAL, 2022)
 
 
 
