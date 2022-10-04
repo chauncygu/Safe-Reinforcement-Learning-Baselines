@@ -178,6 +178,7 @@ The README is organized as follows:
 - Enhancing Safe Exploration Using Safety State Augmentation, [Paper](https://arxiv.org/pdf/2206.02675), Not Find Code (Arxiv, 2022)
 - Towards Safe Reinforcement Learning via Constraining Conditional Value-at-Risk, [Paper](https://arxiv.org/pdf/2206.04436.pdf), Not Find Code (Accepted by IJCAI 2022)
 - Safe reinforcement learning of dynamic high-dimensional robotic tasks: navigation, manipulation, interaction, [Paper](https://arxiv.org/pdf/2209.13308.pdf), Not Find Code (Arxiv, 2022)
+- Safe Exploration Method for Reinforcement Learning under Existence of Disturbance, [Paper](https://arxiv.org/pdf/2209.15452.pdf), Not Find Code (Arxiv, 2022)
 - Guiding Safe Exploration with Weakest Preconditions, [Paper](https://arxiv.org/pdf/2209.14148.pdf), [Code](https://github.com/gavlegoat/spice) (Arxiv, 2022)
 
 
