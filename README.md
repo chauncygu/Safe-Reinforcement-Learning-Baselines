@@ -176,6 +176,7 @@ The README is organized as follows:
 - TRC: Trust Region Conditional Value at Risk for Safe Reinforcement Learning, [Paper](https://ieeexplore.ieee.org/document/9677982), [Code](https://github.com/rllab-snu/Trust-Region-CVaR) (Accepted by IEEE RAL, 2022)
 - Efficient Off-Policy Safe Reinforcement Learning Using Trust Region Conditional Value at Risk, [Paper](https://ieeexplore.ieee.org/document/9802647), Not Find Code (Accepted by IEEE RAL, 2022)
 - Enhancing Safe Exploration Using Safety State Augmentation, [Paper](https://arxiv.org/pdf/2206.02675), Not Find Code (Arxiv, 2022)
+- Towards Safe Reinforcement Learning via Constraining Conditional Value-at-Risk, [Paper](https://arxiv.org/pdf/2206.04436.pdf), Not Find Code (IJCAI 2022)
 
 
 
