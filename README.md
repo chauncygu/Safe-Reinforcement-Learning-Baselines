@@ -177,6 +177,7 @@ The README is organized as follows:
 - Efficient Off-Policy Safe Reinforcement Learning Using Trust Region Conditional Value at Risk, [Paper](https://ieeexplore.ieee.org/document/9802647), Not Find Code (Accepted by IEEE RAL, 2022)
 - Enhancing Safe Exploration Using Safety State Augmentation, [Paper](https://arxiv.org/pdf/2206.02675), Not Find Code (Arxiv, 2022)
 - Towards Safe Reinforcement Learning via Constraining Conditional Value-at-Risk, [Paper](https://arxiv.org/pdf/2206.04436.pdf), Not Find Code (IJCAI 2022)
+- Safe reinforcement learning of dynamic high-dimensional robotic tasks: navigation, manipulation, interaction, [Paper](https://arxiv.org/pdf/2209.13308.pdf), Not Find Code (Arxiv, 2022)
 
 
 
