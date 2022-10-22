@@ -180,6 +180,7 @@ The README is organized as follows:
 - Safe reinforcement learning of dynamic high-dimensional robotic tasks: navigation, manipulation, interaction, [Paper](https://arxiv.org/pdf/2209.13308.pdf), Not Find Code (Arxiv, 2022)
 - Safe Exploration Method for Reinforcement Learning under Existence of Disturbance, [Paper](https://arxiv.org/pdf/2209.15452.pdf), Not Find Code (Arxiv, 2022)
 - Guiding Safe Exploration with Weakest Preconditions, [Paper](https://arxiv.org/pdf/2209.14148.pdf), [Code](https://github.com/gavlegoat/spice) (Arxiv, 2022)
+- Temporal logic guided safe model-based reinforcement learning: A hybrid systems approach, [Paper](https://www.sciencedirect.com/science/article/pii/S1751570X22000905), Not Find Code (Accepted by Nonlinear Analysis: Hybrid Systems, 2022)
 
 
 
