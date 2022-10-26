@@ -126,6 +126,7 @@ The README is organized as follows:
 - IPO: Interior-point Policy Optimization under Constraints, [Paper](https://www.researchgate.net/profile/Yongshuai-Liu/publication/336735393_IPO_Interior-point_Policy_Optimization_under_Constraints/links/5e1670874585159aa4bff037/IPO-Interior-point-Policy-Optimization-under-Constraints.pdf), Not Find Code (Accepted by AAAI 2020)
 - Safe reinforcement learning using robust mpc, [Paper](https://arxiv.org/pdf/1906.04005.pdf), Not Find Code (IEEE Transactions on Automatic Control, 2020)
 - Safe reinforcement learning via projection on a safe set: How to achieve optimality?, [Paper](https://arxiv.org/pdf/2004.00915.pdf), Not Find Code (Accepted by IFAC 2020)
+- Reinforcement learning for safety-critical control under model uncertainty, using control lyapunov functions and control barrier functions, [Paper](http://www.roboticsproceedings.org/rss16/p088.pdf), Not Find Code (Accepted by RSS 2020)
 - Learning Transferable Domain Priors for Safe Exploration in Reinforcement Learning, [Paper](https://arxiv.org/pdf/1909.04307.pdf), [Code](https://github.com/GKthom/Priors-for-safe-exploration), (Accepted by International Joint Conference on Neural Networks (IJCNN) 2020)
 - Safe reinforcement learning through meta-learned instincts, [Paper](https://arxiv.org/pdf/2005.03233.pdf), Not Find Code (Accepted by The Conference on Artificial Life 2020)
 - Learning safe policies with cost-sensitive advantage estimation, [Paper](https://openreview.net/pdf?id=uVnhiRaW3J), Not Find Code (Openreview 2020)
