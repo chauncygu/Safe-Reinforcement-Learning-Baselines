@@ -162,6 +162,7 @@ The README is organized as follows:
 - A simple reward-free approach to constrained reinforcement learning, [Paper](https://www.cs.princeton.edu/~syoosefi/papers/reward-free2021.pdf),  Not Find Code (Arxiv, 2021)
 - State augmented constrained reinforcement learning: Overcoming the limitations of learning with rewards, [Paper](https://arxiv.org/pdf/2102.11941.pdf),  Not Find Code (Arxiv, 2021)
 - DESTA: A Framework for Safe Reinforcement Learning with Markov Games of Intervention, [Paper](https://arxiv.org/pdf/2110.14468.pdf),  Not Find Code (Arxiv, 2021)
+- Safe Exploration in Model-based Reinforcement Learning using Control Barrier Functions, [Paper](https://arxiv.org/pdf/2104.08171.pdf), Not Find Code (Arxiv, 2021)
 - Constrained Variational Policy Optimization for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2201.11927.pdf), [Code](https://github.com/liuzuxin/cvpo-safe-rl) (ICML 2022)
 - Stability-Constrained Markov Decision Processes Using MPC, [Paper](https://arxiv.org/pdf/2102.01383.pdf), Not Find Code (Accepted by Automatica, 2022)
 - Safe reinforcement learning using robust action governor, [Paper](https://arxiv.org/pdf/2102.10643.pdf), Not Find Code (Accepted by In Learning for Dynamics and Control, 2022)
