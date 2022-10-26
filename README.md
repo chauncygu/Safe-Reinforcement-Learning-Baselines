@@ -105,6 +105,7 @@ The README is organized as follows:
 - Reinforcement learning with convex constraints, [Paper](https://www.cs.princeton.edu/~syoosefi/papers/NeurIPS2019.pdf), [Code](https://github.com/xkianteb/ApproPO) (Accepted by NeurIPS 2019)
 - Reward constrained policy optimization, [Paper](https://arxiv.org/pdf/1805.11074.pdf), Not Find Code (Accepted by ICLR 2019)
 - Supervised policy update for deep reinforcement learning, [Paper](https://arxiv.org/pdf/1805.11706.pdf), [Code](https://github.com/quanvuong/Supervised_Policy_Update), (Accepted by ICLR 2019)
+- End-to-end safe reinforcement learning through barrier functions for safety-critical continuous control tasks, [Paper](https://arxiv.org/pdf/1903.08792.pdf), [Code](https://github.com/rcheng805/RL-CBF) (Accepted by AAAI 2019)
 - Lyapunov-based safe policy optimization for continuous control, [Paper](https://openreview.net/pdf?id=SJgUYBVLsN), Not Find Code (Accepted by ICML Workshop RL4RealLife 2019)
 - Safe reinforcement learning with model uncertainty estimates, [Paper](https://arxiv.org/pdf/1810.08700.pdf), Not Find Code (Accepted by ICRA 2019)
 - Safe reinforcement learning with scene decomposition for navigating complex urban environments, [Paper](https://arxiv.org/pdf/1904.11483.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/AutomotiveSafeRL), (Accepted by IV 2019)
