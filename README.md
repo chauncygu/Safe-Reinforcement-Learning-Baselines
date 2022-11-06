@@ -189,6 +189,7 @@ The README is organized as follows:
 - Safe Model-Based Reinforcement Learning with an Uncertainty-Aware Reachability Certificate, [Paper](https://arxiv.org/pdf/2210.07553.pdf), Not Find Code (Arxiv, 2022)
 - UNIFY: a Unified Policy Designing Framework for Solving Constrained Optimization Problems with Machine Learning, [Paper](https://arxiv.org/pdf/2210.14030.pdf), Not Find Code (Arxiv, 2022)
 - Enforcing Hard Constraints with Soft Barriers: Safe Reinforcement Learning in Unknown Stochastic Environments, [Paper](https://arxiv.org/pdf/2209.15090.pdf),  Not Find Code (Arxiv, 2022)
+- Safe Reinforcement Learning Using Robust Control Barrier Functions, [Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9928337), Not Find Code (Accepted by IEEE RAL)
 
 
 
