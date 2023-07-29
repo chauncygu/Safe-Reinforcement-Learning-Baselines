@@ -22,8 +22,10 @@ The README is organized as follows:
   * [2.1. Safe Single Agent RL Baselines](#21-safe-single-agent-rl-baselines)
   * [2.2. Safe Multi-Agent RL Baselines](#22-safe-multi-agent-rl-baselines)
 - [3. Surveys](#3-surveys)
-- [4. Thesis](#4-thesis)
+- [4. Theses](#4-theses)
 - [5. Book](#5-book)
+- [6. Tutorials](#6-tutorials)
+- [7. Exercise](#7-exercise)
 
 ***
 
@@ -216,15 +218,14 @@ The README is organized as follows:
 - A Review of Safe Reinforcement Learning: Methods, Theory and Applications, [Paper](https://arxiv.org/pdf/2205.10330.pdf) (Arxiv, 2022)
 - State-wise Safe Reinforcement Learning: A Survey, [Paper](https://arxiv.org/pdf/2302.03122.pdf) (Arxiv, 2023)
 
-### 4. Thesis
+### 4. Theses
 - Safe reinforcement learning, [Thesis](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1527&context=dissertations_2) (PhD thesis, Philip S. Thomas, University of Massachusetts Amherst, 2015)
 - Safe Exploration in Reinforcement Learning: Theory and Applications in Robotics, [Thesis](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/370833/1/root.pdf) (PhD thesis, Felix Berkenkamp, ETH Zurich, 2019)
 
 ### 5. Book
 - Constrained Markov decision processes: stochastic modeling, [Book](https://www-sop.inria.fr/members/Eitan.Altman/PAPERS/h.pdf), (Eitan Altman, Routledge, 1999)
-- 
 
-### 6. Tutorial
+### 6. Tutorials
 - Safe Reinforcement Learning, [tutorial](https://drive.google.com/file/d/1Hpu9HZbXkurTMWvj63m-aLYxay66E2Vz/view), (Felix Berkenkamp, 2023)
 - Primal-Dual Methods, [tutorial](https://drive.google.com/file/d/1_NRil0__6375nIqMT6jXw-PB6CkwvvDH/view), (Gergely Neu, 2023)
 - Reinforcement Learning for Robotics, [tutorial](https://drive.google.com/file/d/1T3LNYICE13nq6ERExCtQGou3P50zOpY_/view), (Gerhard Neumann, 2023)
