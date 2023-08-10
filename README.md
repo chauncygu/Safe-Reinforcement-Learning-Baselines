@@ -59,7 +59,7 @@ The README is organized as follows:
 - Constrained reinforcement learning from intrinsic and extrinsic rewards, [Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1059.1383&rep=rep1&type=pdf), Not Find Code, (Accepted by International Conference on Development and Learning 2007)
 - Safe exploration for reinforcement learning, [Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.161.2786&rep=rep1&type=pdf), Not Find Code, (Accepted by ESANN 2008)
 - Percentile optimization for Markov decision processes with parameter uncertainty, [Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.400.5048&rep=rep1&type=pdf), Not Find Code, (Accepted by Operations research, 2010)
-- Probabilistic goal Markov decision processes, [Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.208.4804&rep=rep1&type=pdf), Not Find Code, (Accepted by AAAI 2011)
+- Probabilistic goal Markov decision processes, [Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.208.4804&rep=rep1&type=pdf), Not Find Code, (Accepted by IJCAI 2011)
 - Safe reinforcement learning in high-risk tasks through policy improvement, [Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5967356), Not Find Code, (Accepted by IEEE Symposium on Adaptive Dynamic Programming and Reinforcement Learning (ADPRL) 2011) 
 - Safe Exploration in Markov Decision Processes, [Paper](https://arxiv.org/pdf/1205.4810.pdf), Not Find Code, (Accepted by ICML 2012)
 - Policy gradients with variance related risk criteria, [Paper](https://arxiv.org/pdf/1206.6404.pdf), Not Find Code, (Accepted by ICML 2012)
