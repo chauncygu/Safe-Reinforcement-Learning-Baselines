@@ -195,8 +195,9 @@ The README is organized as follows:
 - Safe Model-Based Reinforcement Learning with an Uncertainty-Aware Reachability Certificate, [Paper](https://arxiv.org/pdf/2210.07553.pdf), Not Find Code (Arxiv, 2022)
 - UNIFY: a Unified Policy Designing Framework for Solving Constrained Optimization Problems with Machine Learning, [Paper](https://arxiv.org/pdf/2210.14030.pdf), Not Find Code (Arxiv, 2022)
 - Enforcing Hard Constraints with Soft Barriers: Safe Reinforcement Learning in Unknown Stochastic Environments, [Paper](https://arxiv.org/pdf/2209.15090.pdf),  Not Find Code (Arxiv, 2022)
-- Safe Reinforcement Learning Using Robust Control Barrier Functions, [Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9928337), Not Find Code (Accepted by IEEE RAL)
-- Model-free Neural Lyapunov Control for Safe Robot Navigation, [Paper](https://arxiv.org/pdf/2203.01190.pdf), [Code](https://github.com/ZikangXiong/MFNLC), [Demo](https://sites.google.com/view/mf-nlc) (Accepted by IROS 2022)  
+- Safe Reinforcement Learning Using Robust Control Barrier Functions, [Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9928337), Not Find Code (Accepted by IEEE RAL, 2022)
+- Model-free Neural Lyapunov Control for Safe Robot Navigation, [Paper](https://arxiv.org/pdf/2203.01190.pdf), [Code](https://github.com/ZikangXiong/MFNLC), [Demo](https://sites.google.com/view/mf-nlc) (Accepted by IROS 2022)
+- Safe Reinforcement Learning via Probabilistic Logic Shields, [Paper](https://www.ijcai.org/proceedings/2023/0637.pdf), [Code](https://github.com/wenchiyang/pls) (Accepted by IJCAI 2023, Distinguished Paper Award)  
 
 
 
@@ -216,7 +217,7 @@ The README is organized as follows:
 - Safe learning in robotics: From learning-based control to safe reinforcement learning, [Paper](https://arxiv.org/pdf/2108.06266.pdf) (Accepted by Annual Review of Control, Robotics, and Autonomous Systems, 2021)
 - Policy learning with constraints in model-free reinforcement learning: A survey, [Paper](https://web.archive.org/web/20210812230501id_/https://www.ijcai.org/proceedings/2021/0614.pdf) (Accepted by IJCAI 2021)
 - A Review of Safe Reinforcement Learning: Methods, Theory and Applications, [Paper](https://arxiv.org/pdf/2205.10330.pdf) (Arxiv, 2022)
-- State-wise Safe Reinforcement Learning: A Survey, [Paper](https://arxiv.org/pdf/2302.03122.pdf) (Arxiv, 2023)
+- State-wise Safe Reinforcement Learning: A Survey, [Paper](https://arxiv.org/pdf/2302.03122.pdf) (Accepted by IJCAI 2023)
 
 ### 4. Theses
 - Safe reinforcement learning, [Thesis](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1527&context=dissertations_2) (PhD thesis, Philip S. Thomas, University of Massachusetts Amherst, 2015)
