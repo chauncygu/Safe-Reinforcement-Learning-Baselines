@@ -198,7 +198,8 @@ The README is organized as follows:
 - Enforcing Hard Constraints with Soft Barriers: Safe Reinforcement Learning in Unknown Stochastic Environments, [Paper](https://arxiv.org/pdf/2209.15090.pdf),  Not Find Code (Arxiv, 2022)
 - Safe Reinforcement Learning Using Robust Control Barrier Functions, [Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9928337), Not Find Code (Accepted by IEEE RAL, 2022)
 - Model-free Neural Lyapunov Control for Safe Robot Navigation, [Paper](https://arxiv.org/pdf/2203.01190.pdf), [Code](https://github.com/ZikangXiong/MFNLC), [Demo](https://sites.google.com/view/mf-nlc) (Accepted by IROS 2022)
-- Safe Reinforcement Learning via Probabilistic Logic Shields, [Paper](https://www.ijcai.org/proceedings/2023/0637.pdf), [Code](https://github.com/wenchiyang/pls) (Accepted by IJCAI 2023, Distinguished Paper Award)  
+- Safe Reinforcement Learning via Probabilistic Logic Shields, [Paper](https://www.ijcai.org/proceedings/2023/0637.pdf), [Code](https://github.com/wenchiyang/pls) (Accepted by IJCAI 2023, Distinguished Paper Award)
+- Towards robust and safe reinforcement learning with benign off-policy data, [Paper](https://proceedings.mlr.press/v202/liu23l/liu23l.pdf),  Not Find Code (Accepted by ICML 2023)
 
 
 
