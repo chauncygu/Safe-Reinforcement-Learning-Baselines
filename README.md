@@ -143,7 +143,8 @@ The README is organized as follows:
 - Shortest-path constrained reinforcement learning for sparse reward tasks, [Paper](https://arxiv.org/pdf/2107.06405.pdf), [Code](https://github.com/srsohn/shortest-path-rl), (Accepted by ICML 2021)
 - Density constrained reinforcement learning, [Paper](https://arxiv.org/pdf/2106.12764.pdf), Not Find Code (Accepted by ICML 2021)
 - CRPO: A New Approach for Safe Reinforcement Learning with Convergence Guarantee, [Paper](https://arxiv.org/pdf/2011.05869.pdf), Not Find Code (Accepted by ICML 2021)
-- Safe Reinforcement Learning by Imagining the Near Future (SMBPO), [Paper](https://proceedings.neurips.cc/paper/2021/file/73b277c11266681122132d024f53a75b-Paper.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/Safe-MBPO) (Accepted by NeurIPS 2021)
+- Safe Reinforcement Learning by Imagining the Near Future (SMBPO), [Paper](https://proceedings.neurips.cc/paper/2021/file/73b277c11266681122132d024f53a75b-Paper.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/Safe-MBPO) (Accepted by NeurIPS 2021)- 
+- Towards safe reinforcement learning with a safety editor policy, [Paper](https://arxiv.org/pdf/2201.12427.pdf), [Code](https://github.com/hnyu/seditor) (Accepted by NeurIPS 2021)
 - Exponential Bellman Equation and Improved Regret Bounds for Risk-Sensitive Reinforcement Learning, [Paper](https://arxiv.org/pdf/2111.03947.pdf),  Not Find Code (Accepted by NeurIPS 2021)
 - Risk-Sensitive Reinforcement Learning: Symmetry, Asymmetry, and Risk-Sample Tradeoff, [Paper](https://arxiv.org/pdf/2111.03947.pdf),  Not Find Code (Accepted by NeurIPS 2021)
 - Safe reinforcement learning with natural language constraints, [Paper](https://proceedings.neurips.cc/paper/2021/file/72f67e70f6b7cdc4cc893edaddf0c4c6-Paper.pdf), [Code](https://github.com/princeton-nlp/SRL-NLC), (Accepted by NeurIPS 2021)
