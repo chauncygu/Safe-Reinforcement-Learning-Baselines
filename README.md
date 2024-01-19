@@ -200,6 +200,7 @@ The README is organized as follows:
 - Model-free Neural Lyapunov Control for Safe Robot Navigation, [Paper](https://arxiv.org/pdf/2203.01190.pdf), [Code](https://github.com/ZikangXiong/MFNLC), [Demo](https://sites.google.com/view/mf-nlc) (Accepted by IROS 2022)
 - Safe Reinforcement Learning via Probabilistic Logic Shields, [Paper](https://www.ijcai.org/proceedings/2023/0637.pdf), [Code](https://github.com/wenchiyang/pls) (Accepted by IJCAI 2023, Distinguished Paper Award)
 - Towards robust and safe reinforcement learning with benign off-policy data, [Paper](https://proceedings.mlr.press/v202/liu23l/liu23l.pdf),  Not Find Code (Accepted by ICML 2023)
+- Enforcing hard constraints with soft barriers: Safe reinforcement learning in unknown stochastic environments, [Paper](https://proceedings.mlr.press/v202/wang23as/wang23as.pdf),  Not Find Code (Accepted by ICML 2023)
 
 
 
