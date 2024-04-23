@@ -207,8 +207,8 @@ The README is organized as follows:
 
 
 #### 2.2. Safe Multi-Agent RL Baselines
-- Multi-Agent Constrained Policy Optimisation (MACPO), [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation) (Arxiv, 2021)
-- MAPPO-Lagrangian, [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-MARL/Multi-Agent-Constrained-Policy-Optimisation)  (Arxiv, 2021)
+- Multi-Agent Constrained Policy Optimisation (MACPO), [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Multi-Agent-Constrained-Policy-Optimisation) (Arxiv, 2021)
+- MAPPO-Lagrangian, [Paper](https://arxiv.org/pdf/2110.02793.pdf), [Code](https://github.com/chauncygu/Multi-Agent-Constrained-Policy-Optimisation)  (Arxiv, 2021)
 - Decentralized policy gradient descent ascent for safe multi-agent reinforcement learning, [Paper](https://chentianyi1991.github.io/aaai.pdf), Not Find Code (Accepted by AAAI 2021)
 - Safe multi-agent reinforcement learning via shielding, [Paper](https://arxiv.org/pdf/2101.11196.pdf), Not Find Code (Accepted by AAMAS 2021)
 - CMIX: Deep Multi-agent Reinforcement Learning with Peak and Average Constraints, [Paper](https://2021.ecmlpkdd.org/wp-content/uploads/2021/07/sub_181.pdf), Not Find Code (Accepted by Joint European Conference on Machine Learning and Knowledge Discovery in Databases 2021)
