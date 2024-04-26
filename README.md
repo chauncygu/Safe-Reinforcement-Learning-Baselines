@@ -95,6 +95,7 @@ The README is organized as follows:
 - Learning-based Model Predictive Control for Safe Exploration and Reinforcement Learning, [Paper](https://arxiv.org/pdf/1906.12189.pdf), Not Find Code (Accepted by CDC 2018)
 - The Lyapunov Neural Network: Adaptive Stability Certification for Safe Learning of Dynamical Systems, [Paper](http://proceedings.mlr.press/v87/richards18a/richards18a.pdf), [Code](https://github.com/chauncygu/Safe-Reinforcement-Learning-Baseline/tree/main/Safe-RL/safe_learning) (Accepted by CoRL 2018)
 - OptLayer - Practical Constrained Optimization for Deep Reinforcement Learning in the Real World, [Paper](https://arxiv.org/pdf/1709.07643.pdf), Not Find Code (Accepted by ICRA 2018)
+- Safe learning of quadrotor dynamics using barrier certificates, [Paper](https://ieeexplore.ieee.org/iel7/8449910/8460178/08460471.pdf), Not Find Code (Accepted by ICRA 2018)
 - Safe reinforcement learning on autonomous vehicles, [Paper](https://arxiv.org/pdf/1910.00399.pdf), Not Find Code (Accepted by IROS 2018)
 - Trial without error: Towards safe reinforcement learning via human intervention, [Paper](https://arxiv.org/pdf/1707.05173.pdf), [Code](https://github.com/gsastry/human-rl) (Accepted by AAMAS 2018)
 - Safe reinforcement learning: Learning with supervision using a constraint-admissible set, [Paper](https://ieeexplore.ieee.org/abstract/document/8430770), Not Find Code (Accepted by Annual American Control Conference (ACC) 2018)
