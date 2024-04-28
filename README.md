@@ -207,6 +207,7 @@ The README is organized as follows:
 - Enforcing hard constraints with soft barriers: Safe reinforcement learning in unknown stochastic environments, [Paper](https://proceedings.mlr.press/v202/wang23as/wang23as.pdf),  Not Find Code (Accepted by ICML 2023)
 - Provably safe reinforcement learning with step-wise violation constraints, [Paper](https://arxiv.org/pdf/2302.06064), Not Find Code (Accepted by NeurIPS 2024)
 - Balance Reward and Safety Optimization for Safe Reinforcement Learning: A Perspective of Gradient Manipulation, [Paper](https://ojs.aaai.org/index.php/AAAI/article/view/30102/31944), Not Find Code (Accepted by AAAI 2024)
+- Safe Reinforcement Learning with Free-form Natural Language Constraints and Pre-Trained Language Models, [Paper](https://arxiv.org/pdf/2401.07553v1), Not Find Code (Accepted by AAMAS 2024)
 
 
 
