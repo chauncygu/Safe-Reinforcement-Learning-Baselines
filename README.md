@@ -130,6 +130,7 @@ The README is organized as follows:
 - Safe reinforcement learning via curriculum induction, [Paper](https://proceedings.neurips.cc/paper/2020/file/8df6a65941e4c9da40a4fb899de65c55-Paper.pdf), [Code](https://github.com/zuzuba/CISR_NeurIPS20) (Accepted by NeurIPS 2020)
 - Constrained episodic reinforcement learning in concave-convex and knapsack settings, [Paper](https://arxiv.org/pdf/2006.05051.pdf), [Code](https://github.com/miryoosefi/ConRL) (Accepted by NeurIPS 2020)
 - Risk-sensitive reinforcement learning: Near-optimal risk-sample tradeoff in regret, [Paper](https://arxiv.org/pdf/2006.13827.pdf), Not Find Code  (Accepted by NeurIPS 2020)
+- Upper confidence primal-dual reinforcement learning for CMDP with adversarial loss, [Paper](https://proceedings.neurips.cc/paper_files/paper/2020/file/ae95296e27d7f695f891cd26b4f37078-Paper.pdf), Not Find Code  (Accepted by NeurIPS 2020)
 - IPO: Interior-point Policy Optimization under Constraints, [Paper](https://www.researchgate.net/profile/Yongshuai-Liu/publication/336735393_IPO_Interior-point_Policy_Optimization_under_Constraints/links/5e1670874585159aa4bff037/IPO-Interior-point-Policy-Optimization-under-Constraints.pdf), Not Find Code (Accepted by AAAI 2020)
 - Safe reinforcement learning using robust mpc, [Paper](https://arxiv.org/pdf/1906.04005.pdf), Not Find Code (IEEE Transactions on Automatic Control, 2020)
 - Safe reinforcement learning via projection on a safe set: How to achieve optimality? [Paper](https://arxiv.org/pdf/2004.00915.pdf), Not Find Code (Accepted by IFAC 2020)
