@@ -209,6 +209,7 @@ The README is organized as follows:
 - Towards robust and safe reinforcement learning with benign off-policy data, [Paper](https://proceedings.mlr.press/v202/liu23l/liu23l.pdf),  Not Find Code (Accepted by ICML 2023)
 - Enforcing hard constraints with soft barriers: Safe reinforcement learning in unknown stochastic environments, [Paper](https://proceedings.mlr.press/v202/wang23as/wang23as.pdf),  Not Find Code (Accepted by ICML 2023)
 - Safe Exploration Incurs Nearly No Additional Sample Complexity for Reward-free RL, [Paper](https://arxiv.org/pdf/2206.14057),  Not Find Code (Accepted by ICLR 2023)
+- A CMDP-within-online framework for Meta-Safe Reinforcement Learning, [Paper](https://openreview.net/pdf?id=mbxz9Cjehr),  Not Find Code (Accepted by ICLR 2023)
 - Provably safe reinforcement learning with step-wise violation constraints, [Paper](https://arxiv.org/pdf/2302.06064), Not Find Code (Accepted by NeurIPS 2024)
 - Balance Reward and Safety Optimization for Safe Reinforcement Learning: A Perspective of Gradient Manipulation, [Paper](https://ojs.aaai.org/index.php/AAAI/article/view/30102/31944), Not Find Code (Accepted by AAAI 2024)
 - Safe Reinforcement Learning with Free-form Natural Language Constraints and Pre-Trained Language Models, [Paper](https://arxiv.org/pdf/2401.07553v1), Not Find Code (Accepted by AAMAS 2024)
