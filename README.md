@@ -219,7 +219,10 @@ The README is organized as follows:
 - Decentralized policy gradient descent ascent for safe multi-agent reinforcement learning, [Paper](https://chentianyi1991.github.io/aaai.pdf), Not Find Code (Accepted by AAAI 2021)
 - Safe multi-agent reinforcement learning via shielding, [Paper](https://arxiv.org/pdf/2101.11196.pdf), Not Find Code (Accepted by AAMAS 2021)
 - CMIX: Deep Multi-agent Reinforcement Learning with Peak and Average Constraints, [Paper](https://2021.ecmlpkdd.org/wp-content/uploads/2021/07/sub_181.pdf), Not Find Code (Accepted by Joint European Conference on Machine Learning and Knowledge Discovery in Databases 2021)
-- Safe multi-agent reinforcement learning through decentralized multiple control barrier functions, [Paper](https://arxiv.org/pdf/2103.12553.pdf), , Not Find Code (Arxiv 2021)
+- Safe multi-agent reinforcement learning through decentralized multiple control barrier functions, [Paper](https://arxiv.org/pdf/2103.12553.pdf), Not Find Code (Arxiv 2021)
+- CAMA: A New Framework for Safe Multi-Agent Reinforcement Learning Using Constraint Augmentation, [Paper](https://openreview.net/pdf?id=jK02XX9ZpJkt), Not Find Code (Openreview 2022)
+- Shield decentralization for safe multi-agent reinforcement learning, [Paper](https://proceedings.neurips.cc/paper_files/paper/2022/file/57444e14ecd9e2c8f603b4f012ce3811-Paper-Conference.pdf), Not Find Code (NeurIPS 2022)
+- Scalable primal-dual actor-critic method for safe multi-agent rl with general utilities, [Paper](https://proceedings.neurips.cc/paper_files/paper/2023/file/72a1ec14aed36985ffba175e0bba3fec-Paper-Conference.pdf), Not Find Code (NeurIPS 2024)
 
 ### 3. Surveys
 - A comprehensive survey on safe reinforcement learning, [Paper](https://www.jmlr.org/papers/volume16/garcia15a/garcia15a.pdf) (Accepted by Journal of Machine Learning Research, 2015)
