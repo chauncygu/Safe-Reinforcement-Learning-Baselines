@@ -173,6 +173,7 @@ The README is organized as follows:
 - DESTA: A Framework for Safe Reinforcement Learning with Markov Games of Intervention, [Paper](https://arxiv.org/pdf/2110.14468.pdf),  Not Find Code (Arxiv, 2021)
 - Safe Exploration in Model-based Reinforcement Learning using Control Barrier Functions, [Paper](https://arxiv.org/pdf/2104.08171.pdf), Not Find Code (Arxiv, 2021)
 - Constrained Variational Policy Optimization for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2201.11927.pdf), [Code](https://github.com/liuzuxin/cvpo-safe-rl) (ICML 2022)
+- Provably efficient model-free constrained rl with linear function approximation, [Paper](https://arxiv.org/pdf/2206.11889), Not Find Code (NeurIPS 2022)
 - Stability-Constrained Markov Decision Processes Using MPC, [Paper](https://arxiv.org/pdf/2102.01383.pdf), Not Find Code (Accepted by Automatica, 2022)
 - Constrained Reinforcement Learning for Vehicle Motion Planning with Topological Reachability Analysis, [Paper](https://www.mdpi.com/2218-6581/11/4/81/pdf), Not Find Code (Accepted by Robotics, 2022)
 - Safe reinforcement learning using robust action governor, [Paper](https://arxiv.org/pdf/2102.10643.pdf), Not Find Code (Accepted by In Learning for Dynamics and Control, 2022)
@@ -204,6 +205,8 @@ The README is organized as follows:
 - Safe Reinforcement Learning via Probabilistic Logic Shields, [Paper](https://www.ijcai.org/proceedings/2023/0637.pdf), [Code](https://github.com/wenchiyang/pls) (Accepted by IJCAI 2023, Distinguished Paper Award)
 - Towards robust and safe reinforcement learning with benign off-policy data, [Paper](https://proceedings.mlr.press/v202/liu23l/liu23l.pdf),  Not Find Code (Accepted by ICML 2023)
 - Enforcing hard constraints with soft barriers: Safe reinforcement learning in unknown stochastic environments, [Paper](https://proceedings.mlr.press/v202/wang23as/wang23as.pdf),  Not Find Code (Accepted by ICML 2023)
+- Provably safe reinforcement learning with step-wise violation constraints, [Paper](https://arxiv.org/pdf/2302.06064), Not Find Code (Accepted by NeurIPS 2024)
+- Balance Reward and Safety Optimization for Safe Reinforcement Learning: A Perspective of Gradient Manipulation, [Paper](https://ojs.aaai.org/index.php/AAAI/article/view/30102/31944), Not Find Code (Accepted by AAAI 2024)
 
 
 
