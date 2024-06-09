@@ -247,7 +247,6 @@ The README is organized as follows:
 ### 6. Tutorials
 - Safe Reinforcement Learning, [tutorial](https://drive.google.com/file/d/1Hpu9HZbXkurTMWvj63m-aLYxay66E2Vz/view), (Felix Berkenkamp, 2023)
 - Primal-Dual Methods, [tutorial](https://drive.google.com/file/d/1_NRil0__6375nIqMT6jXw-PB6CkwvvDH/view), (Gergely Neu, 2023)
-- Reinforcement Learning for Robotics, [tutorial](https://drive.google.com/file/d/1T3LNYICE13nq6ERExCtQGou3P50zOpY_/view), (Gerhard Neumann, 2023)
 
 ### 7. Exercise
 - Primal-Dual Reinforcement Learning, [exercise code](https://github.com/tyrion/primal-dual-exercise) and [exercise Colab](https://colab.research.google.com/github/tyrion/primal-dual-exercise/blob/master/Primal_Dual_Colab.ipynb), (Germano Gabbianelli, 2023)
