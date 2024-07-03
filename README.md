@@ -213,6 +213,9 @@ The README is organized as follows:
 - Provably safe reinforcement learning with step-wise violation constraints, [Paper](https://arxiv.org/pdf/2302.06064), Not Find Code (Accepted by NeurIPS 2024)
 - Balance Reward and Safety Optimization for Safe Reinforcement Learning: A Perspective of Gradient Manipulation, [Paper](https://ojs.aaai.org/index.php/AAAI/article/view/30102/31944), Not Find Code (Accepted by AAAI 2024)
 - Safe Reinforcement Learning with Free-form Natural Language Constraints and Pre-Trained Language Models, [Paper](https://arxiv.org/pdf/2401.07553v1), Not Find Code (Accepted by AAMAS 2024)
+- Enhancing Efficiency of Safe Reinforcement Learning via Sample Manipulation, [Paper](https://arxiv.org/pdf/2405.20860), Not Find Code (Arxiv, 2024)
+- Safe and Balanced: A Framework for Constrained Multi-Objective Reinforcement Learning, [Paper](https://arxiv.org/pdf/2405.16390), Not Find Code (Arxiv, 2024)
+- Confident Natural Policy Gradient for Local Planning in qπ-realizable Constrained MDPs, [Paper](https://arxiv.org/pdf/2406.18529), Not Find Code (Arxiv, 2024)
 
 
 
