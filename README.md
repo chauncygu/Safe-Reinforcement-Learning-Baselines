@@ -176,7 +176,7 @@ The README is organized as follows:
 - Safe Exploration in Model-based Reinforcement Learning using Control Barrier Functions, [Paper](https://arxiv.org/pdf/2104.08171.pdf), Not Find Code (Arxiv, 2021)
 - Constrained Variational Policy Optimization for Safe Reinforcement Learning, [Paper](https://arxiv.org/pdf/2201.11927.pdf), [Code](https://github.com/liuzuxin/cvpo-safe-rl) (ICML 2022)
 - Provably efficient model-free constrained rl with linear function approximation, [Paper](https://arxiv.org/pdf/2206.11889), Not Find Code (NeurIPS 2022)
-- Constrained Policy Optimization via Bayesian World Models, [Paper](https://arxiv.org/pdf/2201.09802), [Code](https://github.com/yardenas/la-mbda)
+- Constrained Policy Optimization via Bayesian World Models, [Paper](https://arxiv.org/pdf/2201.09802), [Code](https://github.com/yardenas/la-mbda) (ICLR 2022)
 - Stability-Constrained Markov Decision Processes Using MPC, [Paper](https://arxiv.org/pdf/2102.01383.pdf), Not Find Code (Accepted by Automatica, 2022)
 - Constrained Reinforcement Learning for Vehicle Motion Planning with Topological Reachability Analysis, [Paper](https://www.mdpi.com/2218-6581/11/4/81/pdf), Not Find Code (Accepted by Robotics, 2022)
 - Triple-Q: A Model-Free Algorithm for Constrained Reinforcement Learning with Sublinear Regret and Zero Constraint Violation, [Paper](https://proceedings.mlr.press/v151/wei22a/wei22a.pdf), [Code](https://github.com/honghaow/Triple-q) (Accepted by AISTATS 2022)
@@ -211,14 +211,14 @@ The README is organized as follows:
 - Enforcing hard constraints with soft barriers: Safe reinforcement learning in unknown stochastic environments, [Paper](https://proceedings.mlr.press/v202/wang23as/wang23as.pdf),  Not Find Code (Accepted by ICML 2023)
 - Safe Exploration Incurs Nearly No Additional Sample Complexity for Reward-free RL, [Paper](https://arxiv.org/pdf/2206.14057),  Not Find Code (Accepted by ICLR 2023)
 - A CMDP-within-online framework for Meta-Safe Reinforcement Learning, [Paper](https://openreview.net/pdf?id=mbxz9Cjehr),  Not Find Code (Accepted by ICLR 2023)
-- Log Barriers for Safe Black-box Optimization with Application to Safe Reinforcement Learning, [Paper](https://www.jmlr.org/papers/volume25/22-0878/22-0878.pdf), [Code](https://github.com/Ilnura/LB_SGD)
+- Log Barriers for Safe Black-box Optimization with Application to Safe Reinforcement Learning, [Paper](https://www.jmlr.org/papers/volume25/22-0878/22-0878.pdf), [Code](https://github.com/Ilnura/LB_SGD) (JMLR, 2024)
 - Provably safe reinforcement learning with step-wise violation constraints, [Paper](https://arxiv.org/pdf/2302.06064), Not Find Code (Accepted by NeurIPS 2024)
 - Balance Reward and Safety Optimization for Safe Reinforcement Learning: A Perspective of Gradient Manipulation, [Paper](https://ojs.aaai.org/index.php/AAAI/article/view/30102/31944), Not Find Code (Accepted by AAAI 2024)
 - Safe Reinforcement Learning with Free-form Natural Language Constraints and Pre-Trained Language Models, [Paper](https://arxiv.org/pdf/2401.07553v1), Not Find Code (Accepted by AAMAS 2024)
 - Enhancing Efficiency of Safe Reinforcement Learning via Sample Manipulation, [Paper](https://arxiv.org/pdf/2405.20860), Not Find Code (Arxiv, 2024)
 - Safe and Balanced: A Framework for Constrained Multi-Objective Reinforcement Learning, [Paper](https://arxiv.org/pdf/2405.16390), Not Find Code (Arxiv, 2024)
 - Confident Natural Policy Gradient for Local Planning in qπ-realizable Constrained MDPs, [Paper](https://arxiv.org/pdf/2406.18529), Not Find Code (Arxiv, 2024)
-- Safe Exploration Using Bayesian World Models and Log-Barrier Optimization, [Paper](https://arxiv.org/pdf/2405.05890), [Code](https://anonymous.4open.science/r/safe-opax-F5FF/README.md)
+- Safe Exploration Using Bayesian World Models and Log-Barrier Optimization, [Paper](https://arxiv.org/pdf/2405.05890), [Code](https://anonymous.4open.science/r/safe-opax-F5FF/README.md) (Arxiv, 2024)
 
 
 
