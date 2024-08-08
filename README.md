@@ -252,6 +252,7 @@ The README is organized as follows:
 - Constrained Markov decision processes: stochastic modeling, [Book](https://www-sop.inria.fr/members/Eitan.Altman/PAPERS/h.pdf), (Eitan Altman, Routledge, 1999)
 
 ### 6. Tutorials
+- Safe Reinforcement Learning: Bridging Theory and Practice, [tutorial](https://docs.google.com/presentation/d/1slZyKj1G_XvtH8laWMClcQVMLbiQyqKW25cV9gY3ypE/edit?usp=sharing), (Ming Jin & Shangding Gu, 2024)
 - Safe Reinforcement Learning, [tutorial](https://drive.google.com/file/d/1Hpu9HZbXkurTMWvj63m-aLYxay66E2Vz/view), (Felix Berkenkamp, 2023)
 - Primal-Dual Methods, [tutorial](https://drive.google.com/file/d/1_NRil0__6375nIqMT6jXw-PB6CkwvvDH/view), (Gergely Neu, 2023)
 
