@@ -13,19 +13,23 @@ You are more than welcome to update this list! If you find a paper about Safe RL
 - or report an issue here;
 - or email <gshangd[AT]foxmail.com>.
 
+
+
 ***
 The README is organized as follows:
-- [1. Environments Supported](#1-environments-supported)
-  * [1.1. Safe Single Agent RL benchmarks](#11-safe-single-agent-rl-benchmarks)
-  * [1.2. Safe Multi-Agent RL benchmarks](#12-safe-multi-agent-rl-benchmarks)
-- [2. Safe RL Baselines](#2-safe-rl-baselines)
-  * [2.1. Safe Single Agent RL Baselines](#21-safe-single-agent-rl-baselines)
-  * [2.2. Safe Multi-Agent RL Baselines](#22-safe-multi-agent-rl-baselines)
-- [3. Surveys](#3-surveys)
-- [4. Theses](#4-theses)
-- [5. Book](#5-book)
-- [6. Tutorials](#6-tutorials)
-- [7. Exercise](#7-exercise)
+- [Safe-Reinforcement-Learning-Baselines](#safe-reinforcement-learning-baselines)
+  * [1. Environments Supported](#1-environments-supported)
+    + [1.1. Safe Single Agent RL benchmarks](#11-safe-single-agent-rl-benchmarks)
+    + [1.2. Safe Multi-Agent RL benchmarks](#12-safe-multi-agent-rl-benchmarks)
+  * [2. Safe RL Baselines](#2-safe-rl-baselines)
+    + [2.1. Safe Single Agent RL Baselines](#21-safe-single-agent-rl-baselines)
+    + [2.2. Safe Multi-Agent RL Baselines](#22-safe-multi-agent-rl-baselines)
+  * [3. Surveys](#3-surveys)
+  * [4. Theses](#4-theses)
+  * [5. Book](#5-book)
+  * [6. Tutorials](#6-tutorials)
+  * [7. Exercise](#7-exercise)
+- [Publication](#publication)
 
 ***
 
