@@ -269,7 +269,7 @@ If you find the repository useful, please cite the [paper](https://arxiv.org/abs
 ```
 @article{gu2022review,
   title={A Review of Safe Reinforcement Learning: Methods, Theory and Applications},
-  author={Gu, Shangding and Yang, Long and Du, Yali and Chen, Guang and Walter, Florian and Wang, Jun and Yang, Yaodong and Knoll, Alois},
+  author={Gu, Shangding and Yang, Long and Du, Yali and Chen, Guang and Walter, Florian and Wang, Jun and Knoll, Alois},
   journal={arXiv preprint arXiv:2205.10330},
   year={2022}
 }
