@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.5//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_5.dtd'>
+<nta>
+	<declaration>// STUB FUNCTIONS
+bool must_go_fast(double x, double t) {return false;}
+int get_value(double x, double t) {return 0;}
+    
+const int SINUS_X = 0, PARABOLA_X = 1;
+
+/* Config */
+
+const int selected_cost_function = SINUS_X;
+const bool shield_enabled = false;
+const bool layabout = false;
+const bool unlucky = false;
+
+/* Cost functions */
+
+const int SLOW = 0;
+const int FAST = 1;
+
+const double pi = 3.141592653589;
+
+double sinus_x(double x, double t, int action) {
+    double a, b;
+    if (action == FAST) {
+        a = 3;
+        b = 0;
+    } else {
+        a = 1;
+        b = pi;
+    }
+	return 1.5 + a + sin(b + x*pi*4)*1.5;
+}
+
+double parabola_x(double x, double t, int action) {
+    double a, b;
+    x = x - 0.5;
+    if (action == FAST) {
+        a = 5.0;
+        b = 0.7;
+    } else {
+        a = -4;
+        b = 1.0;
+    }
+    return a*x*x + b;
+}
+
+// Change the cost function here.
+double cost_function(double x, double t, int action) {
+    if (selected_cost_function == SINUS_X) {
+        return sinus_x(x, t, action);
+    } else if (selected_cost_function == PARABOLA_X) {
+        return parabola_x(x, t, action);
+    } else {
+        return 0;
+    }
+}
+
+/* Simulation-specific stuff */
+
+double x=0.0;
+double t=0.0;
+const double epsilon = 0.04;
+const double delta_fast = 0.17; 
+const double tau_fast = 0.05;
+const double delta_slow = 0.1;
+const double tau_slow = 0.12;
+
+double total_cost = 0.0;
+int steps = 0;
+
+void updateFast() {
+    if (unlucky) {
+        x = x + delta_fast - epsilon;
+        t = t + tau_fast + epsilon;
+    } else {
+        x = x + delta_fast - epsilon + random(2*epsilon);
+        t = t + tau_fast - epsilon + random(2*epsilon);
+    }
+    steps++;
+    total_cost = total_cost + cost_function(x, t, FAST);
+}
+
+
+void updateSlow() {
+    if (unlucky) {
+        x = x + delta_slow - epsilon; 
+        t = t + tau_slow + epsilon;
+    } else {
+        x = x + delta_slow - epsilon + random(2*epsilon); 
+        t = t + tau_slow - epsilon + random(2*epsilon);
+    }
+    steps++;
+    total_cost = total_cost + cost_function(x, t, SLOW);
+}
+
+/* Shielding */
+
+const int RED = 114;   // ASCII value small letter 'r'
+const int BLUE = 98;   // ... 'b' 
+const int WHITE = 119; // etc.
+
+int next_action = SLOW;
+
+int interventions = 0; // Total number of times the shield intervened
+int red_area_entered = 0; // Number of times where this was due to touching the red part
+
+// If the shield is enabled, returns the shielded action.
+// Otherwise, action is simply returned unaltered.
+// Counts how many times the shield differed from the proposed action.
+int shield(int action) {
+    if (!shield_enabled) {
+        return action;
+    } else {
+        int color = get_value(x, t);
+        if (action == FAST) {
+            return action;
+        } else if (color == RED) {
+            ++red_area_entered;
+            return action;
+        } else if (color == BLUE) {
+            ++interventions;
+            return FAST;
+        } else {
+            return action;
+        }
+    }
+}</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="-8" y="34">
+			<committed/>
+		</location>
+		<location id="id1" x="0" y="255">
+			<committed/>
+		</location>
+		<location id="id2" x="102" y="340">
+		</location>
+		<location id="id3" x="-8" y="-76">
+			<committed/>
+		</location>
+		<init ref="id0"/>
+		<transition id="id4">
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="guard" x="127" y="-102">!layabout</label>
+			<label kind="assignment" x="127" y="-85">next_action = shield(FAST)</label>
+			<nail x="110" y="-76"/>
+		</transition>
+		<transition id="id5">
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="assignment" x="-348" y="-85">next_action = shield(SLOW)</label>
+			<nail x="-127" y="-76"/>
+		</transition>
+		<transition id="id6" controllable="false">
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-59" y="348">t &gt; 1 || x &gt; 1</label>
+			<nail x="-68" y="340"/>
+		</transition>
+		<transition id="id7" controllable="false">
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-68" y="110">t &lt;= 1 &amp;&amp; x &lt;= 1</label>
+		</transition>
+		<transition id="id8" controllable="false">
+			<source ref="id3"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-348" y="59">next_action != FAST</label>
+			<label kind="assignment" x="-348" y="76">updateSlow()</label>
+			<nail x="-119" y="85"/>
+		</transition>
+		<transition id="id9" controllable="false">
+			<source ref="id3"/>
+			<target ref="id1"/>
+			<label kind="guard" x="119" y="59">next_action == FAST</label>
+			<label kind="assignment" x="119" y="76">updateFast()</label>
+			<nail x="110" y="85"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+</system>
+	<queries>
+		<option key="--epsilon" value="1.0E-4"/>
+		<query>
+			<formula>strategy LowCost = minE (total_cost + (t&gt;1)*1000) [#&lt;=30] {} -&gt; {x, t} : &lt;&gt; x&gt;=1 or t&gt;=1</formula>
+			<comment>1 second</comment>
+			<result outcome="success" type="quality" timestamp="2022-10-04 13:10:20 +0200">
+				<option key="--epsilon" value="1.0E-4"/>
+			</result>
+		</query>
+		<query>
+			<formula>Pr[#&lt;=30](&lt;&gt; t&gt;=1) under LowCost</formula>
+			<comment>up to 30 seconds</comment>
+			<result outcome="success" type="quantity" value="[0,9.99999e-05] (95% CI)" timestamp="2022-10-04 13:10:21 +0200">
+				<option key="--epsilon" value="1.0E-4"/>
+				<details>[0,9.99999e-05] (95% CI)</details>
+			</result>
+		</query>
+		<query>
+			<formula>Pr[#&lt;=30](&lt;&gt; t&gt;=1) </formula>
+			<comment>warning: not observed to terminate</comment>
+		</query>
+		<query>
+			<formula>E[#&lt;=30;100] (max:total_cost + (t&gt;1)*1000) under LowCost</formula>
+			<comment/>
+			<result outcome="success" type="quantity" value="23.1341 ± 0.571019 (95% CI)" timestamp="2022-10-04 13:11:33 +0200">
+				<option key="--epsilon" value="1.0E-4"/>
+				<details>23.1341 ± 0.571019 (95% CI)</details>
+				<plot title="Probability Density Distribution" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="probability density">
+					<series title="density" type="b(1.480407)" color="0x0000ff" encoding="csv">17.182408357088995,0.02701960098609143
+18.66281511885392,0.05403920197218286
+20.143221880618846,0.1756274064095943
+21.62362864238377,0.05403920197218286
+23.104035404148696,0.19589210714916286
+24.58444216591362,0.07430390271175143
+26.064848927678547,0.04052940147913714
+27.545255689443472,0.03377450123261429
+29.025662451208397,0.006754900246522857
+30.506069212973323,0.013509800493045714
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">23.134149526900533,0.0
+23.134149526900533,0.19589210714916286
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=1.4804, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.182, 31.986]
+Mean estimate of displayed sample: 23.134 ± 0.57102 (95% CI)</comment>
+				</plot>
+				<plot title="Probability Distribution" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="probability">
+					<series title="probability" type="b(1.480407)" color="0x0000ff" encoding="csv">17.182408357088995,0.04
+18.66281511885392,0.08
+20.143221880618846,0.26
+21.62362864238377,0.08
+23.104035404148696,0.29
+24.58444216591362,0.11
+26.064848927678547,0.06
+27.545255689443472,0.05
+29.025662451208397,0.01
+30.506069212973323,0.02
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">23.134149526900533,0.0
+23.134149526900533,0.29
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=1.4804, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.182, 31.986]
+Mean estimate of displayed sample: 23.134 ± 0.57102 (95% CI)</comment>
+				</plot>
+				<plot title="Cumulative Probability Distribution" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="probability">
+					<series title="cumulative" type="l" color="0x000000" encoding="csv">17.182408357088995,0.0
+18.66281511885392,0.04
+20.143221880618846,0.12
+21.62362864238377,0.38
+23.104035404148696,0.46
+24.58444216591362,0.75
+26.064848927678547,0.86
+27.545255689443472,0.92
+29.025662451208397,0.97
+30.506069212973323,0.98
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">23.134149526900533,0.0
+23.134149526900533,1.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=1.4804, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.182, 31.986]
+Mean estimate of displayed sample: 23.134 ± 0.57102 (95% CI)</comment>
+				</plot>
+				<plot title="Cumulative Probability Confidence Intervals" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="probability">
+					<series title="upper limit" type="k" color="0x0000dd" encoding="csv">17.182408357088995,0.03621669264517642
+18.66281511885392,0.09925715671265992
+20.143221880618846,0.20023568361996882
+21.62362864238377,0.48253930575080667
+23.104035404148696,0.5625884201335287
+24.58444216591362,0.8312202619006581
+26.064848927678547,0.9212945950730342
+27.545255689443472,0.9648284374818372
+29.025662451208397,0.9937700284616936
+30.506069212973323,0.9975686631760574
+					</series>
+					<series title="lower limit" type="k" color="0xdd0000" encoding="csv">17.182408357088995,0.0
+18.66281511885392,0.011004493986188203
+20.143221880618846,0.0635689025611593
+21.62362864238377,0.28476747614147946
+23.104035404148696,0.35984335297941195
+24.58444216591362,0.6534475042411918
+26.064848927678547,0.7762720186294323
+27.545255689443472,0.848442364135579
+29.025662451208397,0.91482394702572
+30.506069212973323,0.9296160675289299
+					</series>
+					<series title="cumulative" type="l" color="0x000000" encoding="csv">17.182408357088995,0.0
+18.66281511885392,0.04
+20.143221880618846,0.12
+21.62362864238377,0.38
+23.104035404148696,0.46
+24.58444216591362,0.75
+26.064848927678547,0.86
+27.545255689443472,0.92
+29.025662451208397,0.97
+30.506069212973323,0.98
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">23.134149526900533,0.0
+23.134149526900533,1.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=1.4804, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.182, 31.986]
+Mean estimate of displayed sample: 23.134 ± 0.57102 (95% CI)</comment>
+				</plot>
+				<plot title="Frequency Histogram" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="count">
+					<series title="count" type="b(1.480407)" color="0x0000ff" encoding="csv">17.182408357088995,4.0
+18.66281511885392,8.0
+20.143221880618846,26.0
+21.62362864238377,8.0
+23.104035404148696,29.0
+24.58444216591362,11.0
+26.064848927678547,6.0
+27.545255689443472,5.0
+29.025662451208397,1.0
+30.506069212973323,2.0
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">23.134149526900533,0.0
+23.134149526900533,29.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=1.4804, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.182, 31.986]
+Mean estimate of displayed sample: 23.134 ± 0.57102 (95% CI)</comment>
+				</plot>
+			</result>
+		</query>
+		<query>
+			<formula>E[#&lt;=30;100] (max:total_cost + (t&gt;1)*1000)</formula>
+			<comment/>
+			<result outcome="success" type="quantity" value="98.2702 ± 50.6563 (95% CI)" timestamp="2022-10-04 13:11:33 +0200">
+				<option key="--epsilon" value="1.0E-4"/>
+				<details>98.2702 ± 50.6563 (95% CI)</details>
+				<plot title="Probability Density Distribution" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="probability density">
+					<series title="density" type="b(101.050867)" color="0x0000ff" encoding="csv">17.24195487056771,0.009203285707632031
+118.29282187003254,0.0
+219.34368886949738,0.0
+320.39455586896224,0.0
+421.44542286842704,0.0
+522.4962898678918,0.0
+623.5471568673568,0.0
+724.5980238668216,0.0
+825.6488908662864,0.0
+926.6997578657512,6.92720429606712E-4
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">98.27018141805938,0.0
+98.27018141805938,0.009203285707632031
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=101.05, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.2, 1.03e+03]
+Mean estimate of displayed sample: 98.3 ± 50.7 (95% CI)</comment>
+				</plot>
+				<plot title="Probability Distribution" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="probability">
+					<series title="probability" type="b(101.050867)" color="0x0000ff" encoding="csv">17.24195487056771,0.93
+118.29282187003254,0.0
+219.34368886949738,0.0
+320.39455586896224,0.0
+421.44542286842704,0.0
+522.4962898678918,0.0
+623.5471568673568,0.0
+724.5980238668216,0.0
+825.6488908662864,0.0
+926.6997578657512,0.07
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">98.27018141805938,0.0
+98.27018141805938,0.93
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=101.05, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.2, 1.03e+03]
+Mean estimate of displayed sample: 98.3 ± 50.7 (95% CI)</comment>
+				</plot>
+				<plot title="Cumulative Probability Distribution" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="probability">
+					<series title="cumulative" type="l" color="0x000000" encoding="csv">17.24195487056771,0.0
+118.29282187003254,0.93
+219.34368886949738,0.93
+320.39455586896224,0.93
+421.44542286842704,0.93
+522.4962898678918,0.93
+623.5471568673568,0.93
+724.5980238668216,0.93
+825.6488908662864,0.93
+926.6997578657512,0.93
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">98.27018141805938,0.0
+98.27018141805938,1.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=101.05, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.2, 1.03e+03]
+Mean estimate of displayed sample: 98.3 ± 50.7 (95% CI)</comment>
+				</plot>
+				<plot title="Cumulative Probability Confidence Intervals" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="probability">
+					<series title="upper limit" type="k" color="0x0000dd" encoding="csv">17.24195487056771,0.03621669264517642
+118.29282187003254,0.9713947110925613
+219.34368886949738,0.9713947110925613
+320.39455586896224,0.9713947110925613
+421.44542286842704,0.9713947110925613
+522.4962898678918,0.9713947110925613
+623.5471568673568,0.9713947110925613
+724.5980238668216,0.9713947110925613
+825.6488908662864,0.9713947110925613
+926.6997578657512,0.9713947110925613
+					</series>
+					<series title="lower limit" type="k" color="0xdd0000" encoding="csv">17.24195487056771,0.0
+118.29282187003254,0.8610802715441427
+219.34368886949738,0.8610802715441427
+320.39455586896224,0.8610802715441427
+421.44542286842704,0.8610802715441427
+522.4962898678918,0.8610802715441427
+623.5471568673568,0.8610802715441427
+724.5980238668216,0.8610802715441427
+825.6488908662864,0.8610802715441427
+926.6997578657512,0.8610802715441427
+					</series>
+					<series title="cumulative" type="l" color="0x000000" encoding="csv">17.24195487056771,0.0
+118.29282187003254,0.93
+219.34368886949738,0.93
+320.39455586896224,0.93
+421.44542286842704,0.93
+522.4962898678918,0.93
+623.5471568673568,0.93
+724.5980238668216,0.93
+825.6488908662864,0.93
+926.6997578657512,0.93
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">98.27018141805938,0.0
+98.27018141805938,1.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=101.05, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.2, 1.03e+03]
+Mean estimate of displayed sample: 98.3 ± 50.7 (95% CI)</comment>
+				</plot>
+				<plot title="Frequency Histogram" xaxis="max: total_cost + (t &gt; 1) * 1000" yaxis="count">
+					<series title="count" type="b(101.050867)" color="0x0000ff" encoding="csv">17.24195487056771,93.0
+118.29282187003254,0.0
+219.34368886949738,0.0
+320.39455586896224,0.0
+421.44542286842704,0.0
+522.4962898678918,0.0
+623.5471568673568,0.0
+724.5980238668216,0.0
+825.6488908662864,0.0
+926.6997578657512,7.0
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">98.27018141805938,0.0
+98.27018141805938,93.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.0001, bucket width=101.05, bucket count=10
+Runs: 100 in total, 100 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [17.2, 1.03e+03]
+Mean estimate of displayed sample: 98.3 ± 50.7 (95% CI)</comment>
+				</plot>
+			</result>
+		</query>
+		<query>
+			<formula>E[#&lt;=30;100] (max:100*interventions/(steps || 1)s) under LowCost</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[#&lt;=30;100] (max:100*interventions/(steps || 1)s)</formula>
+			<comment/>
+		</query>
+	</queries>
+</nta>

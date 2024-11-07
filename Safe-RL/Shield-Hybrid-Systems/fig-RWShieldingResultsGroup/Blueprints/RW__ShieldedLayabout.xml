@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.5//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_5.dtd'>
+<nta>
+	<declaration>import "%rwshieldfile%"
+{
+    bool must_go_fast(double x, double t);
+    int get_value(double x, double t);
+};
+const int SINUS_X = 0, PARABOLA_X = 1;
+
+/* Config */
+
+const int selected_cost_function = SINUS_X;
+const bool shield_enabled = true;
+const bool layabout = true;
+const bool unlucky = false;
+
+/* Cost functions */
+const int SLOW = 0;
+const int FAST = 1;
+
+const double pi = 3.141592653589;
+
+double sinus_x(double x, double t, int action) {
+    double a, b;
+    if (action == FAST) {
+        a = 3;
+        b = 0;
+    } else {
+        a = 1;
+        b = pi;
+    }
+	return 1.5 + a + sin(b + x*pi*4)*1.5;
+}
+
+double parabola_x(double x, double t, int action) {
+    double a, b;
+    x = x - 0.5;
+    if (action == FAST) {
+        a = 5.0;
+        b = 0.7;
+    } else {
+        a = -4;
+        b = 1.0;
+    }
+    return a*x*x + b;
+}
+
+// Change the cost function here.
+double cost_function(double x, double t, int action) {
+    if (selected_cost_function == SINUS_X) {
+        return sinus_x(x, t, action);
+    } else if (selected_cost_function == PARABOLA_X) {
+        return parabola_x(x, t, action);
+    } else {
+        return 0;
+    }
+}
+
+/* Simulation-specific stuff */
+
+double x=0.0;
+double t=0.0;
+const double epsilon = 0.04;
+const double delta_fast = 0.17; 
+const double tau_fast = 0.05;
+const double delta_slow = 0.1;
+const double tau_slow = 0.12;
+
+double total_cost = 0.0;
+int steps = 0;
+
+void updateFast() {
+    if (unlucky) {
+        x = x + delta_fast - epsilon;
+        t = t + tau_fast + epsilon;
+    } else {
+        x = x + delta_fast - epsilon + random(2*epsilon);
+        t = t + tau_fast - epsilon + random(2*epsilon);
+    }
+    steps++;
+    total_cost = total_cost + cost_function(x, t, FAST);
+}
+
+
+void updateSlow() {
+    if (unlucky) {
+        x = x + delta_slow - epsilon; 
+        t = t + tau_slow + epsilon;
+    } else {
+        x = x + delta_slow - epsilon + random(2*epsilon); 
+        t = t + tau_slow - epsilon + random(2*epsilon);
+    }
+    steps++;
+    total_cost = total_cost + cost_function(x, t, SLOW);
+}
+
+/* Shielding */
+
+const int RED = 114;   // ASCII value small letter 'r'
+const int BLUE = 98;   // ... 'b' 
+const int WHITE = 119; // etc.
+
+int next_action = SLOW;
+
+int interventions = 0; // Total number of times the shield intervened
+int red_area_entered = 0; // Number of times where this was due to touching the red part
+
+// If the shield is enabled, returns the shielded action.
+// Otherwise, action is simply returned unaltered.
+// Counts how many times the shield differed from the proposed action.
+int shield(int action) {
+    if (!shield_enabled) {
+        return action;
+    } else {
+        int color = get_value(x, t);
+        if (action == FAST) {
+            return action;
+        } else if (color == RED) {
+            ++red_area_entered;
+            return action;
+        } else if (color == BLUE) {
+            ++interventions;
+            return FAST;
+        } else {
+            return action;
+        }
+    }
+}</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="-8" y="34">
+			<committed/>
+		</location>
+		<location id="id1" x="0" y="255">
+			<committed/>
+		</location>
+		<location id="id2" x="102" y="340">
+		</location>
+		<location id="id3" x="-8" y="-76">
+			<committed/>
+		</location>
+		<init ref="id0"/>
+		<transition id="id4">
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="guard" x="127" y="-102">!layabout</label>
+			<label kind="assignment" x="127" y="-85">next_action = shield(FAST)</label>
+			<nail x="110" y="-76"/>
+		</transition>
+		<transition id="id5">
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="assignment" x="-348" y="-85">next_action = shield(SLOW)</label>
+			<nail x="-127" y="-76"/>
+		</transition>
+		<transition id="id6" controllable="false">
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-59" y="348">t &gt; 1 || x &gt; 1</label>
+			<nail x="-68" y="340"/>
+		</transition>
+		<transition id="id7" controllable="false">
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-68" y="110">t &lt;= 1 &amp;&amp; x &lt;= 1</label>
+		</transition>
+		<transition id="id8" controllable="false">
+			<source ref="id3"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-348" y="59">next_action != FAST</label>
+			<label kind="assignment" x="-348" y="76">updateSlow()</label>
+			<nail x="-119" y="85"/>
+		</transition>
+		<transition id="id9" controllable="false">
+			<source ref="id3"/>
+			<target ref="id1"/>
+			<label kind="guard" x="119" y="59">next_action == FAST</label>
+			<label kind="assignment" x="119" y="76">updateFast()</label>
+			<nail x="110" y="85"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+</system>
+	<queries>
+		<option key="--epsilon" value="1.0E-4"/>
+		<query>
+			<formula>strategy LowCost = minE (total_cost + (t&gt;1)*1000) [#&lt;=30] {} -&gt; {x, t} : &lt;&gt; x&gt;=1 or t&gt;=1</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>Pr[#&lt;=30](&lt;&gt; t&gt;=1) under LowCost</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>Pr[#&lt;=30](&lt;&gt; t&gt;=1) </formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[#&lt;=30;100] (max:total_cost + (t&gt;1)*1000) under LowCost</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[#&lt;=30;100] (max:total_cost + (t&gt;1)*1000)</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[#&lt;=30;100] (max:100*interventions/(steps || 1)s) under LowCost</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[#&lt;=30;100] (max:100*interventions/(steps || 1)s)</formula>
+			<comment/>
+		</query>
+	</queries>
+</nta>

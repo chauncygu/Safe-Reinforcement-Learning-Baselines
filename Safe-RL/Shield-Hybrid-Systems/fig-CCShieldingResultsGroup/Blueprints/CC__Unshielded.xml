@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.5//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_5.dtd'>
+<nta>
+	<declaration>/**
+
+Changes have been made to this model.
+   - minVelocityFront changed from -10 to -8
+   - The discrete simulation has been removed. 
+
+Following is the original header:
+*/
+
+
+/**
+This case study has been published at "Correct System Design"
+Symposium in Honor of Ernst-Rüdiger Olderog on the Occasion of
+His 60th Birthday Oldenburg, Germany, September 8–9, 2015.
+
+The paper "Safe and Optimal Adaptive Cruise Control" by 
+Kim Guldstrand Larsen, Marius Mikucionis, Jakob Haahr Taankvist.
+
+@incollection{cruise,
+    year={2015},
+    isbn={978-3-319-23505-9},
+    booktitle={Correct System Design},
+    volume={9360},
+    series={Lecture Notes in Computer Science},
+    editor={Meyer, Roland and Platzer, André and Wehrheim, Heike},
+    doi={10.1007/978-3-319-23506-6_17},
+    title={Safe and Optimal Adaptive Cruise Control},
+    url={http://dx.doi.org/10.1007/978-3-319-23506-6_17},
+    publisher={Springer International Publishing},
+    author={Larsen, Kim Guldstrand and Miku\v{c}ionis, Marius and Taankvist, Jakob Haahr},
+    pages={260-277},
+    language={English}
+}
+*/
+
+// Place global declarations here.
+clock time;
+const int maxVelocityEgo = 20;
+const int maxVelocityFront = 20;
+const int minVelocityEgo = -10;
+const int minVelocityFront = -8;
+
+const int maxSensorDistance = 200;
+
+clock waitTimer;
+
+int[-2,2] accelerationEgo;
+broadcast chan chooseEgo;
+
+int[-2,2] accelerationFront;
+broadcast chan chooseFront;
+broadcast chan update;
+
+// Hybrid stuff
+hybrid clock rVelocityEgo;
+hybrid clock rVelocityFront;
+hybrid clock rDistance = 10.0;
+hybrid clock D;</declaration>
+	<template>
+		<name x="5" y="5">Ego</name>
+		<location id="id0" x="86" y="51">
+			<name x="119" y="42">Negative_acc</name>
+		</location>
+		<location id="id1" x="-204" y="-68">
+			<name x="-272" y="-76">No_acc</name>
+		</location>
+		<location id="id2" x="-34" y="-68">
+			<name x="-17" y="-76">Choose</name>
+			<committed/>
+		</location>
+		<location id="id3" x="85" y="-187">
+			<name x="75" y="-221">Positive_acc</name>
+		</location>
+		<init ref="id1"/>
+		<transition id="id4">
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-59" y="34">chooseEgo?</label>
+			<nail x="-8" y="25"/>
+		</transition>
+		<transition id="id5">
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-59" y="-187">chooseEgo?</label>
+			<nail x="-8" y="-161"/>
+		</transition>
+		<transition id="id6">
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-170" y="-119">chooseEgo?</label>
+			<nail x="-119" y="-102"/>
+		</transition>
+		<transition id="id7">
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="76" y="-34">rVelocityEgo &gt; minVelocityEgo</label>
+			<label kind="assignment" x="76" y="-17">accelerationEgo = -2</label>
+			<nail x="59" y="-42"/>
+		</transition>
+		<transition id="id8">
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="guard" x="68" y="-127">rVelocityEgo &lt; maxVelocityEgo</label>
+			<label kind="assignment" x="68" y="-110">accelerationEgo = 2</label>
+			<nail x="59" y="-102"/>
+		</transition>
+		<transition id="id9">
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="assignment" x="-187" y="-34">accelerationEgo = 0</label>
+			<nail x="-119" y="-34"/>
+		</transition>
+	</template>
+	<template>
+		<name>Front</name>
+		<location id="id10" x="-340" y="-306">
+			<name x="-331" y="-331">Faraway</name>
+		</location>
+		<location id="id11" x="102" y="-136">
+			<name x="92" y="-170">Positive_acc</name>
+		</location>
+		<location id="id12" x="102" y="68">
+			<name x="59" y="85">Negative_acc</name>
+		</location>
+		<location id="id13" x="-102" y="68">
+			<name x="-153" y="85">No_acceleration</name>
+		</location>
+		<location id="id14" x="0" y="-34">
+			<name x="17" y="-42">Choose</name>
+			<committed/>
+		</location>
+		<location id="id15" x="-340" y="-238">
+			<committed/>
+		</location>
+		<location id="id16" x="-340" y="-153">
+			<committed/>
+		</location>
+		<branchpoint id="id17" x="-340" y="-195"/>
+		<init ref="id13"/>
+		<transition id="id18" controllable="false">
+			<source ref="id16"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-697" y="-178">rVelocityEgo &lt; minVelocityFront</label>
+			<nail x="-425" y="-153"/>
+			<nail x="-425" y="-306"/>
+		</transition>
+		<transition id="id19">
+			<source ref="id17"/>
+			<target ref="id10"/>
+			<nail x="-374" y="-195"/>
+			<nail x="-374" y="-306"/>
+		</transition>
+		<transition id="id20">
+			<source ref="id17"/>
+			<target ref="id16"/>
+		</transition>
+		<transition id="id21" controllable="false">
+			<source ref="id15"/>
+			<target ref="id17"/>
+		</transition>
+		<transition id="id22" controllable="false">
+			<source ref="id12"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-178" y="-323">rDistance &gt; maxSensorDistance</label>
+			<label kind="synchronisation" x="-178" y="-306">update?</label>
+			<label kind="assignment" x="-178" y="-289">rDistance = maxSensorDistance+1, accelerationFront = 0</label>
+			<nail x="263" y="68"/>
+			<nail x="263" y="-306"/>
+		</transition>
+		<transition id="id23" controllable="false">
+			<source ref="id11"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-204" y="-246">rDistance &gt; maxSensorDistance</label>
+			<label kind="synchronisation" x="-204" y="-229">update?</label>
+			<label kind="assignment" x="-204" y="-212">rDistance = maxSensorDistance+1,
+accelerationFront = 0</label>
+			<nail x="102" y="-229"/>
+			<nail x="-204" y="-229"/>
+			<nail x="-246" y="-280"/>
+		</transition>
+		<transition id="id24" controllable="false">
+			<source ref="id13"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-382" y="17">rDistance &gt; maxSensorDistance</label>
+			<label kind="synchronisation" x="-382" y="34">update?</label>
+			<label kind="assignment" x="-382" y="51">rDistance = maxSensorDistance+1,
+accelerationFront = 0</label>
+			<nail x="-391" y="68"/>
+			<nail x="-391" y="-306"/>
+		</transition>
+		<transition id="id25" controllable="false">
+			<source ref="id12"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="-25" y="68">chooseFront?</label>
+			<nail x="0" y="68"/>
+		</transition>
+		<transition id="id26" controllable="false">
+			<source ref="id11"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="-17" y="-153">chooseFront?</label>
+			<nail x="0" y="-136"/>
+		</transition>
+		<transition id="id27" controllable="false">
+			<source ref="id13"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="-93" y="17">chooseFront?</label>
+		</transition>
+		<transition id="id28" controllable="false">
+			<source ref="id14"/>
+			<target ref="id12"/>
+			<label kind="guard" x="25" y="8">rVelocityFront &gt; minVelocityFront</label>
+			<label kind="assignment" x="25" y="25">accelerationFront = -2</label>
+		</transition>
+		<transition id="id29" controllable="false">
+			<source ref="id14"/>
+			<target ref="id11"/>
+			<label kind="guard" x="25" y="-102">rVelocityFront &lt; maxVelocityFront</label>
+			<label kind="assignment" x="25" y="-85">accelerationFront = 2</label>
+		</transition>
+		<transition id="id30" controllable="false">
+			<source ref="id14"/>
+			<target ref="id13"/>
+			<label kind="assignment" x="-204" y="-8">accelerationFront = 0</label>
+			<nail x="-102" y="-8"/>
+		</transition>
+		<transition id="id31" controllable="false">
+			<source ref="id10"/>
+			<target ref="id15"/>
+			<label kind="synchronisation" x="-365" y="-280">chooseFront?</label>
+		</transition>
+		<transition id="id32" controllable="false">
+			<source ref="id16"/>
+			<target ref="id14"/>
+			<label kind="select" x="-331" y="-136">i:int[minVelocityFront, maxVelocityFront]</label>
+			<label kind="guard" x="-331" y="-119">i &lt;= rVelocityEgo</label>
+			<label kind="assignment" x="-331" y="-102">rVelocityFront = i * 1.0,
+rDistance = 1.0*maxSensorDistance</label>
+			<nail x="-340" y="-34"/>
+		</transition>
+	</template>
+	<template>
+		<name>Monitor</name>
+		<declaration>
+double distanceRate(double velFront, double velEgo, double dist){
+    if (dist &gt; maxSensorDistance)
+        return 0.0;
+    else 
+        return velFront - velEgo;
+}
+</declaration>
+		<location id="id33" x="-153" y="-144">
+			<label kind="invariant" x="-315" y="-127">rVelocityEgo' == accelerationEgo &amp;&amp;
+rVelocityFront' == accelerationFront &amp;&amp;
+rDistance'  == distanceRate(rVelocityFront,rVelocityEgo, rDistance) &amp;&amp;
+D' == rDistance</label>
+		</location>
+		<init ref="id33"/>
+	</template>
+	<template>
+		<name>System</name>
+		<location id="id34" x="-68" y="-238">
+			<name x="-85" y="-272">Done</name>
+			<urgent/>
+		</location>
+		<location id="id35" x="-238" y="-238">
+			<name x="-272" y="-272">FrontNext</name>
+			<urgent/>
+		</location>
+		<location id="id36" x="-238" y="-187">
+			<name x="-255" y="-170">Wait</name>
+			<label kind="invariant" x="-280" y="-153">waitTimer &lt;= 1</label>
+		</location>
+		<location id="id37" x="-408" y="-238">
+			<name x="-433" y="-272">EgoNext</name>
+			<urgent/>
+		</location>
+		<init ref="id37"/>
+		<transition id="id38" controllable="false">
+			<source ref="id36"/>
+			<target ref="id37"/>
+			<label kind="guard" x="-450" y="-212">waitTimer == 1</label>
+		</transition>
+		<transition id="id39" controllable="false">
+			<source ref="id34"/>
+			<target ref="id36"/>
+			<label kind="synchronisation" x="-144" y="-195">update!</label>
+			<label kind="assignment" x="-144" y="-212">waitTimer = 0</label>
+		</transition>
+		<transition id="id40" controllable="false">
+			<source ref="id35"/>
+			<target ref="id34"/>
+			<label kind="synchronisation" x="-204" y="-255">chooseFront!</label>
+		</transition>
+		<transition id="id41" controllable="false">
+			<source ref="id37"/>
+			<target ref="id35"/>
+			<label kind="synchronisation" x="-365" y="-255">chooseEgo!</label>
+		</transition>
+	</template>
+	<system>
+system Ego, Front, System, Monitor;
+    </system>
+	<queries>
+		<option key="--discretization" value="0.1"/>
+		<query>
+			<formula>simulate [&lt;=20;1] { accelerationEgo, rVelocityEgo, accelerationFront, rVelocityFront, rDistance, 0, 200 }</formula>
+			<comment>Validate the state dynamics: the trajectories of relative acceleration, speed and distance between cars.
+Click "Check", then right-click the property and inspect the plot.</comment>
+		</query>
+		<query>
+			<formula>E[&lt;=120;1000] (max: D/1000)</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;1000] (max: D/1000 + (rDistance &lt;= 0)*1000.0)</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max:rDistance &lt;= 0)</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy DriveWell1000 = minE (D/1000 + (rDistance &lt;= 0)*1000.0) [&lt;=120] {} -&gt; {rVelocityEgo, rVelocityFront, rDistance}: &lt;&gt; time &gt;= 120</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>simulate [&lt;=120;10] { rDistance, 0, 200 }            under DriveWell1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;1000] (max: D/1000)                           under DriveWell1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;1000] (max: D/1000 + (rDistance &lt;= 0)*1000.0)  under DriveWell1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>Pr[&lt;=120] (&lt;&gt; rDistance &lt;= 0)                         under DriveWell1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>saveStrategy("/home/asger/Experiments/E1/UnshieldedDriveWell1000.strategy.json", DriveWell1000)</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy DriveWell1000 = loadStrategy {} -&gt; {rVelocityEgo, rVelocityFront, rDistance}("/home/asger/Experiments/E1/UnshieldedDriveWell1000.strategy.json")</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula/>
+			<comment/>
+		</query>
+	</queries>
+</nta>

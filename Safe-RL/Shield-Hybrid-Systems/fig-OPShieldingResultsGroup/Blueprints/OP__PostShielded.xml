@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.6//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_6.dtd'>
+<nta>
+	<declaration>// State
+clock l, t;    // minimum switching Latency, cycle Time
+hybrid clock v = 10;
+int p = 0;    // Pump status
+
+// Bookkeeping
+int switches; // number of Switches to the pump state
+int number_deaths; // As in video-game deaths. Safety-violations.
+int interventions;    // by the shield
+double c, f;  // Consumption, Fluctuation
+clock elapsed, aov;    // total Elapsed time, Accumulated Oil Volume
+broadcast chan on, off;
+
+// Consts
+const int OFF = 0;
+const int ON = 1;
+const double v_min = 4.9;
+const double v_max = 25.1; 
+
+// Shielding
+import "%shieldfile%"
+{
+    int get_value(double t, double v, int p, double l);
+};
+
+// Int-encoded set of actions.
+const int RED = 0;    // {}
+const int BLUE = 1;   // {off}
+const int GREEN = 2;  // {on}
+const int WHITE = 3;  // {on,off}
+
+// I can't get UPPAAL to not include t=20 even though that value is not defined in the shield. 
+double clamp_t(double t) {
+    return t == 20 ? 0.0 : t;
+}
+
+double clamp_l(double l) {
+    // Apparently UPPAAL has min &lt;? and max &gt;? operators. 
+    return -0.001 &gt;? l &lt;? 2;
+}
+
+/* v really shouldn't go out of bounds while the shield is active.
+double clamp_v(double v) {
+    return 4.8 &gt;? v &lt;? 25.2;
+}
+*/
+
+int shield(int action) {
+    int color = get_value(clamp_t(t), v, p, clamp_l(l));
+    if (color == RED)
+        return action;
+    else if (color == BLUE){
+        if (action != OFF)
+            interventions++;
+        return OFF;
+    }
+    else if (color == GREEN) {
+        if (action != ON)
+            interventions++;
+        return ON;
+    }
+    else if (color == WHITE)
+        return action;
+    else
+        return action;
+}
+
+/*
+int debug1 = get_value(1, 10, 0, 0);
+int debug2 = get_value(1, 6, 0, 0);
+int debug3 = get_value(1, 6, 1, 0);
+int debug4 = get_value(1, 20, 0, 0);
+int debug5 = get_value(1, 20, 1, 0); */</declaration>
+	<template>
+		<name>Controller</name>
+		<declaration>clock x;
+int next_action;</declaration>
+		<location id="id0" x="0" y="-127">
+			<urgent/>
+		</location>
+		<location id="id1" x="0" y="-68">
+			<urgent/>
+		</location>
+		<location id="id2" x="0" y="0">
+			<label kind="invariant" x="-34" y="34">x  &lt;= 1 &amp;&amp;
+x' == 5</label>
+		</location>
+		<init ref="id2"/>
+		<transition id="id3" controllable="false">
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-51" y="-42">l &gt; 0</label>
+			<nail x="-17" y="-34"/>
+		</transition>
+		<transition id="id4" controllable="false">
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="guard" x="25" y="0">next_action == OFF</label>
+			<label kind="synchronisation" x="93" y="-17">off!</label>
+			<nail x="93" y="0"/>
+		</transition>
+		<transition id="id5" controllable="false">
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-161" y="0">next_action == ON</label>
+			<label kind="synchronisation" x="-110" y="-17">on!</label>
+			<nail x="-85" y="0"/>
+		</transition>
+		<transition id="id6">
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="68" y="-153">l &lt;= 0</label>
+			<label kind="assignment" x="68" y="-136">next_action = 
+shield(OFF)</label>
+			<nail x="42" y="-127"/>
+		</transition>
+		<transition id="id7">
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-161" y="-161">l &lt;= 0</label>
+			<label kind="assignment" x="-161" y="-144">next_action = 
+shield(ON)</label>
+			<nail x="-42" y="-127"/>
+		</transition>
+		<transition id="id8" controllable="false">
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="0" y="-51">x &gt;= 1</label>
+			<label kind="assignment" x="0" y="-34">x = 0</label>
+		</transition>
+	</template>
+	<template>
+		<name x="5" y="5">Pump</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id9" x="-51" y="0">
+			<name x="-85" y="-34">pump_off</name>
+			<label kind="invariant" x="-85" y="-68">l' == -1 &amp;&amp;
+v' == -c - f</label>
+			<label kind="exponentialrate" x="-9" y="-34">1</label>
+		</location>
+		<location id="id10" x="195" y="0">
+			<name x="161" y="-34">pump_on</name>
+			<label kind="invariant" x="161" y="-68">l' == -1 &amp;&amp;
+v' == 2.2 - c - f</label>
+			<label kind="exponentialrate" x="229" y="-34">1</label>
+		</location>
+		<init ref="id9"/>
+		<transition id="id11">
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="guard" x="34" y="8">l &lt;= 0</label>
+			<label kind="synchronisation" x="34" y="-8">on?</label>
+			<label kind="assignment" x="34" y="25">l = 2,
+p = 1,
+switches++</label>
+			<nail x="8" y="8"/>
+			<nail x="17" y="-9"/>
+			<nail x="127" y="-9"/>
+			<nail x="135" y="8"/>
+		</transition>
+		<transition id="id12">
+			<source ref="id10"/>
+			<target ref="id9"/>
+			<label kind="guard" x="25" y="-110">l &lt;= 0</label>
+			<label kind="synchronisation" x="25" y="-127">off?</label>
+			<label kind="assignment" x="25" y="-93">l = 2,
+p = 0,
+switches++</label>
+			<nail x="135" y="-8"/>
+			<nail x="127" y="-34"/>
+			<nail x="17" y="-34"/>
+			<nail x="8" y="-8"/>
+		</transition>
+	</template>
+	<template>
+		<name>Machine</name>
+		<location id="id13" x="127" y="-467">
+			<label kind="invariant" x="102" y="-501">t &lt;= 16</label>
+		</location>
+		<location id="id14" x="221" y="-467">
+			<label kind="invariant" x="195" y="-501">t &lt;= 18</label>
+		</location>
+		<location id="id15" x="-68" y="-467">
+			<label kind="invariant" x="-93" y="-501">t &lt;= 12</label>
+		</location>
+		<location id="id16" x="-161" y="-467">
+			<label kind="invariant" x="-187" y="-501">t &lt;= 10</label>
+		</location>
+		<location id="id17" x="-306" y="-467">
+			<label kind="invariant" x="-332" y="-501">t &lt;= 8</label>
+		</location>
+		<location id="id18" x="-391" y="-467">
+			<label kind="invariant" x="-416" y="-501">t &lt;= 4</label>
+		</location>
+		<location id="id19" x="-484" y="-467">
+			<label kind="invariant" x="-510" y="-501">t &lt;= 2</label>
+		</location>
+		<location id="id20" x="314" y="-467">
+			<label kind="invariant" x="288" y="-501">t &lt;= 20</label>
+		</location>
+		<location id="id21" x="34" y="-467">
+			<label kind="invariant" x="9" y="-501">t &lt;= 14</label>
+		</location>
+		<init ref="id19"/>
+		<transition id="id22" controllable="false">
+			<source ref="id13"/>
+			<target ref="id14"/>
+			<label kind="guard" x="144" y="-450">t &gt;= 16</label>
+			<label kind="assignment" x="145" y="-467">c = 0.5</label>
+		</transition>
+		<transition id="id23" controllable="false">
+			<source ref="id21"/>
+			<target ref="id13"/>
+			<label kind="guard" x="51" y="-450">t &gt;= 14</label>
+			<label kind="assignment" x="52" y="-467">c = 1.7</label>
+		</transition>
+		<transition id="id24" controllable="false">
+			<source ref="id20"/>
+			<target ref="id19"/>
+			<label kind="guard" x="357" y="-459">t &gt;= 20</label>
+			<label kind="assignment" x="357" y="-518">c = 0,
+f = 0,
+t = 0</label>
+			<nail x="356" y="-467"/>
+			<nail x="356" y="-510"/>
+			<nail x="-527" y="-510"/>
+			<nail x="-527" y="-467"/>
+		</transition>
+		<transition id="id25" controllable="false">
+			<source ref="id14"/>
+			<target ref="id20"/>
+			<label kind="guard" x="238" y="-433">t &gt;= 18</label>
+			<label kind="assignment" x="236" y="-467">c = 0, 
+f = 0</label>
+		</transition>
+		<transition id="id26" controllable="false">
+			<source ref="id15"/>
+			<target ref="id21"/>
+			<label kind="guard" x="-51" y="-433">t &gt;= 12</label>
+			<label kind="assignment" x="-50" y="-467">c = 0, 
+f = 0</label>
+		</transition>
+		<transition id="id27" controllable="false">
+			<source ref="id16"/>
+			<target ref="id15"/>
+			<label kind="guard" x="-144" y="-450">t &gt;= 10</label>
+			<label kind="assignment" x="-144" y="-467">c = 2.5</label>
+		</transition>
+		<transition id="id28" controllable="false">
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="guard" x="-290" y="-450">t &gt;= 8</label>
+			<label kind="assignment" x="-289" y="-467">c = 1.2</label>
+		</transition>
+		<transition id="id29" controllable="false">
+			<source ref="id18"/>
+			<target ref="id17"/>
+			<label kind="guard" x="-374" y="-433">t &gt;= 4</label>
+			<label kind="assignment" x="-374" y="-467">c = 0,
+f = 0</label>
+		</transition>
+		<transition id="id30" controllable="false">
+			<source ref="id19"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-467" y="-450">t &gt;= 2</label>
+			<label kind="assignment" x="-467" y="-467">c = 1.2</label>
+		</transition>
+	</template>
+	<template>
+		<name>Fluctuation</name>
+		<declaration>clock x;</declaration>
+		<location id="id31" x="178" y="136">
+			<label kind="invariant" x="144" y="85">x  &lt;= 1 &amp;&amp;
+x' == 10</label>
+			<label kind="exponentialrate" x="144" y="68">1</label>
+		</location>
+		<init ref="id31"/>
+		<transition id="id32" controllable="false">
+			<source ref="id31"/>
+			<target ref="id31"/>
+			<label kind="guard" x="42" y="118">x &gt;= 1 &amp;&amp;
+c == 0</label>
+			<label kind="assignment" x="42" y="161">x = 0,
+f = 0</label>
+			<nail x="119" y="195"/>
+			<nail x="119" y="136"/>
+		</transition>
+		<transition id="id33" controllable="false">
+			<source ref="id31"/>
+			<target ref="id31"/>
+			<label kind="guard" x="243" y="114">x &gt;= 1 &amp;&amp; 
+c &gt; 0</label>
+			<label kind="assignment" x="246" y="161">x = 0, 
+f = -0.1 + random(0.2)</label>
+			<nail x="238" y="195"/>
+			<nail x="238" y="136"/>
+		</transition>
+	</template>
+	<template>
+		<name>AccumulatedVolume</name>
+		<location id="id34" x="0" y="0">
+			<label kind="invariant" x="-42" y="-34">aov' == v</label>
+		</location>
+		<init ref="id34"/>
+	</template>
+	<template>
+		<name>SafetyMonitor</name>
+		<declaration>clock x;</declaration>
+		<location id="id35" x="-34" y="-8">
+			<label kind="invariant" x="-68" y="8">x  &lt;= 1 &amp;&amp;
+x' == 5</label>
+			<label kind="exponentialrate" x="-42" y="42">1</label>
+		</location>
+		<init ref="id35"/>
+		<transition id="id36" controllable="false">
+			<source ref="id35"/>
+			<target ref="id35"/>
+			<label kind="guard" x="-178" y="-42">x &gt;= 1 &amp;&amp;
+v &lt; v_min</label>
+			<label kind="assignment" x="-238" y="0">number_deaths += 1,
+v = 10,
+x = 0</label>
+			<nail x="-93" y="-34"/>
+			<nail x="-93" y="-8"/>
+		</transition>
+		<transition id="id37" controllable="false">
+			<source ref="id35"/>
+			<target ref="id35"/>
+			<label kind="guard" x="-76" y="-102">x &gt;= 1 &amp;&amp;
+v &gt;= v_min &amp;&amp;
+v &lt;= v_max</label>
+			<label kind="assignment" x="-76" y="-119">x = 0</label>
+			<nail x="-68" y="-42"/>
+			<nail x="0" y="-42"/>
+		</transition>
+		<transition id="id38" controllable="false">
+			<source ref="id35"/>
+			<target ref="id35"/>
+			<label kind="guard" x="34" y="-42">x &gt;= 1 &amp;&amp; 
+v &gt; v_max</label>
+			<label kind="assignment" x="34" y="0">number_deaths += 1,
+v = 10,
+x = 0</label>
+			<nail x="25" y="-34"/>
+			<nail x="26" y="-8"/>
+		</transition>
+	</template>
+	<system>// List one or more processes to be composed into a system.
+system Controller, Pump, Machine, Fluctuation, AccumulatedVolume, SafetyMonitor;
+</system>
+	<queries>
+		<option key="--total-runs" value="1000"/>
+		<option key="--max-iterations" value="1"/>
+		<option key="--good-runs" value="1000"/>
+		<option key="--eval-runs" value="1000"/>
+		<option key="--runs-pr-state" value="1000"/>
+		<query>
+			<formula>/* formula 1 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy Deterrence1000 = loadStrategy {p} -&gt; {t, v}("%resultsdir%/Deterrence1000.strategy.json")</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 2 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:aov) under Deterrence1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 3 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:(number_deaths &gt; 0)) under Deterrence1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 4 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:interventions) under Deterrence1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 5 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy Deterrence100 = loadStrategy {p} -&gt; {t, v}("%resultsdir%/Deterrence100.strategy.json")</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 6 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:aov) under Deterrence100</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 7 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:(number_deaths &gt; 0)) under Deterrence100</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 8 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:interventions) under Deterrence100</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 9 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy Deterrence10 = loadStrategy {p} -&gt; {t, v}("%resultsdir%/Deterrence10.strategy.json")</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 10 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:aov) under Deterrence10</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 11 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:(number_deaths &gt; 0)) under Deterrence10</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 12 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:interventions) under Deterrence10</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 13 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy Deterrence0 = loadStrategy {p} -&gt; {t, v}("%resultsdir%/Deterrence0.strategy.json")</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 14 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:aov) under Deterrence0</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 15 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:(number_deaths &gt; 0)) under Deterrence0</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>/* formula 16 */</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;%checks%] (max:interventions) under Deterrence0</formula>
+			<comment/>
+		</query>
+	</queries>
+</nta>
