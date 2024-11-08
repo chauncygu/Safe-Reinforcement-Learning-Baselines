@@ -215,7 +215,7 @@ The README is organized as follows:
 - Enforcing hard constraints with soft barriers: Safe reinforcement learning in unknown stochastic environments, [Paper](https://proceedings.mlr.press/v202/wang23as/wang23as.pdf),  Not Find Code (Accepted by ICML 2023)
 - Safe Exploration Incurs Nearly No Additional Sample Complexity for Reward-free RL, [Paper](https://arxiv.org/pdf/2206.14057),  Not Find Code (Accepted by ICLR 2023)
 - A CMDP-within-online framework for Meta-Safe Reinforcement Learning, [Paper](https://openreview.net/pdf?id=mbxz9Cjehr),  Not Find Code (Accepted by ICLR 2023)
-- SCPO: Safe Reinforcement Learning with Safety Critic Policy Optimization, [Paper](https://arxiv.org/pdf/2311.00880),  Not Find Code (Arxiv, 2023)
+- SCPO: Safe Reinforcement Learning with Safety Critic Policy Optimization, [Paper](https://arxiv.org/pdf/2311.00880), [Code](https://github.com/SafeRL-Lab/SCPO) (Arxiv, 2023)
 - Shielded Reinforcement Learning for Hybrid Systems, [Paper](https://link.springer.com/chapter/10.1007/978-3-031-46002-9_3) [(Arxiv)](https://arxiv.org/abs/2308.14424), [Code](https://github.com/AsgerHB/Shielded-Learning-for-Hybrid-Systems) (AISOLA, 2023)
 - Log Barriers for Safe Black-box Optimization with Application to Safe Reinforcement Learning, [Paper](https://www.jmlr.org/papers/volume25/22-0878/22-0878.pdf), [Code](https://github.com/Ilnura/LB_SGD) (JMLR, 2024)
 - Provably safe reinforcement learning with step-wise violation constraints, [Paper](https://arxiv.org/pdf/2302.06064), Not Find Code (Accepted by NeurIPS 2024)
