@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.5//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_5.dtd'>
+<nta>
+	<declaration>/**
+I am now certain that this model is associated with the unpublished paper 
+
+Proving and Improving Model Predictive Control of DC-DC Boost Converters
+Tomislav Dragičević1 , Peter G. Jensen , Kim G. Larsen , Adrien Le Coënt , Mateja Novak , and Ulrik Nyman
+
+See also source number 7 in that paper:
+7. Karamanakos, P., Geyer, T., Manias, S.: Direct voltage control of dc–dc boost converters using enumeration-based model predictive control. IEEE Transactions on Power Electronics 29(2), 968–978 (2014)
+*/
+
+
+// Place global declarations here.
+clock x_R = 73.0; // system load
+broadcast chan tick, tock;
+broadcast chan on, off;
+urgent broadcast chan urg;
+clock time;
+clock x1 = 0.35; // Current
+clock x2 = 15.0; // Voltage
+
+int switches;
+int number_deaths; 
+
+const double x_L = 450e-6;  // capacitor
+const double x_RL = 0.3;   
+const double x_Co = 220e-6; 
+const double x_vs = 10.0;  // input voltage
+
+const double x1ref = 0.35;    // Target values
+const double x2ref = 15.0;    // Optimize to stay as close as possible
+
+const double scale = 1.0/0.00005;
+
+
+// "Shielding" stub
+
+const int OFF = 0;
+const int ON = 1;
+int next_action;
+int interventions;
+
+int shield(int action){
+    return action;
+}</declaration>
+	<template>
+		<name x="5" y="5">Converter</name>
+		<declaration>// Place local declarations here.
+
+
+double A1[2][2];
+double A2[2][2];
+double A3[2][2];
+
+double B1[2];
+double B2[2];
+double B3[2];</declaration>
+		<location id="id0" x="0" y="0">
+			<name x="-51" y="-17">d1u1</name>
+			<label kind="invariant" x="-93" y="-102">x1'==(((-x_RL/x_L)*x1)+(x_vs/x_L))/scale&amp;&amp;
+x2'==(-(1.0/(x_Co*x_R))*x2)/scale</label>
+			<label kind="exponentialrate" x="-17" y="8">1</label>
+			<label kind="comments" x="-93" y="-144">X'=A2*x+B,
+d_aux = 1</label>
+		</location>
+		<location id="id1" x="229" y="0">
+			<name x="212" y="-34">d1u0</name>
+			<label kind="invariant" x="280" y="-102">x1'==((-x_RL/x_L)*x1+(-1.0/x_L)*x2+(x_vs/x_L))/scale&amp;&amp;
+x2'==((1.0/x_Co)*x1+(-1.0/(x_Co*x_R))*x2)/scale</label>
+			<label kind="exponentialrate" x="212" y="17">1</label>
+			<label kind="comments" x="280" y="-144">X'=A1*x+B,
+d_aux = 1</label>
+		</location>
+		<location id="id2" x="229" y="153">
+			<name x="212" y="161">d0u0</name>
+			<label kind="invariant" x="255" y="136">x1'==0&amp;&amp;
+x2'==((-1.0/(x_Co*x_R))*x2)/scale</label>
+			<label kind="exponentialrate" x="221" y="204">1</label>
+			<label kind="comments" x="255" y="204">X'=A2*x+B,
+d_aux = 0</label>
+		</location>
+		<location id="id3" x="127" y="0">
+			<name x="110" y="17">pd1u1</name>
+			<urgent/>
+		</location>
+		<location id="id4" x="348" y="0">
+			<name x="365" y="-8">pd1u0</name>
+			<urgent/>
+		</location>
+		<location id="id5" x="0" y="153">
+			<name x="-68" y="144">pu0d0</name>
+			<urgent/>
+		</location>
+		<init ref="id0"/>
+		<transition id="id6" controllable="false">
+			<source ref="id1"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="272" y="-17">tock?</label>
+		</transition>
+		<transition id="id7" controllable="false">
+			<source ref="id4"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="272" y="17">off?</label>
+			<nail x="289" y="17"/>
+		</transition>
+		<transition id="id8" controllable="false">
+			<source ref="id5"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="102" y="178">off?</label>
+			<nail x="119" y="178"/>
+		</transition>
+		<transition id="id9" controllable="false">
+			<source ref="id2"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="93" y="136">tock?</label>
+		</transition>
+		<transition id="id10" controllable="false">
+			<source ref="id3"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="42" y="25">on?</label>
+			<nail x="59" y="17"/>
+		</transition>
+		<transition id="id11" controllable="false">
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="42" y="-17">tock?</label>
+		</transition>
+		<transition id="id12" controllable="false">
+			<source ref="id4"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="127" y="-59">on?</label>
+			<label kind="assignment" x="102" y="-42">switches++</label>
+			<nail x="348" y="-42"/>
+			<nail x="0" y="-42"/>
+		</transition>
+		<transition id="id13" controllable="false">
+			<source ref="id5"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="0" y="59">on?</label>
+			<label kind="assignment" x="0" y="76">switches++</label>
+		</transition>
+		<transition id="id14" controllable="false">
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="238" y="59">x1&lt;=0</label>
+			<label kind="synchronisation" x="238" y="76">urg!</label>
+		</transition>
+		<transition id="id15" controllable="false">
+			<source ref="id3"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="153" y="-17">off?</label>
+			<label kind="assignment" x="136" y="0">switches++</label>
+		</transition>
+	</template>
+	<template>
+		<name>Controller</name>
+		<location id="id16" x="-221" y="-127">
+			<committed/>
+		</location>
+		<location id="id17" x="-221" y="-68">
+			<committed/>
+		</location>
+		<location id="id18" x="-221" y="-8">
+		</location>
+		<init ref="id18"/>
+		<transition id="id19" controllable="false">
+			<source ref="id16"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-204" y="-8">next_action == OFF</label>
+			<label kind="synchronisation" x="-161" y="-25">off!</label>
+			<nail x="-161" y="-8"/>
+		</transition>
+		<transition id="id20" controllable="false">
+			<source ref="id16"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-382" y="-8">next_action == ON</label>
+			<label kind="synchronisation" x="-306" y="-25">on!</label>
+			<nail x="-280" y="-8"/>
+		</transition>
+		<transition id="id21">
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="assignment" x="-382" y="-153">next_action = 
+shield(ON)</label>
+			<nail x="-272" y="-127"/>
+		</transition>
+		<transition id="id22">
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="assignment" x="-161" y="-153">next_action = 
+shield(OFF)</label>
+			<nail x="-170" y="-127"/>
+		</transition>
+		<transition id="id23" controllable="false">
+			<source ref="id18"/>
+			<target ref="id17"/>
+			<label kind="synchronisation" x="-221" y="-51">tock?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Monitor</name>
+		<declaration>clock c;
+clock dist;</declaration>
+		<location id="id24" x="-459" y="-34">
+			<label kind="invariant" x="-595" y="68">c &lt;= 1 &amp;&amp;
+dist'==fabs(x2-x2ref)</label>
+		</location>
+		<init ref="id24"/>
+		<transition id="id25">
+			<source ref="id24"/>
+			<target ref="id24"/>
+			<label kind="guard" x="-484" y="17">c &gt;= 1</label>
+			<label kind="assignment" x="-484" y="34">c = 0</label>
+			<nail x="-484" y="17"/>
+			<nail x="-433" y="17"/>
+		</transition>
+		<transition id="id26" controllable="false">
+			<source ref="id24"/>
+			<target ref="id24"/>
+			<label kind="guard" x="-671" y="-93">x2 &gt; 15.5 &amp;&amp;
+c &gt;= 1</label>
+			<label kind="assignment" x="-671" y="-51">number_deaths += 1,
+x1 = 0.35,
+x2 = 15.0,
+c = 0</label>
+			<nail x="-518" y="-34"/>
+			<nail x="-518" y="-76"/>
+		</transition>
+		<transition id="id27" controllable="false">
+			<source ref="id24"/>
+			<target ref="id24"/>
+			<label kind="guard" x="-510" y="-203">x2 &lt; 14.5 &amp;&amp; 
+c &gt;= 1</label>
+			<label kind="assignment" x="-510" y="-161">number_deaths += 1,
+x1 = 0.35,
+x2 = 15.0,
+c = 0</label>
+			<nail x="-416" y="-76"/>
+			<nail x="-493" y="-76"/>
+		</transition>
+		<transition id="id28" controllable="false">
+			<source ref="id24"/>
+			<target ref="id24"/>
+			<label kind="guard" x="-391" y="-93">x1 &gt; 4 &amp;&amp;
+c &gt;= 1</label>
+			<label kind="assignment" x="-390" y="-51">number_deaths += 1,
+x1 = 0.35,
+x2 = 15.0,
+c = 0</label>
+			<nail x="-399" y="-34"/>
+			<nail x="-399" y="-76"/>
+		</transition>
+	</template>
+	<template>
+		<name>Timer</name>
+		<declaration>clock x;</declaration>
+		<location id="id29" x="0" y="0">
+			<label kind="invariant" x="-10" y="17">x&lt;=1</label>
+		</location>
+		<location id="id30" x="-76" y="-85">
+			<urgent/>
+		</location>
+		<init ref="id29"/>
+		<transition id="id31" controllable="false">
+			<source ref="id30"/>
+			<target ref="id29"/>
+			<label kind="synchronisation" x="-76" y="-42">tock!</label>
+		</transition>
+		<transition id="id32" controllable="false">
+			<source ref="id29"/>
+			<target ref="id30"/>
+			<label kind="guard" x="-33" y="-119">x&gt;=1</label>
+			<label kind="synchronisation" x="-33" y="-102">tick!</label>
+			<label kind="assignment" x="-33" y="-85">x=0</label>
+			<nail x="25" y="-85"/>
+		</transition>
+	</template>
+	<template>
+		<name>Load</name>
+		<location id="id33" x="0" y="0">
+			<label kind="invariant" x="-10" y="17">x_R'==0</label>
+		</location>
+		<location id="id34" x="-76" y="0">
+			<committed/>
+		</location>
+		<location id="id35" x="119" y="-17">
+			<committed/>
+		</location>
+		<init ref="id34"/>
+		<transition id="id36" controllable="false">
+			<source ref="id35"/>
+			<target ref="id33"/>
+			<label kind="select" x="76" y="17">i:int[-30,30]</label>
+			<label kind="guard" x="76" y="51">x_R + i &gt;= 30 &amp;&amp; x_R + i &lt;= 200</label>
+			<label kind="assignment" x="76" y="34">x_R= x_R + i</label>
+			<nail x="127" y="17"/>
+		</transition>
+		<transition id="id37" controllable="false">
+			<source ref="id33"/>
+			<target ref="id35"/>
+			<label kind="synchronisation" x="42" y="-34">tick?</label>
+		</transition>
+		<transition id="id38" controllable="false">
+			<source ref="id34"/>
+			<target ref="id33"/>
+			<label kind="assignment" x="-76" y="-51">x_R=70.0</label>
+		</transition>
+	</template>
+	<system>
+system Converter, Controller, Load, Timer, Monitor;
+    </system>
+	<queries>
+		<option key="--total-runs" value="1500"/>
+		<option key="--max-iterations" value="1"/>
+		<option key="--good-runs" value="1500"/>
+		<option key="--eval-runs" value="1500"/>
+		<option key="--runs-pr-state" value="1500"/>
+		<query>
+			<formula/>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy S = minE(Monitor.dist) [&lt;=1000] {Converter.location} -&gt; {x1, x2}: &lt;&gt; time &gt;= 1000</formula>
+			<comment>--print-strategies=strats --discount 0.9 --good-runs 1000 --total-runs 1000 --runs-pr-state 1000 --max-iterations 10 --reset-no-better 10 --random-search-limit 0.5 --deterministic-search-limit 0.8 --split-filter-rate 1 --split-ks 0.2 --split-lower-t 0.05 --split-upper-t 1.8 --learning-method 5 -D0.5</comment>
+		</query>
+		<query>
+			<formula>strategy S2 = minE(Monitor.dist + switches) [&lt;=1000] {Converter.location} -&gt; {x1, x2}: &lt;&gt; time &gt;= 1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy S3 = minE(Monitor.dist + switches + number_deaths*10) [&lt;=1000] {Converter.location} -&gt; {x1, x2}: &lt;&gt; time &gt;= 1000</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>simulate [&lt;=120;20] {x1,x2, 7 + Converter.d1u1, 9 + Converter.d1u0, 11 + Converter.d0u0, fabs(x2-x2ref), 14.8,  15.2 , 0.7} under S</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>simulate [&lt;=120;10] {x1, x2, 14.5,  15.5 , 4}</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>simulate [&lt;=120;10] {x1, x2, 14.5,  15.5 , 4} under S</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>simulate [&lt;=120;10] {x1, x2, 14.5,  15.5 , 4} under S2</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>simulate [&lt;=120;10] {x1, x2, 14.5,  15.5 , 4} under S3</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: switches) under S</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: switches) under S2</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: switches) under S3</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: number_deaths)</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: number_deaths) under S</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: number_deaths) under S2</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: number_deaths) under S3</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: Monitor.dist)</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: Monitor.dist) under S</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: Monitor.dist) under S2</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>E[&lt;=120;100] (max: Monitor.dist) under S3</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>simulate [&lt;=120;2] {x_R}</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>Pr[&lt;=50;10000] (&lt;&gt; number_deaths &gt; 0 )</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>Pr[&lt;=50;10000] (&lt;&gt; number_deaths &gt; 0 ) under S</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>Pr[&lt;=50;10000] (&lt;&gt; number_deaths &gt; 0 ) under S2</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>saveStrategy("Results/Misc/DC.strategy.json", S)</formula>
+			<comment/>
+		</query>
+		<query>
+			<formula>strategy S = loadStrategy {Converter.location} -&gt; {x1, x2} ("/home/asger/Results/fig-DCShieldingResultsGroup/Query Results/0/NoShield/12000Runs/Deterrence0.strategy.json")</formula>
+			<comment/>
+		</query>
+	</queries>
+</nta>

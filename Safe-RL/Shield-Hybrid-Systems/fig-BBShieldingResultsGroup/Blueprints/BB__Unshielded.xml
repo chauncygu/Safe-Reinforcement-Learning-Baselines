@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.6//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_6.dtd'>
+<nta>
+	<declaration>/* Simulation-specific stuff */
+urgent broadcast chan bounce;
+broadcast chan hit;
+clock time;
+clock p, v;
+int number_deaths = 0;
+</declaration>
+	<template>
+		<name x="5" y="5">Ball</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="297" y="-34">
+			<name x="314" y="42">Location2</name>
+			<label kind="invariant" x="263" y="-93">v' == -9.81 &amp;&amp;
+p' == v</label>
+			<label kind="exponentialrate" x="289" y="-110">1</label>
+		</location>
+		<location id="id1" x="-110" y="-34">
+			<name x="-120" y="-68">Location1</name>
+			<urgent/>
+		</location>
+		<location id="id2" x="-110" y="246">
+			<name x="-119" y="263">Location3</name>
+			<committed/>
+		</location>
+		<init ref="id1"/>
+		<transition id="id3" controllable="false">
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-102" y="68">v &lt;= 1</label>
+			<label kind="assignment" x="-102" y="85">number_deaths++, 
+v=0, p=0</label>
+		</transition>
+		<transition id="id4" controllable="false">
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="68" y="85">v&gt;1</label>
+		</transition>
+		<transition id="id5">
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="guard" x="467" y="-108">p &gt;= 4 &amp;&amp; v &gt;= 0</label>
+			<label kind="synchronisation" x="467" y="-92">hit?</label>
+			<label kind="assignment" x="467" y="-76">v = -4 - (0.95 - 0.05 + random(2*0.05))*v</label>
+			<nail x="459" y="-110"/>
+			<nail x="459" y="-34"/>
+		</transition>
+		<transition id="id6">
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="guard" x="467" y="10">p &gt;= 4 &amp;&amp; v &gt;= -4 &amp;&amp; v &lt; 0</label>
+			<label kind="synchronisation" x="467" y="26">hit?</label>
+			<label kind="assignment" x="467" y="42">v = -4.0</label>
+			<nail x="459" y="85"/>
+			<nail x="459" y="10"/>
+		</transition>
+		<transition id="id7" controllable="false">
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="guard" x="34" y="204">p &lt;= 0 &amp;&amp; v &lt;= 0</label>
+			<label kind="synchronisation" x="68" y="187">bounce!</label>
+			<label kind="assignment" x="-68" y="221">v = -(0.91 - 0.06 + random(2*0.06))*v, p = 0</label>
+			<nail x="297" y="246"/>
+		</transition>
+		<transition id="id8" controllable="false">
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="assignment" x="-25" y="-25">p = 7 + random(3.0), v = 0</label>
+		</transition>
+	</template>
+	<template>
+		<name>LearnerPlayer</name>
+		<declaration>clock x;
+int fired;</declaration>
+		<location id="id9" x="0" y="8">
+			<name x="-8" y="68">Wait</name>
+			<label kind="invariant" x="-8" y="25">x &lt;= 1 &amp;&amp;
+x' == 10</label>
+		</location>
+		<location id="id10" x="0" y="-93">
+			<name x="-10" y="-127">Choose</name>
+			<committed/>
+		</location>
+		<init ref="id9"/>
+		<transition id="id11">
+			<source ref="id10"/>
+			<target ref="id9"/>
+			<nail x="85" y="-51"/>
+		</transition>
+		<transition id="id12">
+			<source ref="id10"/>
+			<target ref="id9"/>
+			<label kind="synchronisation" x="-110" y="-59">hit!</label>
+			<label kind="assignment" x="-136" y="-42">fired++</label>
+			<nail x="-68" y="-51"/>
+		</transition>
+		<transition id="id13" controllable="false">
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="guard" x="8" y="-51">x &gt;= 1</label>
+			<label kind="assignment" x="8" y="-68">x = 0</label>
+		</transition>
+	</template>
+	<system>system Ball, LearnerPlayer;</system>
+	<queries>
+		<query>
+			<formula>strategy HitWell1000 = minE (LearnerPlayer.fired + number_deaths*1000) [&lt;=120] {} -&gt; {p, v}: &lt;&gt; time &gt;= 120</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2024-06-18 09:21:33 +0200">
+			</result>
+		</query>
+		<query>
+			<formula>E[&lt;=120;1000] (max:LearnerPlayer.fired + number_deaths*1000) under HitWell1000</formula>
+			<comment/>
+			<result outcome="success" type="quantity" value="40.517 ± 0.213792 (95% CI)" timestamp="2024-06-18 09:21:43 +0200">
+				<details>40.517 ± 0.213792 (95% CI)</details>
+				<plot title="Probability Density Distribution" xaxis="max: LearnerPlayer.fired + number_deaths * 1000" yaxis="probability density">
+					<series title="density" type="b(1.000000)" color="0x0000ff" encoding="csv">31.0,0.001
+32.0,0.003
+33.0,0.009
+34.0,0.021
+35.0,0.029
+36.0,0.058
+37.0,0.076
+38.0,0.085
+39.0,0.116
+40.0,0.109
+41.0,0.117
+42.0,0.106
+43.0,0.087
+44.0,0.054
+45.0,0.056
+46.0,0.032
+47.0,0.013
+48.0,0.011
+49.0,0.006
+50.0,0.005
+51.0,0.003
+52.0,0.003
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.517,0.0
+40.517,0.117
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=22
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [31, 52]
+Mean estimate of displayed sample: 40.517 ± 0.21379 (95% CI)</comment>
+				</plot>
+				<plot title="Probability Distribution" xaxis="max: LearnerPlayer.fired + number_deaths * 1000" yaxis="probability">
+					<series title="probability" type="b(1.000000)" color="0x0000ff" encoding="csv">31.0,0.001
+32.0,0.003
+33.0,0.009
+34.0,0.021
+35.0,0.029
+36.0,0.058
+37.0,0.076
+38.0,0.085
+39.0,0.116
+40.0,0.109
+41.0,0.117
+42.0,0.106
+43.0,0.087
+44.0,0.054
+45.0,0.056
+46.0,0.032
+47.0,0.013
+48.0,0.011
+49.0,0.006
+50.0,0.005
+51.0,0.003
+52.0,0.003
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.517,0.0
+40.517,0.117
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=22
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [31, 52]
+Mean estimate of displayed sample: 40.517 ± 0.21379 (95% CI)</comment>
+				</plot>
+				<plot title="Cumulative Probability Distribution" xaxis="max: LearnerPlayer.fired + number_deaths * 1000" yaxis="probability">
+					<series title="cumulative" type="l" color="0x000000" encoding="csv">31.0,0.0
+32.0,0.001
+33.0,0.004
+34.0,0.013
+35.0,0.034
+36.0,0.063
+37.0,0.121
+38.0,0.197
+39.0,0.282
+40.0,0.398
+41.0,0.507
+42.0,0.624
+43.0,0.73
+44.0,0.817
+45.0,0.871
+46.0,0.927
+47.0,0.959
+48.0,0.972
+49.0,0.983
+50.0,0.989
+51.0,0.994
+52.0,0.997
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.517,0.0
+40.517,1.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=22
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [31, 52]
+Mean estimate of displayed sample: 40.517 ± 0.21379 (95% CI)</comment>
+				</plot>
+				<plot title="Cumulative Probability Confidence Intervals" xaxis="max: LearnerPlayer.fired + number_deaths * 1000" yaxis="probability">
+					<series title="upper limit" type="k" color="0x0000dd" encoding="csv">31.0,0.003682083896865672
+32.0,0.005558924279826673
+33.0,0.010209664683929873
+34.0,0.02212780363677849
+35.0,0.04718943861570743
+36.0,0.07988804187335452
+37.0,0.14283576268156786
+38.0,0.2230282570753898
+39.0,0.3110030727092493
+40.0,0.4291019626889523
+41.0,0.5384271372459565
+42.0,0.6541189296540859
+43.0,0.757305849912405
+44.0,0.8405041656691045
+45.0,0.8911594287937652
+46.0,0.9423463747720674
+47.0,0.9704198314659639
+48.0,0.9813153138044625
+49.0,0.9900664874072834
+50.0,0.9944964058076864
+51.0,0.9977950175148487
+52.0,0.9993809000683505
+					</series>
+					<series title="lower limit" type="k" color="0xdd0000" encoding="csv">31.0,0.0
+32.0,2.5317487491294045E-5
+33.0,0.0010909079877259719
+34.0,0.006939617502851476
+35.0,0.02365864810759674
+36.0,0.04874692755658056
+37.0,0.10142580723074804
+38.0,0.1727697505356649
+39.0,0.2542866993409255
+40.0,0.36750040037385
+41.0,0.47553154226613764
+42.0,0.5931486239758621
+43.0,0.7013329625349527
+44.0,0.7916133754558675
+45.0,0.8486285846850438
+46.0,0.9090858246054988
+47.0,0.9447875406847007
+48.0,0.9597851126261567
+49.0,0.9729205031351487
+50.0,0.9804033717779835
+51.0,0.9869865767290255
+52.0,0.9912579767615217
+					</series>
+					<series title="cumulative" type="l" color="0x000000" encoding="csv">31.0,0.0
+32.0,0.001
+33.0,0.004
+34.0,0.013
+35.0,0.034
+36.0,0.063
+37.0,0.121
+38.0,0.197
+39.0,0.282
+40.0,0.398
+41.0,0.507
+42.0,0.624
+43.0,0.73
+44.0,0.817
+45.0,0.871
+46.0,0.927
+47.0,0.959
+48.0,0.972
+49.0,0.983
+50.0,0.989
+51.0,0.994
+52.0,0.997
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.517,0.0
+40.517,1.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=22
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [31, 52]
+Mean estimate of displayed sample: 40.517 ± 0.21379 (95% CI)</comment>
+				</plot>
+				<plot title="Frequency Histogram" xaxis="max: LearnerPlayer.fired + number_deaths * 1000" yaxis="count">
+					<series title="count" type="b(1.000000)" color="0x0000ff" encoding="csv">31.0,1.0
+32.0,3.0
+33.0,9.0
+34.0,21.0
+35.0,29.0
+36.0,58.0
+37.0,76.0
+38.0,85.0
+39.0,116.0
+40.0,109.0
+41.0,117.0
+42.0,106.0
+43.0,87.0
+44.0,54.0
+45.0,56.0
+46.0,32.0
+47.0,13.0
+48.0,11.0
+49.0,6.0
+50.0,5.0
+51.0,3.0
+52.0,3.0
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.517,0.0
+40.517,117.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=22
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [31, 52]
+Mean estimate of displayed sample: 40.517 ± 0.21379 (95% CI)</comment>
+				</plot>
+			</result>
+		</query>
+		<query>
+			<formula>E[&lt;=120;1000] (max:LearnerPlayer.fired) under HitWell1000</formula>
+			<comment/>
+			<result outcome="success" type="quantity" value="40.251 ± 0.208168 (95% CI)" timestamp="2024-06-18 09:21:54 +0200">
+				<details>40.251 ± 0.208168 (95% CI)</details>
+				<plot title="Probability Density Distribution" xaxis="max: LearnerPlayer.fired" yaxis="probability density">
+					<series title="density" type="b(1.000000)" color="0x0000ff" encoding="csv">30.0,0.001
+31.0,0.002
+32.0,0.006
+33.0,0.008
+34.0,0.022
+35.0,0.036
+36.0,0.044
+37.0,0.084
+38.0,0.108
+39.0,0.121
+40.0,0.109
+41.0,0.107
+42.0,0.09
+43.0,0.107
+44.0,0.061
+45.0,0.028
+46.0,0.032
+47.0,0.015
+48.0,0.01
+49.0,0.003
+50.0,0.003
+51.0,0.002
+52.0,0.001
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.251,0.0
+40.251,0.121
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=23
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [30, 52]
+Mean estimate of displayed sample: 40.251 ± 0.20817 (95% CI)</comment>
+				</plot>
+				<plot title="Probability Distribution" xaxis="max: LearnerPlayer.fired" yaxis="probability">
+					<series title="probability" type="b(1.000000)" color="0x0000ff" encoding="csv">30.0,0.001
+31.0,0.002
+32.0,0.006
+33.0,0.008
+34.0,0.022
+35.0,0.036
+36.0,0.044
+37.0,0.084
+38.0,0.108
+39.0,0.121
+40.0,0.109
+41.0,0.107
+42.0,0.09
+43.0,0.107
+44.0,0.061
+45.0,0.028
+46.0,0.032
+47.0,0.015
+48.0,0.01
+49.0,0.003
+50.0,0.003
+51.0,0.002
+52.0,0.001
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.251,0.0
+40.251,0.121
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=23
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [30, 52]
+Mean estimate of displayed sample: 40.251 ± 0.20817 (95% CI)</comment>
+				</plot>
+				<plot title="Cumulative Probability Distribution" xaxis="max: LearnerPlayer.fired" yaxis="probability">
+					<series title="cumulative" type="l" color="0x000000" encoding="csv">30.0,0.0
+31.0,0.001
+32.0,0.003
+33.0,0.009
+34.0,0.017
+35.0,0.039
+36.0,0.075
+37.0,0.119
+38.0,0.203
+39.0,0.311
+40.0,0.432
+41.0,0.541
+42.0,0.648
+43.0,0.738
+44.0,0.845
+45.0,0.906
+46.0,0.934
+47.0,0.966
+48.0,0.981
+49.0,0.991
+50.0,0.994
+51.0,0.997
+52.0,0.999
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.251,0.0
+40.251,1.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=23
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [30, 52]
+Mean estimate of displayed sample: 40.251 ± 0.20817 (95% CI)</comment>
+				</plot>
+				<plot title="Cumulative Probability Confidence Intervals" xaxis="max: LearnerPlayer.fired" yaxis="probability">
+					<series title="upper limit" type="k" color="0x0000dd" encoding="csv">30.0,0.003682083896865672
+31.0,0.005558924279826673
+32.0,0.008742023238478303
+33.0,0.01701578306989459
+34.0,0.027079496864851366
+35.0,0.05293093578544509
+36.0,0.09310844696149914
+37.0,0.1406975180226584
+38.0,0.2292883232581411
+39.0,0.34071618137621124
+40.0,0.46336435680223415
+41.0,0.572225707180464
+42.0,0.6776283956454604
+43.0,0.7650201302447011
+44.0,0.8668890872440326
+45.0,0.9233710070726222
+46.0,0.9485914339810815
+47.0,0.9763413518924032
+48.0,0.988522963006899
+49.0,0.9958766043396575
+50.0,0.9977950175148487
+51.0,0.9993809000683505
+52.0,0.9999746825125088
+					</series>
+					<series title="lower limit" type="k" color="0xdd0000" encoding="csv">30.0,0.0
+31.0,2.5317487491294045E-5
+32.0,6.190999316495713E-4
+33.0,0.004123395660342473
+34.0,0.009933512592716534
+35.0,0.027877148795336416
+36.0,0.05944612821126316
+37.0,0.09957649182504014
+38.0,0.17847357632401603
+39.0,0.28240130538824093
+40.0,0.40103711877026466
+41.0,0.509532256500376
+42.0,0.6174971310654698
+43.0,0.7095710241553304
+44.0,0.8210585051133449
+45.0,0.8861975612810254
+46.0,0.9167939495385973
+47.0,0.9528105613842925
+48.0,0.9704875983749022
+49.0,0.9829842169301054
+50.0,0.9869865767290255
+51.0,0.9912579767615217
+52.0,0.9944410757201734
+					</series>
+					<series title="cumulative" type="l" color="0x000000" encoding="csv">30.0,0.0
+31.0,0.001
+32.0,0.003
+33.0,0.009
+34.0,0.017
+35.0,0.039
+36.0,0.075
+37.0,0.119
+38.0,0.203
+39.0,0.311
+40.0,0.432
+41.0,0.541
+42.0,0.648
+43.0,0.738
+44.0,0.845
+45.0,0.906
+46.0,0.934
+47.0,0.966
+48.0,0.981
+49.0,0.991
+50.0,0.994
+51.0,0.997
+52.0,0.999
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.251,0.0
+40.251,1.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=23
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [30, 52]
+Mean estimate of displayed sample: 40.251 ± 0.20817 (95% CI)</comment>
+				</plot>
+				<plot title="Frequency Histogram" xaxis="max: LearnerPlayer.fired" yaxis="count">
+					<series title="count" type="b(1.000000)" color="0x0000ff" encoding="csv">30.0,1.0
+31.0,2.0
+32.0,6.0
+33.0,8.0
+34.0,22.0
+35.0,36.0
+36.0,44.0
+37.0,84.0
+38.0,108.0
+39.0,121.0
+40.0,109.0
+41.0,107.0
+42.0,90.0
+43.0,107.0
+44.0,61.0
+45.0,28.0
+46.0,32.0
+47.0,15.0
+48.0,10.0
+49.0,3.0
+50.0,3.0
+51.0,2.0
+52.0,1.0
+					</series>
+					<series title="average" type="pl" color="0x00dd00" encoding="csv">40.251,0.0
+40.251,121.0
+					</series>
+					<comment>Parameters: α=0.05, ε=0.05, bucket width=1, bucket count=23
+Runs: 1000 in total, 1000 (100%) displayed, 0 (0%) remaining
+Span of displayed sample: [30, 52]
+Mean estimate of displayed sample: 40.251 ± 0.20817 (95% CI)</comment>
+				</plot>
+			</result>
+		</query>
+		<query>
+			<formula>Pr[&lt;=120;1000] (&lt;&gt; number_deaths &gt; 0) under HitWell1000</formula>
+			<comment/>
+			<result outcome="success" type="interval" value="≤ 0.00368208 (95% CI)" timestamp="2024-06-18 09:22:05 +0200">
+				<details>≤ 0.00368208 (95% CI)</details>
+			</result>
+		</query>
+	</queries>
+</nta>
