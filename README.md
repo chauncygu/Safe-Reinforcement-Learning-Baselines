@@ -258,6 +258,7 @@ The README is organized as follows:
 
 ### 6. Tutorials
 - Safe Reinforcement Learning: Bridging Theory and Practice, [tutorial](https://docs.google.com/presentation/d/1slZyKj1G_XvtH8laWMClcQVMLbiQyqKW25cV9gY3ypE/edit?usp=sharing), (Ming Jin & Shangding Gu, 2024)
+- Safe Reinforcement Learning for Smart Grid Control and Operations, [tutorial](https://docs.google.com/presentation/d/1o3t3KMfgCL5fo_zHZH2ChMkJTkbJ7sY7lMomBE8iRNE/edit?usp=sharing), (Ming Jin & Shangding Gu, 2024)
 - Safe Reinforcement Learning, [tutorial](https://drive.google.com/file/d/1Hpu9HZbXkurTMWvj63m-aLYxay66E2Vz/view), (Felix Berkenkamp, 2023)
 - Primal-Dual Methods, [tutorial](https://drive.google.com/file/d/1_NRil0__6375nIqMT6jXw-PB6CkwvvDH/view), (Gergely Neu, 2023)
 
