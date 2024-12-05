@@ -242,16 +242,20 @@ The README is organized as follows:
 - Scalable primal-dual actor-critic method for safe multi-agent rl with general utilities, [Paper](https://proceedings.neurips.cc/paper_files/paper/2023/file/72a1ec14aed36985ffba175e0bba3fec-Paper-Conference.pdf), Not Find Code (NeurIPS 2024)
 
 ### 3. Surveys
-- A comprehensive survey on safe reinforcement learning, [Paper](https://www.jmlr.org/papers/volume16/garcia15a/garcia15a.pdf) (Accepted by Journal of Machine Learning Research, 2015)
-- Safe learning and optimization techniques: Towards a survey of the state of the art, [Paper](https://arxiv.org/pdf/2101.09505.pdf) (Accepted by In International Workshop on the Foundations of Trustworthy AI Integrating Learning, Optimization and Reasoning, 2020)
-- Safe learning in robotics: From learning-based control to safe reinforcement learning, [Paper](https://arxiv.org/pdf/2108.06266.pdf) (Accepted by Annual Review of Control, Robotics, and Autonomous Systems, 2021)
-- Policy learning with constraints in model-free reinforcement learning: A survey, [Paper](https://web.archive.org/web/20210812230501id_/https://www.ijcai.org/proceedings/2021/0614.pdf) (Accepted by IJCAI 2021)
-- A Review of Safe Reinforcement Learning: Methods, Theory and Applications, [Paper](https://arxiv.org/pdf/2205.10330.pdf) (Arxiv, 2022)
+- A Review of Safe Reinforcement Learning: Methods, Theory and Applications, [Paper](https://arxiv.org/pdf/2205.10330.pdf) (IEEE TPAMI, 2024)
 - State-wise Safe Reinforcement Learning: A Survey, [Paper](https://arxiv.org/pdf/2302.03122.pdf) (Accepted by IJCAI 2023)
+- Policy learning with constraints in model-free reinforcement learning: A survey, [Paper](https://web.archive.org/web/20210812230501id_/https://www.ijcai.org/proceedings/2021/0614.pdf) (Accepted by IJCAI 2021)
+- Safe learning in robotics: From learning-based control to safe reinforcement learning, [Paper](https://arxiv.org/pdf/2108.06266.pdf) (Accepted by Annual Review of Control, Robotics, and Autonomous Systems, 2021)
+- Safe learning and optimization techniques: Towards a survey of the state of the art, [Paper](https://arxiv.org/pdf/2101.09505.pdf) (Accepted by In International Workshop on the Foundations of Trustworthy AI Integrating Learning, Optimization and Reasoning, 2020)
+- A comprehensive survey on safe reinforcement learning, [Paper](https://www.jmlr.org/papers/volume16/garcia15a/garcia15a.pdf) (Accepted by Journal of Machine Learning Research, 2015)
+
+
+
 
 ### 4. Theses
-- Safe reinforcement learning, [Thesis](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1527&context=dissertations_2) (PhD thesis, Philip S. Thomas, University of Massachusetts Amherst, 2015)
 - Safe Exploration in Reinforcement Learning: Theory and Applications in Robotics, [Thesis](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/370833/1/root.pdf) (PhD thesis, Felix Berkenkamp, ETH Zurich, 2019)
+- Safe reinforcement learning, [Thesis](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1527&context=dissertations_2) (PhD thesis, Philip S. Thomas, University of Massachusetts Amherst, 2015)
+
 
 ### 5. Book
 - Constrained Markov decision processes: stochastic modeling, [Book](https://www-sop.inria.fr/members/Eitan.Altman/PAPERS/h.pdf), (Eitan Altman, Routledge, 1999)
