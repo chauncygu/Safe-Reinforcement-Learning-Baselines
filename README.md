@@ -274,10 +274,11 @@ The README is organized as follows:
 If you find the repository useful, please cite the [paper](https://arxiv.org/abs/2205.10330):
 ```
 @article{gu2024review,
-  title={A Review of Safe Reinforcement Learning: Methods, Theory and Applications},
+  title={A Review of Safe Reinforcement Learning: Methods, Theories and Applications},
   author={Gu, Shangding and Yang, Long and Du, Yali and Chen, Guang and Walter, Florian and Wang, Jun and Knoll, Alois},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  year={2024}
+  year={2024},
+  publisher={IEEE}
 }
 ```
 
