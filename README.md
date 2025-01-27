@@ -253,8 +253,11 @@ The README is organized as follows:
 
 
 ### 4. Theses
+- Safe Reinforcement Learning to Make Decisions in Robotics, [Thesis](https://drive.google.com/file/d/1EPAXwusoRSNLDHIwakTjqoMg4De3-nme/view?usp=sharing) (PhD thesis, Shangding Gu, TU Munich, 2024)
 - Safe Exploration in Reinforcement Learning: Theory and Applications in Robotics, [Thesis](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/370833/1/root.pdf) (PhD thesis, Felix Berkenkamp, ETH Zurich, 2019)
 - Safe reinforcement learning, [Thesis](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1527&context=dissertations_2) (PhD thesis, Philip S. Thomas, University of Massachusetts Amherst, 2015)
+
+
 
 
 ### 5. Book
