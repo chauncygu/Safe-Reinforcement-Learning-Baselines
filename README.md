@@ -228,6 +228,8 @@ The README is organized as follows:
 - Safe and Balanced: A Framework for Constrained Multi-Objective Reinforcement Learning, [Paper](https://arxiv.org/pdf/2405.16390), Not Find Code (Arxiv, 2024)
 - Confident Natural Policy Gradient for Local Planning in qπ-realizable Constrained MDPs, [Paper](https://arxiv.org/pdf/2406.18529), Not Find Code (Arxiv, 2024)
 - Safe Exploration Using Bayesian World Models and Log-Barrier Optimization, [Paper](https://arxiv.org/pdf/2405.05890), [Code](https://anonymous.4open.science/r/safe-opax-F5FF/README.md) (Arxiv, 2024)
+- Safe and Balanced: A Framework for Constrained Multi-Objective Reinforcement Learning. [Paper](https://arxiv.org/pdf/2405.05890), [Code](https://anonymous.4open.science/r/safe-opax-F5FF/README.md) (Arxiv, 2024)
+- Safe and Balanced: A Framework for Constrained Multi-Objective Reinforcement Learning, [Paper](https://arxiv.org/pdf/2405.16390), [Code](https://github.com/SafeRL-Lab/CMORL) (Accepted by IEEE TPAMI 2025)
 
 
 
@@ -242,7 +244,7 @@ The README is organized as follows:
 - Safe multi-agent reinforcement learning through decentralized multiple control barrier functions, [Paper](https://arxiv.org/pdf/2103.12553.pdf), Not Find Code (Arxiv 2021)
 - CAMA: A New Framework for Safe Multi-Agent Reinforcement Learning Using Constraint Augmentation, [Paper](https://openreview.net/pdf?id=jK02XX9ZpJkt), Not Find Code (Openreview 2022)
 - Shield decentralization for safe multi-agent reinforcement learning, [Paper](https://proceedings.neurips.cc/paper_files/paper/2022/file/57444e14ecd9e2c8f603b4f012ce3811-Paper-Conference.pdf), Not Find Code (NeurIPS 2022)
-- Scalable primal-dual actor-critic method for safe multi-agent rl with general utilities, [Paper](https://proceedings.neurips.cc/paper_files/paper/2023/file/72a1ec14aed36985ffba175e0bba3fec-Paper-Conference.pdf), Not Find Code (NeurIPS 2024)
+
 
 ### 3. Surveys
 - A Review of Safe Reinforcement Learning: Methods, Theory and Applications, [Paper](https://arxiv.org/pdf/2205.10330.pdf) (IEEE TPAMI, 2024)
