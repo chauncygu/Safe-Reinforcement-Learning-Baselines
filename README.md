@@ -228,7 +228,6 @@ The README is organized as follows:
 - Safe and Balanced: A Framework for Constrained Multi-Objective Reinforcement Learning, [Paper](https://arxiv.org/pdf/2405.16390), Not Find Code (Arxiv, 2024)
 - Confident Natural Policy Gradient for Local Planning in qπ-realizable Constrained MDPs, [Paper](https://arxiv.org/pdf/2406.18529), Not Find Code (Arxiv, 2024)
 - Safe Exploration Using Bayesian World Models and Log-Barrier Optimization, [Paper](https://arxiv.org/pdf/2405.05890), [Code](https://anonymous.4open.science/r/safe-opax-F5FF/README.md) (Arxiv, 2024)
-- Safe and Balanced: A Framework for Constrained Multi-Objective Reinforcement Learning. [Paper](https://arxiv.org/pdf/2405.05890), [Code](https://anonymous.4open.science/r/safe-opax-F5FF/README.md) (Arxiv, 2024)
 - Safe and Balanced: A Framework for Constrained Multi-Objective Reinforcement Learning, [Paper](https://arxiv.org/pdf/2405.16390), [Code](https://github.com/SafeRL-Lab/CMORL) (Accepted by IEEE TPAMI 2025)
 
 
