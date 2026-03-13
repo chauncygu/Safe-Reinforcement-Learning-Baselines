@@ -245,6 +245,7 @@ The README is organized as follows:
 - Safe multi-agent reinforcement learning through decentralized multiple control barrier functions, [Paper](https://arxiv.org/pdf/2103.12553.pdf), Not Find Code (Arxiv 2021)
 - CAMA: A New Framework for Safe Multi-Agent Reinforcement Learning Using Constraint Augmentation, [Paper](https://openreview.net/pdf?id=jK02XX9ZpJkt), Not Find Code (Openreview 2022)
 - Shield decentralization for safe multi-agent reinforcement learning, [Paper](https://proceedings.neurips.cc/paper_files/paper/2022/file/57444e14ecd9e2c8f603b4f012ce3811-Paper-Conference.pdf), Not Find Code (NeurIPS 2022)
+- Solving Multi-Agent Safe Optimal Control with Distributed Epigraph Form MARL, [Paper](https://arxiv.org/pdf/2504.15425), [Code](https://github.com/MIT-REALM/def-marl/) (RSS 2025)
 
 
 ### 3. Surveys
